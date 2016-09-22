@@ -1,0 +1,202 @@
+{% if language === 'us' %}
+<script>
+    window.language = 'us';
+</script>
+{% elif language === 'de' %}
+<script>
+    window.language = 'de';
+</script>
+{% elif language === 'cn' %}
+<script>
+    window.language = 'cn';
+</script>
+{% endif %}
+
+<script>
+    $(document).ready(function () {
+        enhance();
+        setTimeout(showcontent, 500);
+        setTimeout(removeloading, 1000);
+        setTimeout(onLoaded, 1005);
+    });
+
+    function showcontent() {
+        $('.dit-outer-wrap').show();
+    }
+
+    function removeloading() {
+        $('.dit-loading').fadeOut(300);
+    }
+
+    function enhance() {
+        enhance_videobg();
+        // zoomImageHoverLink();
+    }
+
+    function enhance_videobg() {
+        if ($('#bgVid').length > 0 || $('#bgImg').length > 0) {
+            $('.jumbotron').addClass('bg--transparent');
+        }
+    }
+
+    function onLoaded() {
+        calculateSidebarWidth();
+        smoothScroll();
+        addActive();
+        equalCols('.why-uk-section');
+        equalCols('.investment-guide-section');
+    }
+
+    //calculate fixed sidebar width
+    function calculateSidebarWidth() {
+        if ($('#sidebar-width').width() > 1) {
+            var menuWidth = $('#sidebar-width').width();
+            var bottomLimit = $('body').height() - $('.dit-updated').offset().top;
+            if (language === 'de') {
+                $('.dit-quick-guide-side-de').css({width: menuWidth});
+            }
+            else {
+                $('.dit-quick-guide-side').css({width: menuWidth});
+            }
+
+            $('#sidebar-width').affix({
+                offset: {
+                    top: 500,
+                    bottom: bottomLimit
+                }
+            })
+        }
+    }
+
+    function smoothScroll() {
+        //smoothscrolling and positioning
+        $('a[href^="#"]').on('click', function (e) {
+            // prevent default anchor click behavior
+            e.preventDefault();
+            // store hash
+            var hash = this.hash;
+            // animate
+            $('html, body').stop().animate({
+                scrollTop: $(hash).offset().top
+            }, 600, 'swing', function () {
+                window.location.hash = hash;
+            });
+        });
+    }
+
+    function addActive() {
+        var language = window.language;
+        var url = window.location.pathname;
+        var child = '';
+        if (language === 'us') {
+            if (url.match('\/sectors\/')) {
+                child = '/us/sectors/';
+            } else if (url.match('\/investment-guide\/')) {
+                child = '/us/investment-guide/';
+            }
+        } else if (language === 'de') {
+            if (url.match('\/sektoren\/')) {
+                child = '/de/sektoren/';
+            } else if (url.match('\/investitionsf.{1,6}hrer\/')) {
+                child = '/de/investitionsführer/';
+            }
+        } else if (language === 'cn') {
+            if (url.match('\/%E9%83%A8%E9%97%A8\/')) {
+                child = '/cn/部门/';
+            } else if (url.match('\/%E6%8A%95%E8%B5%84%E6%8C%87%E5%8D%97\/')) {
+                child = '/cn/投资指南/';
+            }
+        }
+        if ($('ul.nav a')) {
+            $('ul.nav a[href="' + child + '"]').parent().addClass('active');
+        }
+    }
+
+    function chunk(arr, size) {
+        var chunkedArr = [],
+                noOfChunks = size,
+                args = [],
+                addendum = [],
+                chunkSize = (function () {
+                    var leftOver = arr.length % size;
+                    if (!leftOver) {
+                        return arr.length / size;
+                    } else {
+                        return parseInt(arr.length / size) + 1;
+                    }
+                })();
+
+        for (var i = 0; i < noOfChunks; i++) {
+            chunkedArr.push(arr.slice(i * chunkSize, (i + 1) * chunkSize));
+        }
+
+        for (var j = 0; j < chunkedArr.length; j++) {
+            if (chunkedArr[j].length === chunkSize) {
+                args.push(chunkedArr[j]);
+            } else {
+                addendum.push(chunkedArr[j]);
+            }
+        }
+
+        var partialRes = zip(args);
+
+        if (addendum.length === 0) {
+            return partialRes;
+        } else {
+            for (var k = 0; k < addendum[0].length; k++) {
+                partialRes[k].push(addendum[0][k]);
+            }
+            return partialRes;
+        }
+    }
+
+    function zip(arrays) {
+        temp = [];
+        for (var i=0; i<arrays[0].length; i++) {
+            partial = [];
+            for (var j=0; j<arrays.length; j++) {
+                partial.push(arrays[j][i])
+            }
+            temp.push(partial)
+        }
+        return temp
+    }
+
+    function equalCols(container) {
+        var currentTallest,
+                rows = [],
+                $el,
+                containerChildren = $(container).children(),
+                colNumber = $(container).css('column-count');
+
+        rows = chunk(containerChildren, colNumber);
+
+        $(rows).each(function (index) {
+            currentTallest = 0;
+            $(rows[index]).each(function () {
+                $el = $(this);
+                $($el).height('auto');
+                currentTallest = (currentTallest < $el.height()) ? ($el.height()) : (currentTallest);
+            });
+            $(rows[index]).each(function () {
+                $el = $(this);
+                $($el).height(currentTallest);
+            });
+        });
+    }
+
+    // function zoomImageHoverLink() {
+    //     if ($('.dit-sectors-list__item')) {
+    //         var itemHeight = $('.dit-sectors-list__item').height();
+    //         var itemWidth = $('.dit-sectors-list__item').width();
+    //         $('.dit-sectors-list__item').css({height: itemHeight});
+    //         $('.dit-sectors-list__item').css({width: itemWidth});
+    //     }
+    // }
+
+    $(window).on('resize', function () {
+        calculateSidebarWidth();
+        equalCols('.why-uk-section');
+        equalCols('.investment-guide-section');
+    });
+</script>
