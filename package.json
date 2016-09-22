@@ -1,0 +1,22 @@
+{
+  "name": "iigb-beta-layout",
+  "version": "1.0.0",
+  "description": "iigb beta layout",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uktrade/iigb-beta-layout.git"
+  },
+  "keywords": [
+    "iigb",
+    "layout"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/uktrade/iigb-beta-layout/issues"
+  },
+  "homepage": "https://github.com/uktrade/iigb-beta-layout#readme"
+}
