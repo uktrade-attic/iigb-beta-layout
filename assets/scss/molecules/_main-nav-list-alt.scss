@@ -1,0 +1,41 @@
+//_main-nav-list.scss
+
+.dit-main-nav-list-alt {
+  border-left: 1px solid #9B9B9B;
+
+  > li > a {
+    border-right: 1px solid #9B9B9B;
+    display: inline-block;
+    font-size: 16px;
+    height: 70px;
+    padding: 24px 32px 0;
+    // &:first-of-type {
+    //   border-left: 1px solid #999;
+    // }
+    &.active {
+      background-color: #E7E7E7;
+    }
+  }
+
+  @media (max-width: $screen-xs-max) {
+    border-left: 0;
+
+    > li > a {
+      // padding: 10px 12px !important;
+      border: 0;
+      display: block;
+      height: auto;
+
+      &:first-of-type {
+        border: 0;
+      }
+    }
+  }
+
+  @media (max-width: $screen-sm-max) {
+    > li > a {
+      font-size: 14px;
+      padding: 24px 10px;
+    }
+  }
+}

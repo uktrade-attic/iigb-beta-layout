@@ -1,0 +1,90 @@
+//big-list.scss
+
+.dit-big-list {
+	counter-reset: dit-big-list-counter;
+	list-style: none;
+	padding: 0;
+	width: 100%;
+	overflow: hidden;
+	border-right: 4px solid #ddd;
+	-webkit-column-count: 2;
+	-moz-column-count: 2;
+	-ms-column-count: 2;
+	column-count: 2;
+
+    @media (max-width: $screen-xs-max) {
+		margin: 0;
+		padding: 15px;
+		border-right: 0px;
+		-webkit-column-count: 1;
+		-moz-column-count: 1;
+		-ms-column-count: 1;
+		column-count: 1;
+	}
+
+	&__item {
+		position: relative;
+		padding: 15px 100px 30px 60px;
+		display: inline-block;
+
+		@media (max-width: $screen-md-max) {
+			padding: 15px 30px 30px 60px;
+			min-height: 230px;
+		}
+
+		@media (max-width: $screen-sm-max) {
+			padding: 15px 30px 30px 60px;
+			min-height: 250px;
+		}
+
+		@media (max-width: $screen-xs-max) {
+			width: 100%;
+			min-height: auto;
+		}
+
+		&:before {
+			position: absolute;
+			top: 11px;
+			left: 10px;
+			font-size: 70px;
+			font-weight: 100;
+			content: counter(dit-big-list-counter);
+			counter-increment: dit-big-list-counter;
+			width: 50px;
+			display: inline-block;
+
+			@media (max-width: $screen-xs-max) {
+				top: -6px;
+			}
+		}
+
+		&:nth-of-type(2n+1) {
+			//
+		}
+
+		&--red-list-style {
+			@extend .dit-big-list__item;
+
+			&::before {
+				color: #E41F13;
+			}
+		}
+
+		&--home-guide {
+			@extend .dit-big-list__item;
+
+			@media (max-width: $screen-md-max) {
+				padding: 15px 30px 30px 60px;
+			}
+
+			@media (max-width: $screen-sm-max) {
+				padding: 15px 30px 30px 60px;
+			}
+
+			@media (max-width: $screen-xs-max) {
+				width: 100%;
+				min-height: auto;
+			}
+		}
+	}
+}
