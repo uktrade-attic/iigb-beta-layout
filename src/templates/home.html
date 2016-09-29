@@ -1,6 +1,6 @@
-{% extends "../index.html" %}
+{{#extend "../index.html" }}
 
-{% block content %}
+{{#content content}}
 <div class="jumbotron--home">
     <div class="container">
         <div class="dit-hero__content">
@@ -8,14 +8,14 @@
                 <img class="dit-home-hmg_logo" src="../assets/img/hmg-logo.png" alt="HMG Logo">
                 <img src="/assets/img/iigb-logo-big-white.png" alt="Invest in Great Britain" class="img-responsive">
             </h1>
-            {% block video %}
-            {% endblock %}
+            {{#block video}}
+            {{/block}}
         </div>
     </div>
     <nav>
         <ul class="text-center list-inline dit-home-section-anchors">
-            {% block menu_items %}
-            {% endblock %}
+            {{#block menu_items}}
+            {{/block}}
         </ul>
     </nav>
 
@@ -35,6 +35,8 @@
 
 {{sections.key_factors.contents|safe}}
 
-{% include "../partials/bullet-list.html" %}
+{{> "../partials/bullet-list.html" }}
 
-{% endblock %}
+{{/content}}
+
+{{/extend}}

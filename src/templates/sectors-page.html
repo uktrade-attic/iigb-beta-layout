@@ -1,8 +1,8 @@
-{% extends "../index.html" %}
+{{#extend "../index.html"}}
 
-{% block content %}
+{{#block content }}
 
-{% include "../partials/header-nav.html" %}
+{{> "../partials/header-nav.html"}}
 <style>
     .jumbotron {
         background-image: url("/assets/img/{{heroImage}}");
@@ -22,7 +22,7 @@
 </div>
 
 <section class="dit-toc">
-    {% include "../partials/breadcrumb.html" %}
+    {{> "../partials/breadcrumb.html" }}
     <div class="container">
         <div class="row">
             <div class="col-md-8">

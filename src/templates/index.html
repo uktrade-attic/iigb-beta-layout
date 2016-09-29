@@ -1,4 +1,4 @@
-{% include "partials/header.html" %}
+{{> "header"}}
 
 <!--[if lte IE 8]>
 <style>
@@ -9,7 +9,6 @@
     }
 </style>
 <![endif]-->
-{% block content %}
-{% endblock %}
 
-{% include "partials/footer.html" %}
+
+{{> "partials/footer.html" }}
