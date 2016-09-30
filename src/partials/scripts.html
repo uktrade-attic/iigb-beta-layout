@@ -1,16 +1,18 @@
-{% if language === 'us' %}
+{{#eq language 'us'}}
 <script>
     window.language = 'us';
 </script>
-{% elif language === 'de' %}
+{{/eq}}
+{{#eq language 'de'}}
 <script>
     window.language = 'de';
 </script>
-{% elif language === 'cn' %}
+{{/eq}}
+{{#eq language 'cn'}}
 <script>
     window.language = 'cn';
 </script>
-{% endif %}
+{{/eq}}
 
 <script>
     $(document).ready(function () {
