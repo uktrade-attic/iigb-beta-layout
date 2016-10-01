@@ -1,6 +1,4 @@
-
-
-{{#content content}}
+{% block content %}
 <div class="jumbotron--home">
     <div class="container">
         <div class="dit-hero__content">
@@ -8,14 +6,14 @@
                 <img class="dit-home-hmg_logo" src="/assets/img/hmg-logo.png" alt="HMG Logo">
                 <img src="/assets/img/iigb-logo-big-white.png" alt="Invest in Great Britain" class="img-responsive">
             </h1>
-            {{#block video}}
-            {{/block}}
+            {% block video %}
+            {% endblock %}
         </div>
     </div>
     <nav>
         <ul class="text-center list-inline dit-home-section-anchors">
-            {{#block menu_items}}
-            {{/block}}
+            {% block menu_items}
+            {% endblock %}
         </ul>
     </nav>
 
@@ -31,9 +29,9 @@
     </video>
 </div>
 
-{{{sections.reasons_to_choose.contents}}}
+{{sections.reasons_to_choose.contents}}
 
-{{{sections.key_factors.contents}}}
+{{sections.key_factors.contents}}
 
-{{/content}}
+{% endblock %}
 
