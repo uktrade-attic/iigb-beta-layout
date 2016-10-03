@@ -1,3 +1,6 @@
+{% extends "index.html" %}
+{% import "partials/bullet-list.html" as list %}
+
 {% block content %}
 <div class="jumbotron--home">
     <div class="container">
@@ -6,14 +9,36 @@
                 <img class="dit-home-hmg_logo" src="/assets/img/hmg-logo.png" alt="HMG Logo">
                 <img src="/assets/img/iigb-logo-big-white.png" alt="Invest in Great Britain" class="img-responsive">
             </h1>
-            {% block video %}
-            {% endblock %}
+
+            <!--[if ! IE]><!-->
+            <p class="text-center">
+                <a href="#" class="bg-video-inactive bg-video-play dit-text-decoration-none" data-toggle="modal"
+                   data-target="#heroVideo">
+                    <span class="dit-video-anchor">{{watchLabel}}</span>
+                    <span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
+                </a>
+            </p>
+            <!--<![endif]-->
+            <!--[if gte IE 9]>
+
+            <p class="text-center"><a href="#" class="bg-video-inactive bg-video-play" data-toggle="modal"
+                                      data-target="#heroVideo">Watch video <span class="glyphicon glyphicon-play-circle"
+                                                                                 aria-hidden="true"></span></a></p>
+            <![endif]-->
+            <!--[if lte IE 8]>
+            <iframe width="560" height="315" title="YouTube video player" id="yt0" role="presentation"
+                    src="https://www.youtube.com/embed/yoHrRcKIBKw?controls=0&showinfo=0&origin=https%3A%2F%2Fwww.gov.uk&rel=0&enablejsapi=1&widgetid=1"
+                    frameBorder="0" allowfullscreen="1"></iframe>
+            <![endif]-->
+
         </div>
     </div>
     <nav>
         <ul class="text-center list-inline dit-home-section-anchors">
-            {% block menu_items}
-            {% endblock %}
+          <li><a href="#why-uk">{{reasonsLabel}}</a></li>
+          <li><a href="#sectors">{{keyMarketLabel}}</a></li>
+          <li><a href="#guide">{{simpleInvestmentLabel}}</a></li>
+          <li><a href="/us/search">{{searchLabel}}</a></li>
         </ul>
     </nav>
 
@@ -29,9 +54,11 @@
     </video>
 </div>
 
-{{sections.reasons_to_choose.contents}}
+{{sections.reasons_to_choose.contents|safe}}
 
-{{sections.key_factors.contents}}
+{{sections.key_factors.contents|safe}}
+
+{{ list.bullet_list( header = sections.investment_intro, list = sections.investment_steps  ) }}
 
 {% endblock %}
 
