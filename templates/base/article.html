@@ -1,0 +1,31 @@
+{% extends "base/content.html" %}
+{% import "partials/markups.html" as markups %}
+
+{% block toc %}
+{{ super() }}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h2 class="dit-toc__heading">{{label_onThisPage}}</h2>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block page_content %}
+<div class="dit-main-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7 col-sm-10">
+
+                {{ markups.section(sections.pageHeader)}}
+                {% for a in sections.articles %}
+                  {{ markups.section(a) }}
+                {% endfor %}
+
+                <p class="dit-updated">Page updated {{now()|date}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

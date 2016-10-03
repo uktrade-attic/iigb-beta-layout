@@ -1,0 +1,8 @@
+{% extends "base/content.html" %}
+{% import "partials/bullet-list.html" as list %}
+
+{% block page_content %}
+
+{{ list.bullet_list(list = sections.listItems  ) }}
+
+{% endblock %}

@@ -1,4 +1,4 @@
-{% extends "index.html" %}
+{% extends "base/index.html" %}
 {% import "partials/bullet-list.html" as list %}
 
 {% block content %}
@@ -54,11 +54,11 @@
     </video>
 </div>
 
-{{sections.reasons_to_choose.contents|safe}}
+{{sections.firstSection.contents|safe}}
 
-{{sections.key_factors.contents|safe}}
+{{sections.secondSection.contents|safe}}
 
-{{ list.bullet_list( header = sections.investment_intro, list = sections.investment_steps  ) }}
+{{ list.bullet_list( header = sections.listHeader, list = sections.listItems  ) }}
 
 {% endblock %}
 
