@@ -9,3 +9,48 @@
     <a href="#top">Back to top <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span></a>
 </section>
 {% endmacro %}
+
+
+
+{% macro bullet_list(header, list) %}
+<section class="dit-content-section">
+    <div class="container" id="guide">
+        <div class="row">
+            {% if header %}
+            <div class="col-md-10 col-md-offset-1">
+                <h2 class="text-center dit-content-section__heading">{{header.title}}</h2>
+                <p class="dit-content-section__lead">
+                  {{header.intro}}
+                </p>
+            </div>
+            {% endif %}
+            <ol class="dit-big-list investment-guide-section">
+                {% for l in list %}
+                <li class="dit-big-list__item--home-guide">
+                    <h3><a href="{{l.target}}">{{l.title}}</a></h3>
+                    {{l.intro}}
+                </li>
+                {% endfor %}
+            </ol>
+        </div>
+</section>
+{% endmacro%}
+
+
+{% macro tiles(header, list) %}
+  {% if header %}
+    <h2 class="text-center dit-content-section__heading">{{header}}</h2>
+  {% endif %}
+      <ul class="dit-key-sectors-list">
+        {% for tile in list %}
+        <li class="dit-key-sectors-list__item">
+          <div class="dit-key-sectors-list__link-wrap">
+              <a href="{{target}}">
+                <img src="/assets/img/{{tile.thumbnail}}" class="dit-key-sectors-list__image">
+                <span class="dit-key-sectors-list__text">{{tile.title}}</span>
+              </a>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+{% endmacro %}

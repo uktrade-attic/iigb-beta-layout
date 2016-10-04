@@ -1,5 +1,5 @@
 {% extends "base/index.html" %}
-{% import "partials/bullet-list.html" as list %}
+{% import "partials/markups.html" as markups %}
 
 {% block content %}
 <div class="jumbotron--home">
@@ -56,9 +56,20 @@
 
 {{sections.firstSection.contents|safe}}
 
-{{sections.secondSection.contents|safe}}
+<section class="dit-content-section">
+  <div class="container" id="sectors">
+    <div class="row">
+      <div class="col-md-12">
+        {{ markups.tiles( header = label_keySectors, list = sections.tileItems  ) }}
+        <div class="text-center dit-section-cta">
+          <a href="{{link_sectors}}" class="btn">{{label_allSectors}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-{{ list.bullet_list( header = sections.listHeader, list = sections.listItems  ) }}
+{{ markups.bullet_list( header = sections.listHeader, list = sections.listItems  ) }}
 
 {% endblock %}
 

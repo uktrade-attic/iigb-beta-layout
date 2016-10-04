@@ -7,6 +7,11 @@
     <div class="row">
         <div class="col-md-8">
             <h2 class="dit-toc__heading">{{label_onThisPage}}</h2>
+            <ol class="dit-toc__list">
+                {% for a in sections.articles %}
+                  <li class="dit-toc__list-item"><a href="#{{a.title|slug}}">{{a.title}}</a></li>
+                {% endfor %}
+            </ol>
         </div>
     </div>
 </div>
@@ -17,12 +22,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-7 col-sm-10">
-
-                {{ markups.section(sections.pageHeader)}}
                 {% for a in sections.articles %}
                   {{ markups.section(a) }}
                 {% endfor %}
-
                 <p class="dit-updated">Page updated {{now()|date}}</p>
             </div>
         </div>

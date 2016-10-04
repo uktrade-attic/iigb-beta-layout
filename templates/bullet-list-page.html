@@ -1,8 +1,8 @@
 {% extends "base/content.html" %}
-{% import "partials/bullet-list.html" as list %}
+{% import "partials/markups.html" as markups %}
 
 {% block page_content %}
 
-{{ list.bullet_list(list = sections.listItems  ) }}
+{{ markups.bullet_list(list = sections.listItems  ) }}
 
 {% endblock %}
