@@ -1,4 +1,4 @@
-{% macro section(s) %}
+{% macro section(s, label_backtoTop) %}
 <section id="{{s.title|slug}}">
     <header>
         <h2>{{s.title}}</h2>
@@ -6,7 +6,7 @@
 
     {{s.contents|safe}}
 
-    <a href="#top">Back to top <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span></a>
+    <a href="#top">{{label_backtoTop}} <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span></a>
 </section>
 {% endmacro %}
 
