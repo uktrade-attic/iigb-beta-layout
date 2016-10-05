@@ -28,7 +28,7 @@
                 {% for l in list %}
                 <li class="dit-big-list__item--home-guide">
                     <h3><a href="{{l.target}}">{{l.title}}</a></h3>
-                    {{l.intro}}
+                    {{l.contents | safe}}
                 </li>
                 {% endfor %}
             </ol>

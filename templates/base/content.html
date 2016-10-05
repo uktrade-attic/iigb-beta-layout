@@ -3,6 +3,16 @@
 {% block content %}
 
 {% include "partials/header-nav.html" %}
+
+{% if sections.pageHeader.heroImage %}
+  <style>
+      .jumbotron {
+          background-image: url("/assets/img/{{sections.pageHeader.heroImage}}");
+          background-size: cover;
+      }
+  </style>
+{% endif %}
+
 <div id="top" class="jumbotron">
     <div class="container" style="background-color: transparent">
         <img class="dit-sector-hmg_logo" src="/assets/img/hmg-logo.png" alt="HMG Logo">

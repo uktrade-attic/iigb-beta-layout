@@ -11,6 +11,9 @@
                 {% for a in sections.articles %}
                   <li class="dit-toc__list-item"><a href="#{{a.title|slug}}">{{a.title}}</a></li>
                 {% endfor %}
+                {% if sections.subContent %}
+                <li class="dit-toc__list-item"><a href="#sub-sectors">{{sections.pageHeader.title}}{{label_subContent}}</a></li>
+                {% endif %}
             </ol>
         </div>
     </div>
