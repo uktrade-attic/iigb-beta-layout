@@ -29,5 +29,29 @@
             </div>
         </div>
     </div>
+    {% if sections.subContent %}
+      <div class="dit-sector-subsectors">
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-12">
+                      <h2 id="sub-sectors">{{sections.pageHeader.title}}{{label_subContent}}:</h2>
+                      <ul class="dit-key-sectors-list">
+                          {% for elem in sections.subContent %}
+                          <li class="dit-key-sectors-list__item">
+                              <div class="dit-key-sectors-list__link-wrap">
+                                  <a href="/{{elem.uri}}">
+                                      <img src="/assets/img/{{elem.thumbnail}}"
+                                           class="dit-key-sectors-list__image">
+                                      <span class="dit-key-sectors-list__text">{{elem.title}}</span>
+                                  </a>
+                              </div>
+                          </li>
+                          {% endfor %}
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </div>
+    {% endif %}
 </div>
 {% endblock %}
