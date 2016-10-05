@@ -41,16 +41,16 @@
   {% if header %}
     <h2 class="text-center dit-content-section__heading">{{header}}</h2>
   {% endif %}
-      <ul class="dit-key-sectors-list">
-        {% for tile in list %}
-        <li class="dit-key-sectors-list__item">
-          <div class="dit-key-sectors-list__link-wrap">
-              <a href="{{target}}">
-                <img src="/assets/img/{{tile.thumbnail}}" class="dit-key-sectors-list__image">
-                <span class="dit-key-sectors-list__text">{{tile.title}}</span>
-              </a>
-          </div>
-        </li>
-        {% endfor %}
-      </ul>
+    <ul class="dit-key-sectors-list">
+      {% for tile in list %}
+      <li class="dit-key-sectors-list__item">
+        <div class="dit-key-sectors-list__link-wrap">
+            <a href="{{tile.target}}">
+              <img src="/assets/img/{{tile.thumbnail}}" class="dit-key-sectors-list__image">
+              <span class="dit-key-sectors-list__text">{{tile.title}}</span>
+            </a>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
 {% endmacro %}
