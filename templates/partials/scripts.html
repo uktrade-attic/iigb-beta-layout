@@ -1,6 +1,6 @@
-{% if language === 'us' %}
+{% if language === 'en' %}
 <script>
-    window.language = 'us';
+    window.language = 'en';
 </script>
 {% endif %}
 {% if language === 'de' %}
@@ -8,7 +8,7 @@
     window.language = 'de';
 </script>
 {% endif %}
-{% if language === 'cn' %}
+{% if language === 'zh' %}
 <script>
     window.language = 'cn';
 </script>
@@ -90,7 +90,7 @@
         var language = window.language;
         var url = window.location.pathname;
         var child = '';
-        if (language === 'us') {
+        if (language === 'en') {
             if (url.match('\/sectors\/')) {
                 child = '/us/sectors/';
             } else if (url.match('\/investment-guide\/')) {
@@ -102,7 +102,7 @@
             } else if (url.match('\/investitionsf.{1,6}hrer\/')) {
                 child = '/de/investitionsführer/';
             }
-        } else if (language === 'cn') {
+        } else if (language === 'zh') {
             if (url.match('\/%E9%83%A8%E9%97%A8\/')) {
                 child = '/cn/部门/';
             } else if (url.match('\/%E6%8A%95%E8%B5%84%E6%8C%87%E5%8D%97\/')) {

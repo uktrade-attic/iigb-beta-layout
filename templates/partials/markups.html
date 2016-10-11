@@ -12,7 +12,7 @@
 
 
 
-{% macro bullet_list(header, list, language) %}
+{% macro bullet_list(header, list, country) %}
 <section class="dit-content-section">
     <div class="container" id="guide">
         <div class="row">
@@ -27,7 +27,7 @@
             <ol class="dit-big-list investment-guide-section">
                 {% for l in list %}
                 <li class="dit-big-list__item--home-guide">
-                    <h3><a href="/{{language}}{{l.link}}">{{l.content.title}}</a></h3>
+                    <h3><a href="/{{country}}{{l.link}}">{{l.content.title}}</a></h3>
                     {{l.content.contents | safe}}
                 </li>
                 {% endfor %}
@@ -37,7 +37,7 @@
 {% endmacro%}
 
 
-{% macro tiles(header, list, language) %}
+{% macro tiles(header, list, country) %}
   {% if header %}
     <h2 class="text-center dit-content-section__heading">{{header}}</h2>
   {% endif %}
@@ -45,7 +45,7 @@
       {% for tile in list %}
       <li class="dit-key-sectors-list__item">
         <div class="dit-key-sectors-list__link-wrap">
-            <a href="/{{language}}{{tile.link}}">
+            <a href="/{{country}}{{tile.link}}">
               <img src="/assets/img/{{tile.thumbnail}}" class="dit-key-sectors-list__image">
               <span class="dit-key-sectors-list__text">{{tile.content.title}}</span>
             </a>
