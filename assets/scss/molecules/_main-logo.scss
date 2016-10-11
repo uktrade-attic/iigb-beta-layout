@@ -8,12 +8,21 @@
 
 .dit-home-hmg_logo {
   float: left;
-  width: 230px;
+  height: 32px;
   margin-bottom: 10px;
+
 }
 
 .dit-sector-hmg_logo {
-  float: left;
-  width: 230px;
-  margin-top: -110px;
+  height: 40px;
+  background-color: #555;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+}
+
+.dit-logo {
+  height: 32px;
+  margin-top: 4px;
 }

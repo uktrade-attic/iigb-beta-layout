@@ -12,14 +12,19 @@
       }
   </style>
 {% endif %}
-
+<div class="dit-sector-hmg_logo">
+    <div class="container">
+        <img class="dit-logo" src="/assets/img/hmg-logo.png" alt="HMG Logo">
+        <div class="dit-nav-contact">Contact us</div>
+    </div>
+</div>
 <div id="top" class="jumbotron">
     <div class="container" style="background-color: transparent">
-        <img class="dit-sector-hmg_logo" src="/assets/img/hmg-logo.png" alt="HMG Logo">
+
         <div class="row">
-            <div class="col-sm-offset-2 col-sm-8">
+            <div class="col-sm-8">
                 <h1>{{title}}</h1>
-                <p class="text-center">{{sections.pageHeader.contents | safe}}</p>
+                <p>{{sections.pageHeader.contents | safe}}</p>
             </div>
         </div>
     </div>

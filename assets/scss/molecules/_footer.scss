@@ -3,7 +3,7 @@
 .dit-footer {
   margin-top: 50px;
   height: 200px;
-  background-color: #F3F3F3 !important;
+  background-color: $background-colour !important;
 
   &--list {
     margin-top: 70px;
@@ -12,9 +12,9 @@
       height: 25px;
       margin-top: 10px;
       padding: 1px 15px;
-      border-right: 1px solid #999;
+      border-right: 1px solid $text-colour;
       &:last-of-type {
-        border-right: 0 solid #999;
+        border-right: 0 solid $text-colour;
       }
     }
   }

@@ -1,21 +1,21 @@
 //_breadcrumb.scss
 
 .breadcrumb {
-	background: transparent;
-	border-bottom: 1px solid #222;
+	background: $text-colour;
+	border-bottom: 1px solid $tile-border-colour;
 	border-radius: 0;
-	color: #999;
+	color: $light-gray;
 	padding: 16px 0 12px 0;
 
 	a {
-		color: #fff;
-		border-bottom: 1px solid #777;
+		color: $white;
+		border-bottom: 1px solid $light-gray;
 		padding-bottom: 1px;
 
 		&:hover {
 			text-decoration: none;
-			color: #639aca;
-			border-bottom: 1px solid #639aca;
+			color: $link-colour;
+			border-bottom: 1px solid $link-colour;
 		}
 	}
 }

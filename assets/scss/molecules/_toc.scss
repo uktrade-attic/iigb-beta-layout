@@ -2,8 +2,8 @@
 
 .dit-toc {
 	counter-reset: dit-toc-counter;
-	background: #363636;
-	color: #fff;
+	background: $text-colour;
+	color: $white;
 
 
 	&__heading {
@@ -42,13 +42,13 @@
 			}
 
 		a {
-			color: #fff;
-			border-bottom: 1px solid #777;
+			color: $white;
+			border-bottom: 1px solid $tile-border-colour;
 
 			&:hover {
 				text-decoration: none;
-				color: #639aca;
-				border-bottom: 1px solid #639aca;
+				color: $link-colour;
+				border-bottom: 1px solid $link-colour;
 			}
 		}
 	}

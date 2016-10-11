@@ -12,27 +12,27 @@
   font-size: 18px;
 
   a {
-    border-bottom: 1px solid #999;
+    border-bottom: 1px solid $light-gray;
     padding: 0 0 1px 0;
     margin: 0 10px;
 
     &:hover {
       text-decoration: none;
-      color: #639aca;
-      border-bottom: 1px solid #639aca;
+      color: $link-colour;
+      border-bottom: 1px solid $link-colour;
     }
   }
 }
 
 .dit-video-anchor {
-  border-bottom: 1px solid #999;
+  border-bottom: 1px solid $light-gray;
   padding: 0 0 1px 0;
   margin: 0 10px;
 
   &:hover {
     text-decoration: none;
-    color: #639aca;
-    border-bottom: 1px solid #639aca;
+    color: $link-colour;
+    border-bottom: 1px solid $link-colour;
   }
 }
 

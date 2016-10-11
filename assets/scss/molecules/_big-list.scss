@@ -6,7 +6,7 @@
 	padding: 0;
 	width: 100%;
 	overflow: hidden;
-	border-right: 4px solid #ddd;
+	border-right: 4px solid $tile-border-colour;
 	-webkit-column-count: 2;
 	-moz-column-count: 2;
 	-ms-column-count: 2;
@@ -66,7 +66,7 @@
 			@extend .dit-big-list__item;
 
 			&::before {
-				color: #E41F13;
+				color: $red-text-colour;
 			}
 		}
 
