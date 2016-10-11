@@ -4,11 +4,11 @@
         {% for elem in breadcrumb %}
         {% if not loop.last %}
         <li>
-            <a href="{{elem.link}}">{{elem.title}}</a>
+            <a href="{{elem.link}}">{{elem.pageTitle}}</a>
         </li>
         {% else %}
         <li>
-            {{elem.title}}
+            {{elem.pageTitle}}
         </li>
         {% endif %}
         {% endfor %}

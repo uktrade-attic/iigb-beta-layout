@@ -2,12 +2,12 @@
 
 {% block content %}
 
-{% include "partials/header-nav.html" %}
+{% include "partials/" + language + "/header-nav.html" %}
 
-{% if sections.pageHeader.heroImage %}
+{% if contentBlocks.pageHeader.heroImage %}
   <style>
       .jumbotron {
-          background-image: url("/assets/img/{{sections.pageHeader.heroImage}}");
+          background-image: url("/assets/img/{{contentBlocks.pageHeader.heroImage}}");
           background-size: cover;
       }
   </style>
@@ -23,8 +23,8 @@
 
         <div class="row">
             <div class="col-sm-8">
-                <h1>{{title}}</h1>
-                <p>{{sections.pageHeader.contents | safe}}</p>
+                <h1>{{pageTitle}}</h1>
+                <p class="text-center">{{contentBlocks.pageHeader.content.contents | safe}}</p>
             </div>
         </div>
     </div>
