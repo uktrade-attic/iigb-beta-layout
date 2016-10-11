@@ -54,22 +54,22 @@
     </video>
 </div>
 
-{{sections.firstSection.contents|safe}}
+{{contentBlocks.firstSection.content.contents|safe}}
 
 <section class="dit-content-section">
   <div class="container" id="sectors">
     <div class="row">
       <div class="col-md-12">
-        {{ markups.tiles( header = label_keySectors, list = sections.tileItems, language = language  ) }}
+        {{ markups.tiles( header = label_keySectors, list = contentBlocks.tileItems, language = language  ) }}
         <div class="text-center dit-section-cta">
-          <a href="{{link_sectors}}" class="btn">{{label_allSectors}}</a>
+          <a href="sectors" class="btn">{{label_allSectors}}</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-{{ markups.bullet_list( header = sections.listHeader, list = sections.listItems, language = language  ) }}
+{{ markups.bullet_list( header = contentBlocks.listHeader, list = contentBlocks.listItems, language = language  ) }}
 
 {% endblock %}
 

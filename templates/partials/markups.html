@@ -1,10 +1,10 @@
-{% macro section(s, label_backtoTop) %}
-<section id="{{s.title|slug}}">
+{% macro section(s, label_backtoTop, language) %}
+<section id="{{s.content.title|slug(language)}}">
     <header>
-        <h2>{{s.title}}</h2>
+        <h2>{{s.content.title}}</h2>
     </header>
 
-    {{s.contents|safe}}
+    {{s.content.contents|safe}}
 
     <a href="#top">{{label_backtoTop}} <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span></a>
 </section>
@@ -18,17 +18,17 @@
         <div class="row">
             {% if header %}
             <div class="col-md-10 col-md-offset-1">
-                <h2 class="text-center dit-content-section__heading">{{header.title}}</h2>
+                <h2 class="text-center dit-content-section__heading">{{header.content.title}}</h2>
                 <p class="dit-content-section__lead">
-                  {{header.intro}}
+                  {{header.content.intro}}
                 </p>
             </div>
             {% endif %}
             <ol class="dit-big-list investment-guide-section">
                 {% for l in list %}
                 <li class="dit-big-list__item--home-guide">
-                    <h3><a href="/{{language}}{{l.target}}">{{l.title}}</a></h3>
-                    {{l.contents | safe}}
+                    <h3><a href="/{{language}}{{l.link}}">{{l.content.title}}</a></h3>
+                    {{l.content.contents | safe}}
                 </li>
                 {% endfor %}
             </ol>
@@ -45,9 +45,9 @@
       {% for tile in list %}
       <li class="dit-key-sectors-list__item">
         <div class="dit-key-sectors-list__link-wrap">
-            <a href="/{{language}}{{tile.target}}">
+            <a href="/{{language}}{{tile.link}}">
               <img src="/assets/img/{{tile.thumbnail}}" class="dit-key-sectors-list__image">
-              <span class="dit-key-sectors-list__text">{{tile.title}}</span>
+              <span class="dit-key-sectors-list__text">{{tile.content.title}}</span>
             </a>
         </div>
       </li>
