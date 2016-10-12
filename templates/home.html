@@ -2,75 +2,23 @@
 {% import "partials/markups.html" as markups %}
 
 {% block content %}
-    <div class="jumbotron--home">
-        <div class="container">
-            <div class="dit-hero__content">
-                <h1>
-                    <img class="dit-home-hmg_logo" src="/assets/img/hmg-logo.png" alt="HMG Logo">
-                    <img src="/assets/img/iigb-logo-big-white.png" alt="Invest in Great Britain" class="img-responsive">
-                </h1>
 
-                <!--[if ! IE]><!-->
-                <p class="text-center">
-                    <a href="#" class="bg-video-inactive bg-video-play dit-text-decoration-none" data-toggle="modal"
-                       data-target="#heroVideo">
-                        <div class="dit-play-video">
-                           <div class="dit-play-container">
-                               <span class="dit-video-anchor">{{ label_watchVideo }}</span>
-                           </div>
-                            <span class="glyphicon glyphicon-play dit-play-icon" aria-hidden="true"></span>
-                        </div>
-                    </a>
-                </p>
-                <!--<![endif]-->
-                <!--[if gte IE 9]>
+{% include "partials/header-nav.html" %}
 
-            <p class="text-center"><a href="#" class="bg-video-inactive bg-video-play" data-toggle="modal"
-                                      data-target="#heroVideo">Watch video <span class="glyphicon glyphicon-play dit-play"
-                                                                                 aria-hidden="true"></span></a></p>
-            <![endif]-->
-                <!--[if lte IE 8]>
-            <iframe width="560" height="315" title="YouTube video player" id="yt0" role="presentation"
-                    src="https://www.youtube.com/embed/yoHrRcKIBKw?controls=0&showinfo=0&origin=https%3A%2F%2Fwww.gov.uk&rel=0&enablejsapi=1&widgetid=1"
-                    frameBorder="0" allowfullscreen="1"></iframe>
-            <![endif]-->
-
-            </div>
-        </div>
-        <nav>
-            <ul class="text-center list-inline dit-home-section-anchors">
-                <li><a href="#why-uk">{{ label_reasons }}</a></li>
-                <li><a href="#sectors">{{ label_keySectors }}</a></li>
-                <li><a href="#guide">{{ label_simpleInvestment }}</a></li>
-                <li><a href="/us/search">{{ label_search }}</a></li>
-            </ul>
-        </nav>
-
-        <div class="modal fade" id="heroVideo" role="dialog">
-            <div class="modal-dialog video-wrapper">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/yoHrRcKIBKw" frameborder="0"
-                        allowfullscreen></iframe>
-            </div>
-        </div>
-
-        <video autoplay loop poster="/assets/img/northern-powerhouse.jpg" class="dit-hero__video-bg">
-            <source src="/assets/vid/northern-powerhouse.mp4" type="video/mp4">
-        </video>
-    </div>
+{% include "partials/jumbotron.html" %}
 
 {{contentBlocks.firstSection.content.contents|safe}}
 
-<section class="dit-content-section">
-  <div class="container" id="sectors">
+<section class="dit-content-section container">
     <div class="row">
       <div class="col-md-12">
         {{ markups.tiles( header = label_keySectors, list = contentBlocks.tileItems, country = locale.country  ) }}
-        <div class="text-center dit-section-cta">
-          <a href="sectors" class="btn">{{label_allSectors}}</a>
+        <div class="dit-section-cta">
+{#          <a href="sectors" class="btn">{{label_allSectors}}</a>#}
+          <a href="sectors" class="btn">Discover more</a>
         </div>
       </div>
     </div>
-  </div>
 </section>
 
 {{ markups.bullet_list( header = contentBlocks.listHeader, list = contentBlocks.listItems, country = locale.country  ) }}

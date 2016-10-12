@@ -4,31 +4,7 @@
 
 {% include "partials/header-nav.html" %}
 
-{% if contentBlocks.pageHeader.heroImage %}
-  <style>
-      .jumbotron {
-          background-image: url("/assets/img/{{contentBlocks.pageHeader.heroImage}}");
-          background-size: cover;
-      }
-  </style>
-{% endif %}
-<div class="dit-sector-hmg_logo">
-    <div class="container">
-        <img class="dit-logo" src="/assets/img/hmg-logo.png" alt="HMG Logo">
-        <div class="dit-nav-contact">Contact us</div>
-    </div>
-</div>
-<div id="top" class="jumbotron">
-    <div class="container" style="background-color: transparent">
-
-        <div class="row">
-            <div class="col-sm-8">
-                <h1>{{pageTitle}}</h1>
-                <p class="text-center">{{contentBlocks.pageHeader.content.contents | safe}}</p>
-            </div>
-        </div>
-    </div>
-</div>
+{% include "partials/jumbotron.html" %}
 
 <section class="dit-toc">
     {% block toc %}

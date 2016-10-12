@@ -1,35 +1,38 @@
 //content-section.scss
 
 .dit-content-section {
-	padding: 80px 0 120px 0;
-	border-bottom: 1px solid $tile-border-colour;
+  padding: 60px 25px 0 25px;
+  margin-top: 60px;
+  border: 1px solid $tile-border-colour;
+  border-bottom: 5px solid $red-line-colour;
 
-	&__heading {
-		font-size: 70px;
-		font-weight: 100;
-		text-align: center;
 
-		@media (max-width: $screen-xs-max) {
-			font-size: 40px;
-			// text-align: left;
-		}
-	}
 
-	&__lead {
-		font-size: 30px;
-		font-weight: 100;
-		width: 90%;
-		margin: 0 auto 60px auto;
-		text-align: center;
+  &__heading {
+    font-size: 40px;
+    font-weight: 100;
 
-		@media (max-width: $screen-xs-max) {
-			font-size: 24px;
-			// text-align: left;
-		}
-	}
+    @media (max-width: $screen-xs-max) {
+      font-size: 40px;
+      // text-align: left;
+    }
+  }
 
-	&__read-more-link {
-		margin-top: 15px;
-		display: inline-block;
-	}
+  &__lead {
+
+    & p {
+      font-size: 21px;
+      font-weight: 100;
+      width: 80%;
+
+      @media (max-width: $screen-xs-max) {
+        font-size: 24px;
+      }
+    }
+  }
+
+  &__read-more-link {
+    margin-top: 15px;
+    display: inline-block;
+  }
 }

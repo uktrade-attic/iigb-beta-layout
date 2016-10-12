@@ -1,56 +1,52 @@
 {% macro section(s, label_backtoTop, language) %}
-<section id="{{s.content.title|slug(language)}}">
-    <header>
-        <h2>{{s.content.title}}</h2>
-    </header>
+    <section id="{{ s.content.title|slug(language) }}">
+        <header>
+            <h2>{{ s.content.title }}</h2>
+        </header>
 
-    {{s.content.contents|safe}}
+        {{ s.content.contents|safe }}
 
-    <a href="#top">{{label_backtoTop}} <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span></a>
-</section>
+        <a href="#top">{{ label_backtoTop }} <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span></a>
+    </section>
 {% endmacro %}
 
 
-
 {% macro bullet_list(header, list, country) %}
-<section class="dit-content-section">
-    <div class="container" id="guide">
+    <section class="dit-content-section container">
         <div class="row">
             {% if header %}
-            <div class="col-md-10 col-md-offset-1">
-                <h2 class="text-center dit-content-section__heading">{{header.content.title}}</h2>
-                <p class="dit-content-section__lead">
-                  {{header.content.intro}}
-                </p>
-            </div>
+                <div class="col-md-10 dit-content-section__lead">
+                    <h4 class="dit-content-section__heading">{{ header.content.title }}</h4>
+                    {{ header.content.contents | safe }}
+                </div>
             {% endif %}
             <ol class="dit-big-list investment-guide-section">
                 {% for l in list %}
-                <li class="dit-big-list__item--home-guide">
-                    <h3><a href="/{{country}}{{l.link}}">{{l.content.title}}</a></h3>
-                    {{l.content.contents | safe}}
-                </li>
+                    <li class="dit-big-list__item--home-guide">
+                        <h3><a href="/{{ country }}{{ l.link }}">{{ l.content.title }}</a></h3>
+                        {{ l.content.contents | safe }}
+                    </li>
                 {% endfor %}
             </ol>
         </div>
-</section>
-{% endmacro%}
+    </section>
+{% endmacro %}
 
 
 {% macro tiles(header, list, country) %}
-  {% if header %}
-    <h2 class="text-center dit-content-section__heading">{{header}}</h2>
-  {% endif %}
+    {% if header %}
+        <h4 class="dit-content-section__heading">{{ header }}</h4>
+    {% endif %}
     <ul class="dit-key-sectors-list">
-      {% for tile in list %}
-      <li class="dit-key-sectors-list__item">
-        <div class="dit-key-sectors-list__link-wrap">
-            <a href="/{{country}}{{tile.link}}">
-              <img src="/assets/img/{{tile.thumbnail}}" class="dit-key-sectors-list__image">
-              <span class="dit-key-sectors-list__text">{{tile.content.title}}</span>
-            </a>
-        </div>
-      </li>
-      {% endfor %}
+        {% for tile in list %}
+            <li class="dit-key-sectors-list__item">
+                <div class="dit-key-sectors-list__link-wrap">
+                    <a href="/{{ country }}{{ tile.link }}">
+                        <img src="/assets/img/{{ tile.thumbnail }}" class="dit-key-sectors-list__image">
+                        <span class="dit-key-sectors-list__text">{{ tile.content.title }}</span>
+                    </a>
+                </div>
+            </li>
+        {% endfor %}
     </ul>
 {% endmacro %}
