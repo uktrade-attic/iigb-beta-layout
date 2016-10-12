@@ -1,14 +1,14 @@
-{% if language === 'en' %}
+{% if locale.language === 'en' %}
 <script>
     window.language = 'en';
 </script>
 {% endif %}
-{% if language === 'de' %}
+{% if locale.language === 'de' %}
 <script>
     window.language = 'de';
 </script>
 {% endif %}
-{% if language === 'zh' %}
+{% if locale.language === 'zh' %}
 <script>
     window.language = 'cn';
 </script>
@@ -54,7 +54,7 @@
         if ($('#sidebar-width').width() > 1) {
             var menuWidth = $('#sidebar-width').width();
             var bottomLimit = $('body').height() - $('.dit-updated').offset().top;
-            if (language === 'de') {
+            if (locale.language === 'de') {
                 $('.dit-quick-guide-side-de').css({width: menuWidth});
             }
             else {

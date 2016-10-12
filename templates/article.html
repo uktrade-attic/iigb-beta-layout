@@ -9,7 +9,7 @@
             <h2 class="dit-toc__heading">{{label_onThisPage}}</h2>
             <ol class="dit-toc__list">
                 {% for a in contentBlocks.sections %}
-                  <li class="dit-toc__list-item"><a href="#{{a.content.title|slug(language)}}">{{a.content.title}}</a></li>
+                  <li class="dit-toc__list-item"><a href="#{{a.content.title|slug(locale.language)}}">{{a.content.title}}</a></li>
                 {% endfor %}
                 {% if contentBlocks.subContent %}
                 <li class="dit-toc__list-item"><a href="#sub-sectors">{{label_preWord}}{{contentBlocks.pageHeader.content.title}}{{label_postWord}}</a></li>
@@ -26,7 +26,7 @@
         <div class="row">
             <div class="col-md-7 col-sm-10">
                 {% for a in contentBlocks.sections %}
-                  {{ markups.section(a, label_backtoTop, language) }}
+                  {{ markups.section(a, label_backtoTop, locale.language) }}
                 {% endfor %}
                 <p class="dit-updated">Page updated {{now()|date}}</p>
             </div>
@@ -38,7 +38,7 @@
               <div class="row">
                   <div class="col-md-12">
                       <h2 id="sub-sectors">{{contentBlocks.pageHeader.content.title}}{{label_subContent}}:</h2>
-                      {{markups.tiles(list = contentBlocks.subContent, country = country)}}
+                      {{markups.tiles(list = contentBlocks.subContent, country = locale.country)}}
                   </div>
               </div>
           </div>
