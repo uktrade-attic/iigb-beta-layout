@@ -60,7 +60,7 @@
   <div class="container" id="sectors">
     <div class="row">
       <div class="col-md-12">
-        {{ markups.tiles( header = label_keySectors, list = contentBlocks.tileItems, country = country  ) }}
+        {{ markups.tiles( header = label_keySectors, list = contentBlocks.tileItems, country = locale.country  ) }}
         <div class="text-center dit-section-cta">
           <a href="sectors" class="btn">{{label_allSectors}}</a>
         </div>
@@ -69,7 +69,7 @@
   </div>
 </section>
 
-{{ markups.bullet_list( header = contentBlocks.listHeader, list = contentBlocks.listItems, country = country  ) }}
+{{ markups.bullet_list( header = contentBlocks.listHeader, list = contentBlocks.listItems, country = locale.country  ) }}
 
 {% endblock %}
 
