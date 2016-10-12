@@ -6,13 +6,13 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8">
-            <h2 class="dit-toc__heading">{{label_onThisPage}}</h2>
+            <h2 class="dit-toc__heading">{{labels.on_this_page}}</h2>
             <ol class="dit-toc__list">
                 {% for a in contentBlocks.sections %}
                   <li class="dit-toc__list-item"><a href="#{{a.content.title|slug(locale.language)}}">{{a.content.title}}</a></li>
                 {% endfor %}
                 {% if contentBlocks.subContent %}
-                <li class="dit-toc__list-item"><a href="#sub-sectors">{{label_preWord}}{{contentBlocks.pageHeader.content.title}}{{label_postWord}}</a></li>
+                <li class="dit-toc__list-item"><a href="#sub-sectors">{{labels.pre_word}}{{contentBlocks.pageHeader.content.title}}{{labels.post_word}}</a></li>
                 {% endif %}
             </ol>
         </div>
@@ -26,7 +26,7 @@
         <div class="row">
             <div class="col-md-7 col-sm-10">
                 {% for a in contentBlocks.sections %}
-                  {{ markups.section(a, label_backtoTop, locale.language) }}
+                  {{ markups.section(a, labels, locale.language) }}
                 {% endfor %}
                 <p class="dit-updated">Page updated {{now()|date}}</p>
             </div>
@@ -37,7 +37,7 @@
           <div class="container">
               <div class="row">
                   <div class="col-md-12">
-                      <h2 id="sub-sectors">{{contentBlocks.pageHeader.content.title}}{{label_subContent}}:</h2>
+                      <h2 id="sub-sectors">{{labels.pre_word}}{{contentBlocks.pageHeader.content.title}}{{labels.post_word}}:</h2>
                       {{markups.tiles(list = contentBlocks.subContent, country = locale.country)}}
                   </div>
               </div>

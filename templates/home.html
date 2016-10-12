@@ -14,7 +14,7 @@
             <p class="text-center">
                 <a href="#" class="bg-video-inactive bg-video-play dit-text-decoration-none" data-toggle="modal"
                    data-target="#heroVideo">
-                    <span class="dit-video-anchor">{{label_watchVideo}}</span>
+                    <span class="dit-video-anchor">{{labels.watch_video}}</span>
                     <span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
                 </a>
             </p>
@@ -35,10 +35,10 @@
     </div>
     <nav>
         <ul class="text-center list-inline dit-home-section-anchors">
-          <li><a href="#why-uk">{{label_reasons}}</a></li>
-          <li><a href="#sectors">{{label_keySectors}}</a></li>
-          <li><a href="#guide">{{label_simpleInvestment}}</a></li>
-          <li><a href="/us/search">{{label_search}}</a></li>
+          <li><a href="#why-uk">{{labels.reasons}}</a></li>
+          <li><a href="#sectors">{{labels.key_sectors}}</a></li>
+          <li><a href="#guide">{{labels.simple_investment}}</a></li>
+          <li><a href="/us/search">{{labels.search}}</a></li>
         </ul>
     </nav>
 
@@ -60,9 +60,9 @@
   <div class="container" id="sectors">
     <div class="row">
       <div class="col-md-12">
-        {{ markups.tiles( header = label_keySectors, list = contentBlocks.tileItems, country = locale.country  ) }}
+        {{ markups.tiles( header = labels.key_sectors, list = contentBlocks.tileItems, country = locale.country  ) }}
         <div class="text-center dit-section-cta">
-          <a href="sectors" class="btn">{{label_allSectors}}</a>
+          <a href="sectors" class="btn">{{labels.all_sectors}}</a>
         </div>
       </div>
     </div>
