@@ -1,13 +1,13 @@
-{% macro section(s, label_backtoTop, language) %}
-    <section id="{{ s.content.title|slug(language) }}">
-        <header>
-            <h2>{{ s.content.title }}</h2>
-        </header>
+{% macro section(s, labels, language) %}
+<section id="{{s.content.title|slug(language)}}">
+    <header>
+        <h2>{{s.content.title}}</h2>
+    </header>
 
-        {{ s.content.contents|safe }}
+    {{s.content.contents|safe}}
 
-        <a href="#top">{{ label_backtoTop }} <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span></a>
-    </section>
+    <a href="#top">{{labels.back_to_top}} <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span></a>
+</section>
 {% endmacro %}
 
 
