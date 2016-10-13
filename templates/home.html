@@ -9,19 +9,19 @@
 
 {{contentBlocks.firstSection.content.contents|safe}}
 
+{{ markups.bullet_list( header = contentBlocks.listHeader, list = contentBlocks.listItems, country = locale.country  ) }}
+
 <section class="dit-content-section container">
     <div class="row">
       <div class="col-md-12">
-        {{ markups.tiles( header = labels.key_sectors, list = contentBlocks.tileItems, country = locale.country  ) }}
+        {{ markups.tiles( header = labels.great_british_industries, list = contentBlocks.tileItems, country = locale.country  ) }}
         <div class="dit-section-cta">
-          <a href="sectors" class="btn">{{labels.all_sectors}}</a>
+          <a href="industries" class="btn">{{labels.discover}}</a>
         </div>
       </div>
     </div>
   </div>
 </section>
-
-{{ markups.bullet_list( header = contentBlocks.listHeader, list = contentBlocks.listItems, country = locale.country  ) }}
 
 {% endblock %}
 

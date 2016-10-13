@@ -37,13 +37,13 @@
     {% if header %}
         <h4 class="dit-content-section__heading">{{ header }}</h4>
     {% endif %}
-    <ul class="dit-key-sectors-list">
+    <ul class="dit-industries-list">
         {% for tile in list %}
-            <li class="dit-key-sectors-list__item">
-                <div class="dit-key-sectors-list__link-wrap">
+            <li class="dit-industries-list__item">
+                <div class="dit-industries-list__link-wrap">
                     <a href="/{{ country }}{{ tile.link }}">
-                        <img src="/assets/img/{{ tile.thumbnail }}" class="dit-key-sectors-list__image">
-                        <span class="dit-key-sectors-list__text">{{ tile.content.title }}</span>
+                        <img src="/assets/img/{{ tile.thumbnail }}" class="dit-industries-list__image">
+                        <span class="dit-industries-list__text">{{ tile.content.title }}</span>
                     </a>
                 </div>
             </li>

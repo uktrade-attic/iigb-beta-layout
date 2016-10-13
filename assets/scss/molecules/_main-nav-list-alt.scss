@@ -9,11 +9,22 @@
     font-size: 16px;
     height: 70px;
     padding: 24px 32px 0;
-    // &:first-of-type {
-    //   border-left: 1px solid #999;
-    // }
     &.active {
       background-color: $background-colour;
+    }
+  }
+
+  @media (max-width: $screen-md-max) {
+    > li > a {
+      font-size: 16px;
+      padding: 24px;
+    }
+  }
+
+  @media (max-width: $screen-sm-max) {
+    > li > a {
+      font-size: 14px;
+      padding: 24px 8px;
     }
   }
 
@@ -21,7 +32,6 @@
     border-left: 0;
 
     > li > a {
-      // padding: 10px 12px !important;
       border: 0;
       display: block;
       height: auto;
@@ -29,13 +39,6 @@
       &:first-of-type {
         border: 0;
       }
-    }
-  }
-
-  @media (max-width: $screen-sm-max) {
-    > li > a {
-      font-size: 14px;
-      padding: 24px 10px;
     }
   }
 }
