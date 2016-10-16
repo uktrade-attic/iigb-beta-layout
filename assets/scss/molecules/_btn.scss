@@ -1,17 +1,17 @@
 //_btn.scss
 
 .btn {
-	border: 3px solid $link-colour;
-	border-radius: 6px;
-	font-size: 20px;
-	font-weight: 100;
-	line-height: 40px;
-	padding: 4px 40px;
-	color: $link-colour;
+  border: 3px solid $link-colour;
+  border-radius: 6px;
+  font-size: 20px;
+  font-weight: 100;
+  line-height: 40px;
+  padding: 4px 40px;
+  color: $link-colour;
 
-	&:hover {
-		background: $link-colour;
-		color: $white;
-		font-weight: 300;
-	}
+  &:hover {
+    background: $link-colour;
+    color: $white;
+    font-weight: 300;
+  }
 }
