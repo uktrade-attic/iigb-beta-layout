@@ -12,7 +12,17 @@
             <div class="col-md-12">
                 <h2 class="dit-industries-tiles-landing__heading">{{labels.industry_overviews}}</h2>
                 <p>{{labels.industry_overviews_intro}}</p>
-                {{ markups.tiles(list = contentBlocks.tileItems, country = locale.country  ) }}
+                {{ markups.tilesIndustry(list = contentBlocks.tileItems, country = locale.country  ) }}
+            </div>
+        </div>
+    </section>
+
+    <section class="container dit-sectors-tiles-landing">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="dit-industries-tiles-landing__heading">{{labels.industries}}</h2>
+                <p>{{labels.industries_intro}}</p>
+                {{ markups.tilesSector(list = contentBlocks.tileItems, country = locale.country  ) }}
             </div>
         </div>
     </section>
