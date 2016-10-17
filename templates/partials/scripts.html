@@ -85,8 +85,8 @@
     function prepareForm() {
       var navListItems = $('div.setup-panel div a'),
         allWells = $('.setup-content'),
-        allNextBtn = $('.nextBtn');
-      allPrevBtn = $('.prevBtn');
+        allNextBtn = $('.nextBtn'),
+        allPrevBtn = $('.prevBtn');
 
       allWells.hide();
 
@@ -96,12 +96,13 @@
           $item = $(this);
 
         if (!$item.hasClass('disabled')) {
-          navListItems.removeClass('active-selection').addClass('btn-default');
-          navListItems.removeClass('btn');
-          navListItems.removeClass('btn-circle');
+          navListItems.removeClass('active-selection')
+{#                  .addClass('btn-default');#}
+{#          navListItems.removeClass('btn');#}
+{#          navListItems.removeClass('btn-circle');#}
           $item.addClass('active-selection');
-          $item.addClass('btn');
-          $item.addClass('btn-circle');
+{#          $item.addClass('btn');#}
+{#          $item.addClass('btn-circle');#}
           allWells.hide();
           $target.show();
           $target.find('input:eq(0)').focus();
