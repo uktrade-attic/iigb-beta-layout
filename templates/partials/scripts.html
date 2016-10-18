@@ -85,10 +85,10 @@
     function prepareForm() {
       var navListItems = $('div.setup-panel div a'),
         allWells = $('.setup-content'),
-        allNextBtn = $('.nextBtn'),
+        allNextBtn = $('.nextBtn');
         allPrevBtn = $('.prevBtn');
-
-      allWells.hide();
+        submitBtn = $('.submitBtn');
+        allWells.hide();
 
       navListItems.click(function(e) {
         e.preventDefault();
@@ -96,13 +96,8 @@
           $item = $(this);
 
         if (!$item.hasClass('disabled')) {
-          navListItems.removeClass('active-selection')
-{#                  .addClass('btn-default');#}
-{#          navListItems.removeClass('btn');#}
-{#          navListItems.removeClass('btn-circle');#}
+          navListItems.removeClass('active-selection');
           $item.addClass('active-selection');
-{#          $item.addClass('btn');#}
-{#          $item.addClass('btn-circle');#}
           allWells.hide();
           $target.show();
           $target.find('input:eq(0)').focus();
@@ -115,11 +110,6 @@
           nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
           curInputs = curStep.find("input[type='text'],input[type='email'], #turnover:selected, #staff:selected"),
           isValid = true;
-
-        console.log(curStep);
-        console.log(curStepBtn);
-        console.log(curInputs);
-
 
         $(".form-group").removeClass("has-error");
         for (var i = 0; i < curInputs.length; i++) {
@@ -144,6 +134,65 @@
         if (isValid)
           prevStepWizard.removeAttr('disabled').trigger('click');
       });
+
+      submitBtn.click(function(){
+      var userName = $('#username').val();
+      var userEmail = $('#email').val();
+      var userPhone = $('#phone').val();
+      var userCity = $('#city').val();
+      var orgName = $('#orgname').val();
+      var orgTurnover = $('#turnover').val();
+      var orgStaff = $('#staffnumber').val();
+      var orgWebsite = $('#website').val();
+      var orgHq = $('#headquarters').val();
+      var orgIndustry = $('#industry').val();
+      var enquiryIsSpecific = $('#isSpecificLocation').is(':checked') ? true : false;
+      var enquiryStartDate = $('#startDate').val();
+      var enquiryLocations = $('#potentialLocations').val();
+      var other = $('#other').val();
+
+      formData = {
+              "organisation": {
+                "name": orgName,
+                  "annual_turnover": orgTurnover,
+                  "number_of_employees": orgStaff,
+                  "website": orgWebsite,
+                  "headquarters_country": orgHq,
+                  "industry": orgIndustry
+              },
+              "user": {
+                "name": userName,
+                "email": userEmail,
+                "phone": userPhone,
+                "city": userCity
+                },
+                "enquiry": {
+                  "location_is_specific": enquiryIsSpecific,
+                  "start_date": enquiryStartDate,
+                  "primary_location": enquiryLocations
+                },
+                "other": other,
+                "language": window.language
+            };
+
+      $.ajax({
+        type: 'POST',
+        //change this url to point to form processor
+        url: 'http://localhost:4000/form',
+        dataType: 'json',
+        data: formData,
+        success: function(result){
+          //handle result 
+          console.log(result);
+        } ,
+        error: function(xhr, resp, text){
+          //handle error
+          console.log(xhr, resp,text);
+        }
+
+      });
+    });
+
 
       $('div.setup-panel div a.active-selection').trigger('click');
     }
