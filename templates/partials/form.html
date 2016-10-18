@@ -70,7 +70,7 @@
                             <h3 style="margin-bottom: 30px; margin-left: 15px;">{{ labels.form_investment }}</h3>
                             <div class="form-group col-lg-8 bottom-buffer">
                                 <label for="turnover">{{ labels.form_annual_turnover.label }}</label>
-                                <select class="form-control" id="turnover">
+                                <select class="form-control" required id="turnover">
                                     <option value="" disabled selected>{{ labels.please_select }}</option>
                                     {% for o in labels.form_annual_turnover.options %}
                                         <option value="{{loop.index}}">{{ o }}</option>
@@ -79,7 +79,7 @@
                             </div>
                             <div class="form-group col-lg-8">
                                 <label for="sel1">{{ labels.form_stuff_number.label }}</label>
-                                <select class="form-control" id="staffnumber">
+                                <select class="form-control" required id="staffnumber">
                                     <option value="" disabled selected>{{ labels.please_select }}</option>
                                     {% for o in labels.form_stuff_number.options %}
                                         <option value="{{loop.index}}">{{ o }}</option>
@@ -90,7 +90,7 @@
                                 <label class="control-label">{{ labels.form_location }}</label>
                                 <fieldset class="inline">
                                     <label class="block-label" for="radio-inline-1">
-                                        <input id="isSpecificLocation" type="radio" name="radio-inline-group" value="Yes">
+                                        <input id="isSpecificLocation" required type="radio" name="radio-inline-group" value="Yes">
                                         {{ labels.yes }}
                                     </label>
                                     <label class="block-label" for="radio-inline-2">
@@ -101,7 +101,7 @@
                             </div>
                             <div class="form-group col-lg-8">
                                 <label for="location">{{ labels.form_which_part.label }}</label>
-                                <select class="form-control" id="potentialLocations">
+                                <select class="form-control" required id="potentialLocations">
                                     <option value="{{loop.index}}" disabled selected>{{ labels.please_select }}</option>
                                     {% for o in labels.form_which_part.options %}
                                         <option>{{ o }}</option>
@@ -144,7 +144,7 @@
                             <div class="form-group col-lg-8">
                                 <label for="country">{{ labels.form_headquarters }}</label>
                                 <select class="form-control" id="headquarters">
-                                    <option value="" disabled selected>{{ labels.please_select }}</option>
+                                    <option value="" required disabled selected>{{ labels.please_select }}</option>
                                     <option>US</option>
                                     <option>DE</option>
                                     <option>CN</option>
@@ -153,7 +153,7 @@
                             <div class="form-group col-lg-8">
                                 <label for="industry">{{ labels.form_primary_industry }}</label>
                                 <select class="form-control" id="industry">
-                                    <option value="" disabled selected>{{ labels.please_select }}</option>
+                                    <option value="" required disabled selected>{{ labels.please_select }}</option>
                                     <option>US</option>
                                     <option>DE</option>
                                     <option>CN</option>
