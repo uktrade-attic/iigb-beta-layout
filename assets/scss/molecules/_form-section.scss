@@ -1,0 +1,38 @@
+//form-section.scss
+
+.dit-form-section {
+  padding: 0;
+  margin-top: 60px;
+  border: 1px solid $tile-border-colour;
+  border-bottom: 5px solid $red-line-colour;
+
+
+
+  &__heading {
+    font-size: 40px;
+    font-weight: 100;
+
+    @media (max-width: $screen-xs-max) {
+      font-size: 40px;
+      // text-align: left;
+    }
+  }
+
+  &__lead {
+
+    & p {
+      font-size: 21px;
+      font-weight: 100;
+      width: 80%;
+
+      @media (max-width: $screen-xs-max) {
+        font-size: 24px;
+      }
+    }
+  }
+
+  &__read-more-link {
+    margin-top: 15px;
+    display: inline-block;
+  }
+}

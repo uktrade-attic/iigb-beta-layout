@@ -88,7 +88,6 @@
         allNextBtn = $('.nextBtn');
         allPrevBtn = $('.prevBtn');
         submitBtn = $('.submitBtn');
-
         allWells.hide();
 
       navListItems.click(function(e) {
@@ -97,12 +96,8 @@
           $item = $(this);
 
         if (!$item.hasClass('disabled')) {
-          navListItems.removeClass('active-selection').addClass('btn-default');
-          navListItems.removeClass('btn');
-          navListItems.removeClass('btn-circle');
+          navListItems.removeClass('active-selection');
           $item.addClass('active-selection');
-          $item.addClass('btn');
-          $item.addClass('btn-circle');
           allWells.hide();
           $target.show();
           $target.find('input:eq(0)').focus();

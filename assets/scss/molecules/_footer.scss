@@ -3,10 +3,10 @@
 .dit-footer {
   margin-top: 50px;
   height: 200px;
-  background-color: $background-colour !important;
+  background-color: $text-colour !important;
 
   &--list {
-    margin-top: 70px;
+    margin-top: 28px;
     > li {
       display: inline-block;
       height: 25px;
@@ -15,6 +15,10 @@
       border-right: 1px solid $text-colour;
       &:last-of-type {
         border-right: 0 solid $text-colour;
+      }
+
+      a {
+        color: $background-colour;
       }
     }
   }
