@@ -8,9 +8,7 @@
             {% for l in contentBlocks.formBlock.content.list %}
                 <div class="row bottom-buffer">
                     <div class="col-md-2">
-{#                        <button type="button" class="btn btn-default btn-sm">#}
-                            <span class="glyphicon glyphicon-star" aria-hidden="true" style="color:red;"></span>
-{#                        </button>#}
+                        <span class="glyphicon glyphicon-star" aria-hidden="true" style="color:red;"></span>
                     </div>
                     <div class="col-md-10">
                         <p>{{ l | safe }}</p>
@@ -119,11 +117,11 @@
                                         type="button">
                                     {{ labels.form_next }}
                                     <span
-                                        class="glyphicon glyphicon-triangle-right"></span>
+                                            class="glyphicon glyphicon-triangle-right"></span>
                                 </button>
                                 <button class="btn btn-primary prevBtn btn-lg pull-right" type="button">
                                     <span class="glyphicon glyphicon-triangle-left pull-left"
-                                        style="margin-top: 6px;"></span>
+                                          style="margin-top: 6px;"></span>
                                     {{ labels.form_previous }}</button>
                             </div>
                         </div>
@@ -167,7 +165,7 @@
                             </div>
                             <div class="form-group__button col-lg-12 push-to-bottom">
                                 <button class="btn btn-primary nextBtn btn-lg pull-right"
-                                        type="button">
+                                        type="submit">
                                     {{ labels.form_submit }}
                                 </button>
                                 <button class="btn btn-primary prevBtn btn-lg pull-right" type="button">

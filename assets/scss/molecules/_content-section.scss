@@ -1,12 +1,14 @@
 //content-section.scss
 
 .dit-content-section {
-  padding: 60px 25px 0 25px;
+  padding: 24px 24px 0 24px;
   margin-top: 60px;
   border: 1px solid $tile-border-colour;
   border-bottom: 5px solid $red-line-colour;
 
-
+  h2 {
+    margin: 24px 0 16px 0;
+  }
 
   &__heading {
     font-size: 40px;

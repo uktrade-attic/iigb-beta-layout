@@ -1,0 +1,116 @@
+//ind-description-list.scss
+
+.dit-ind-side-desc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 -15px;
+  overflow: hidden;
+
+  &__item {
+    padding: 15px;
+    width: 48%;
+    float: left;
+    position: relative;
+    display: inline-block;
+    margin: 10px 10px;
+    border: 1px solid $tile-border-colour;
+    overflow: hidden;
+    color: $text-colour;
+
+    &:hover {
+      background-color: darken($background-colour, 10%);
+      border: 1px solid $link-colour;
+    }
+
+    @media (max-width: $screen-sm-max) {
+      width: 45%;
+      margin: 8px 6px;
+    }
+
+    @media (max-width: $screen-xs-max) {
+      width: 48%;
+      margin: 8px 6px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  &__title {
+    padding-bottom: 8px;
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  &__text {
+    width: 90%;
+    position: absolute;
+    padding: 15px 5px;
+    left: 15px;
+    top: 0px
+  }
+
+  &__link-wrap {
+    overflow: hidden;
+  }
+}
+.dit-ind-bottom-desc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 -15px;
+  overflow: hidden;
+
+  &__item {
+    padding: 15px;
+    width: 30%;
+    float: left;
+    position: relative;
+    display: inline-block;
+    margin: 10px 10px;
+    border: 1px solid $tile-border-colour;
+    overflow: hidden;
+    color: $text-colour;
+
+    &:hover {
+      background-color: darken($background-colour, 10%);
+      border: 1px solid $link-colour;
+    }
+
+    @media (max-width: $screen-sm-max) {
+      width: 30%;
+      margin: 8px 6px;
+    }
+
+    @media (max-width: $screen-xs-max) {
+      width: 30%;
+      margin: 8px 6px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  &__title {
+    padding: 16px 0 8px;
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  &__text {
+    width: 90%;
+    position: absolute;
+    padding: 15px 5px;
+    left: 15px;
+    top: 0px
+  }
+
+  &__link-wrap {
+    overflow: hidden;
+  }
+}

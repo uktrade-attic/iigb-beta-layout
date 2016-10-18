@@ -1,13 +1,24 @@
 {% macro section(s, labels, language) %}
-<section id="{{s.content.title|slug(language)}}">
-    <header>
-        <h2>{{s.content.title}}</h2>
-    </header>
+    <section id="{{ s.content.title|slug(language) }}">
+        <header>
+            <h2>{{ s.content.title }}</h2>
+        </header>
 
-    {{s.content.contents|safe}}
+        {{ s.content.contents|safe }}
 
-    <a href="#top">{{labels.back_to_top}} <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span></a>
-</section>
+        <a href="#top">{{ labels.back_to_top }} <span class="glyphicon glyphicon-arrow-up"
+                                                      aria-hidden="true"></span></a>
+    </section>
+{% endmacro %}
+
+{% macro intro(file) %}
+    <section>
+        <header>
+            <h2>{{ file.content.title }}</h2>
+        </header>
+
+        {{ file.content.contents|safe }}
+    </section>
 {% endmacro %}
 
 
@@ -32,6 +43,49 @@
     </section>
 {% endmacro %}
 
+{% macro tilesWithSideDescription(header, list, country) %}
+    {% if header %}
+        <h4 class="dit-content-section__heading">{{ header }}</h4>
+    {% endif %}
+    <ul class="dit-ind-side-desc-list">
+        {% for tile in list %}
+            <li>
+                <a class="dit-ind-side-desc-list__item" href="/{{ country }}{{ tile.link }}">
+                    <div class="row">
+                        <div class="col-md-4 dit-ind-side-desc-list__link-wrap">
+                            <img src="/assets/img/{{ tile.thumbnail }}" class="dit-ind-side-desc-list__image">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="dit-ind-side-desc-list__title">{{ tile.content.title }}</div>
+                            {{ tile.content.contents | safe }}
+                        </div>
+                    </div>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endmacro %}
+
+{% macro tilesWithBottomDescription(header, list, country) %}
+    {% if header %}
+        <h4 class="dit-content-section__heading">{{ header }}</h4>
+    {% endif %}
+    <ul class="dit-ind-side-desc-list">
+        {% for tile in list %}
+            <li>
+                <a class="dit-ind-bottom-desc-list__item" href="/{{ country }}{{ tile.link }}">
+                    <div class="row">
+                        <div class="col-md-12 dit-ind-bottom-desc-list__link-wrap">
+                            <img src="/assets/img/{{ tile.thumbnail }}" class="dit-ind-bottom-desc-list__image">
+                            <div class="dit-ind-bottom-desc-list__title">{{ tile.content.title }}</div>
+                            {{ tile.content.contents | safe }}
+                        </div>
+                    </div>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endmacro %}
 
 {% macro tilesIndustry(header, list, country) %}
     {% if header %}

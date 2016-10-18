@@ -1,9 +1,7 @@
-{% extends "base/index.html" %}
+{% extends "base/landing.html" %}
 {% import "partials/markups.html" as markups %}
 
-{% block content %}
-
-    {% include "partials/header-nav.html" %}
+{% block page_content %}
 
     {% include "partials/jumbotron-short.html" %}
 
@@ -26,9 +24,5 @@
             </div>
         </div>
     </section>
-
-
-{% include "partials/form.html" %}
-
 
 {% endblock %}
