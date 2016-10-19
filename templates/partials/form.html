@@ -17,7 +17,7 @@
             {% endfor %}
         </div>
         <div class="col-md-8" style="min-height:58rem;">
-            <form role="form" action="" method="post">
+            <form enctype='application/json' role="form" action="http://localhost:4000/form" method="post">
                 <div class="stepwizard">
                     <div class="stepwizard-row setup-panel">
                         <div class="stepwizard-step">
@@ -37,22 +37,22 @@
                             <h3 style="margin-bottom: 30px; margin-left: 15px;">{{ labels.form_contact_details }}</h3>
                             <div class="form-group col-lg-10">
                                 <label class="control-label">{{ labels.form_full_name }}</label>
-                                <input maxlength="100" type="text" required="required" class="form-control"
+                                <input maxlength="100" type="text" name="user[name]" required="required" class="form-control"
                                        placeholder="{{ labels.form_enter_full_name }}"/>
                             </div>
                             <div class="form-group col-lg-10">
                                 <label class="control-label">{{ labels.form_email }}</label>
-                                <input type="text" required="required" class="form-control"
+                                <input type="text" name="user[email]" required="required" class="form-control"
                                        placeholder="{{ labels.form_enter_email }}"/>
                             </div>
                             <div class="form-group col-lg-6">
                                 <label class="control-label">{{ labels.form_phone }}</label>
-                                <input type="text" required="required" class="form-control"
+                                <input type="text" name="user[phone]" required="required" class="form-control"
                                        placeholder="{{ labels.form_enter_phone }}"/>
                             </div>
                             <div class="form-group col-lg-8">
                                 <label class="control-label">{{ labels.form_city }}</label>
-                                <input type="text" required="required" class="form-control"
+                                <input type="text" name="user[city]" required="required" class="form-control"
                                        placeholder="{{ labels.form_enter_city }}"/>
                             </div>
                             <div class="form-group__button col-lg-12 push-to-bottom">
@@ -70,7 +70,7 @@
                             <h3 style="margin-bottom: 30px; margin-left: 15px;">{{ labels.form_investment }}</h3>
                             <div class="form-group col-lg-8 bottom-buffer">
                                 <label for="turnover">{{ labels.form_annual_turnover.label }}</label>
-                                <select class="form-control" id="turnover">
+                                <select name="organisation[annual_turnover]" class="form-control" id="turnover">
                                     <option value="" disabled selected>{{ labels.please_select }}</option>
                                     {% for o in labels.form_annual_turnover.options %}
                                         <option>{{ o }}</option>
@@ -79,7 +79,7 @@
                             </div>
                             <div class="form-group col-lg-8">
                                 <label for="sel1">{{ labels.form_stuff_number.label }}</label>
-                                <select class="form-control" id="staff">
+                                <select name="organisation[number_of_employees]" class="form-control" id="staff">
                                     <option value="" disabled selected>{{ labels.please_select }}</option>
                                     {% for o in labels.form_stuff_number.options %}
                                         <option>{{ o }}</option>
@@ -90,18 +90,18 @@
                                 <label class="control-label">{{ labels.form_location }}</label>
                                 <fieldset class="inline">
                                     <label class="block-label" for="radio-inline-1">
-                                        <input id="radio-inline-1" type="radio" name="radio-inline-group" value="Yes">
+                                        <input id="radio-inline-1" type="radio" name="enquiry[location_is_specific]" value="Yes">
                                         {{ labels.yes }}
                                     </label>
                                     <label class="block-label" for="radio-inline-2">
-                                        <input id="radio-inline-2" type="radio" name="radio-inline-group" value="No">
+                                        <input id="radio-inline-2" type="radio" name="enquiry[location_is_specific]" value="No">
                                         {{ labels.no }}
                                     </label>
                                 </fieldset>
                             </div>
                             <div class="form-group col-lg-8">
                                 <label for="location">{{ labels.form_which_part.label }}</label>
-                                <select class="form-control" id="location">
+                                <select name="enquiry[primary_location]" class="form-control" id="location">
                                     <option value="" disabled selected>{{ labels.please_select }}</option>
                                     {% for o in labels.form_which_part.options %}
                                         <option>{{ o }}</option>
@@ -110,7 +110,7 @@
                             </div>
                             <div class="form-group col-lg-10">
                                 <label class="control-label">{{ labels.form_when }}</label>
-                                <input type="date" required="required" class="form-control" placeholder="dd/mm/yyyy"/>
+                                <input type="date" name="enquiry[start_date]" required="required" class="form-control" placeholder="dd/mm/yyyy"/>
                             </div>
                             <div class="form-group__button col-lg-12 push-to-bottom">
                                 <button class="btn btn-primary nextBtn btn-lg pull-right"
@@ -133,17 +133,17 @@
                             <h3 style="margin-bottom: 30px; margin-left: 15px;">{{ labels.form_company }}</h3>
                             <div class="form-group col-lg-10">
                                 <label class="control-label">{{ labels.form_registered_company }}</label>
-                                <input maxlength="100" type="text" required="required" class="form-control"
+                                <input maxlength="100" type="text" name="organisation[name]" required="required" class="form-control"
                                        placeholder="{{ labels.form_enter_registered_company }}"/>
                             </div>
                             <div class="form-group col-lg-10">
                                 <label class="control-label">{{ labels.form_website }}</label>
-                                <input type="text" required="required" class="form-control"
+                                <input type="text" name="organisation[website]" required="required" class="form-control"
                                        placeholder="{{ labels.form_enter_website }}"/>
                             </div>
                             <div class="form-group col-lg-8">
                                 <label for="country">{{ labels.form_headquarters }}</label>
-                                <select class="form-control" id="country">
+                                <select name="organisation[headquarters_country]" class="form-control" id="country">
                                     <option value="" disabled selected>{{ labels.please_select }}</option>
                                     <option>US</option>
                                     <option>DE</option>
@@ -152,7 +152,7 @@
                             </div>
                             <div class="form-group col-lg-8">
                                 <label for="industry">{{ labels.form_primary_industry }}</label>
-                                <select class="form-control" id="industry">
+                                <select name="organisation[industry]" class="form-control" id="industry">
                                     <option value="" disabled selected>{{ labels.please_select }}</option>
                                     <option>US</option>
                                     <option>DE</option>
@@ -161,7 +161,7 @@
                             </div>
                             <div class="form-group col-lg-10">
                                 <label class="control-label">{{ labels.form_other }}</label>
-                                <input type="text" class="form-control" placeholder="{{ labels.form_enter_email }}"/>
+                                <input type="text" name="user[other]" class="form-control" placeholder="{{ labels.form_enter_email }}"/>
                             </div>
                             <div class="form-group__button col-lg-12 push-to-bottom">
                                 <button class="btn btn-primary nextBtn btn-lg pull-right"
