@@ -73,7 +73,7 @@
                                 <select name="organisation[annual_turnover]" class="form-control" id="turnover">
                                     <option value="" disabled selected>{{ labels.please_select }}</option>
                                     {% for o in labels.form_annual_turnover.options %}
-                                        <option>{{ o }}</option>
+                                        <option value="{{loop.index}}:{{locale.country}}{{o}}">{{ o }}</option>
                                     {% endfor %}
                                 </select>
                             </div>
@@ -82,7 +82,7 @@
                                 <select name="organisation[number_of_employees]" class="form-control" id="staff">
                                     <option value="" disabled selected>{{ labels.please_select }}</option>
                                     {% for o in labels.form_stuff_number.options %}
-                                        <option>{{ o }}</option>
+                                        <option value="{{loop.index}}:{{locale.country}}{{o}}">{{ ">{{ o }}</option>
                                     {% endfor %}
                                 </select>
                             </div>
