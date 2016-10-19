@@ -19,7 +19,7 @@
 
             <div class="row">
                 <div class="col-sm-8">
-                    <h1>{{ pageTitle }}</h1>
+                    <h1>{{ contentBlocks.pageHeader.content.title }}</h1>
                     <p>{{ contentBlocks.pageHeader.content.contents | safe }}</p>
                 </div>
             </div>
@@ -51,15 +51,6 @@
         <![endif]-->
             {% endif %}
         </div>
-
-        {#    <nav>#}
-        {#        <ul class="text-center list-inline dit-home-section-anchors">#}
-        {#            <li><a href="#why-uk">{{labels.reasons}}</a></li>#}
-        {#            <li><a href="#industries">{{labels.great_british_industries}}</a></li>#}
-        {#            <li><a href="#guide">{{labels.simple_investment}}</a></li>#}
-        {#            <li><a href="/us/search">{{labels.search}}</a></li>#}
-        {#        </ul>#}
-        {#    </nav>#}
     </div>
     {% if contentBlocks.pageHeader.heroVideo %}
         <div class="modal fade" id="heroVideo" role="dialog">
