@@ -12,6 +12,10 @@
   //background: transparent;
   border-bottom: 5px solid $red-line-colour;
 
+  .container {
+    padding-left: 0;
+  }
+
   .dit-content-section {
     display: none;
   }
@@ -65,7 +69,7 @@
     @extend .jumbotron;
     min-height: 450px;
     max-height: 450px;
-    padding: 96px 0 0 0;
+    padding: 50px 0 0 0;
 
     h1 {
       //
