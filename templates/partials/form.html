@@ -82,7 +82,7 @@
                                 <select name="organisation[annual_turnover]" class="form-control" id="turnover">
                                     <option value="" disabled selected>{{ labels.please_select }}</option>
                                     {% for o in labels.form_annual_turnover.options %}
-                                        <option value="{{loop.index}}:{{o}}:{{labels.en.form_annual_turnover.options[loop.index0]}}">{{ o }}</option>
+                                        <option value="{{loop.index}}-turnover:{{o}}:{{labels.en.form_annual_turnover.options[loop.index0]}}">{{ o }}</option>
                                     {% endfor %}
                                 </select>
                                 <input name="english[form_annual_turnover]" type="hidden" value="{{ labels.en.form_annual_turnover.label }}">
@@ -93,7 +93,7 @@
                                 <select name="organisation[number_of_employees]" class="form-control" id="staff">
                                     <option value="" disabled selected>{{ labels.please_select }}</option>
                                     {% for o in labels.form_staff_number.options %}
-                                        <option value="{{loop.index}}:{{o}}:{{labels.en.form_staff_number.options[loop.index0]}}">{{ o }}</option>
+                                        <option value="{{loop.index}}-staff:{{o}}:{{labels.en.form_staff_number.options[loop.index0]}}">{{ o }}</option>
                                     {% endfor %}
                                 </select>
                                 <input name="english[form_staff_number]" type="hidden" value="{{ labels.en.form_staff_number.label }}">
@@ -119,7 +119,7 @@
                                 <select name="enquiry[primary_location]" class="form-control" id="location">
                                     <option value="" disabled selected>{{ labels.please_select }}</option>
                                     {% for o in labels.form_which_part.options %}
-                                        <option value="{{loop.index}}:{{o}}:{{labels.en.form_which_part.options[loop.index0]}}">{{ o }}</option>
+                                        <option value="{{loop.index}}-potential-location:{{o}}:{{labels.en.form_which_part.options[loop.index0]}}">{{ o }}</option>
                                     {% endfor %}
                                 </select>
                                 <input name="english[form_which_part]" type="hidden" value="{{ labels.en.form_which_part.label }}">
@@ -174,15 +174,15 @@
                                         <input name="multilingual[form_headquarters]" type="hidden" value="{{ labels.form_headquarters}}">
                                     </div>
                                     <div class="form-group col-lg-8">
-                                        <label for="industry">{{ labels.form_primary_industry }}</label>
+                                        <label for="industry">{{ labels.form_primary_industry.label }}</label>
                                         <select name="organisation[industry]" class="form-control" id="industry">
                                             <option value="" disabled selected>{{ labels.please_select }}</option>
-                                            <option value="1">US</option>
-                                            <option value="2">DE</option>
-                                            <option value="3">CN</option>
+                                    {% for o in labels.form_primary_industry.options %}
+                                        <option value="{{loop.index}}-industry:{{o}}:{{labels.en.form_primary_industry.options[loop.index0]}}">{{ o }}</option>
+                                    {% endfor %}
                                         </select>
-                                        <input name="english[form_primary_industry]" type="hidden" value="{{ labels.en.form_primary_industry }}">
-                                        <input name="multilingual[form_primary_industry]" type="hidden" value="{{ labels.form_primary_industry}}">
+                                        <input name="english[form_primary_industry]" type="hidden" value="{{ labels.en.form_primary_industry.label }}">
+                                        <input name="multilingual[form_primary_industry]" type="hidden" value="{{ labels.form_primary_industry.label}}">
                                     </div>
                                     <div class="form-group col-lg-10">
                                         <label class="control-label">{{ labels.form_other }}</label>
