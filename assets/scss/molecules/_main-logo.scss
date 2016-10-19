@@ -10,7 +10,6 @@
   float: left;
   height: 32px;
   margin-bottom: 10px;
-
 }
 
 .dit-hmg_logo {
@@ -20,12 +19,18 @@
   position: absolute;
   top: 0;
   z-index: 1;
+
+  //@media (min-width: $screen-sm-max) {
+  //  .container {
+  //    padding-left: 0;
+  //  }
+  //}
 }
 
 .dit-logo {
   height: 32px;
   margin-top: 4px;
-  margin-left: -16px;
+  margin-left: -2px;
 }
 
 .dit-nav-contact {

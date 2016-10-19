@@ -5,6 +5,7 @@
   margin-top: 60px;
   border: 1px solid $tile-border-colour;
   border-bottom: 5px solid $red-line-colour;
+  overflow: hidden;
 
   &__heading {
     font-size: 40px;
@@ -28,8 +29,15 @@
   }
 
   @media (max-width: $screen-xs-max) {
-    border-right: 0;
-    border-bottom: 1px solid $tile-border-colour;
+    &__info {
+      border-right: 0;
+    }
+  }
+
+  @media (max-width: $screen-sm-max) {
+    &__info {
+      border-right: 0;
+    }
   }
 
   &__body {

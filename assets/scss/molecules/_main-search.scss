@@ -1,6 +1,8 @@
 //_main-search.scss
 
 .dit-main-search {
+  margin-right: -36px;
+
   @media (max-width: $screen-xs-max) {
     > div {
       width: 90%;

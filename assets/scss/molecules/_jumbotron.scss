@@ -12,9 +12,11 @@
   //background: transparent;
   border-bottom: 5px solid $red-line-colour;
 
-  .container {
-    padding-left: 0;
-  }
+  //@media (min-width: $screen-sm-max) {
+  //  .container {
+  //    padding-left: 0;
+  //  }
+  //}
 
   .dit-content-section {
     display: none;

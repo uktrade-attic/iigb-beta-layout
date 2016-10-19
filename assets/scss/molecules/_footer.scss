@@ -6,7 +6,6 @@
   background-color: $text-colour !important;
 
   &--list {
-    margin-top: 28px;
     padding-left: 0;
     > li {
       display: inline-block;
@@ -29,5 +28,23 @@
       margin-top: 30px;
       margin-bottom: 20px;
     }
+  }
+  //
+  //@media (max-width: $screen-md-max) {
+  //  > li > a {
+  //    font-size: 16px;
+  //    padding: 24px;
+  //  }
+  //}
+  //
+  //@media (max-width: $screen-sm-max) {
+  //  > li > a {
+  //    font-size: 14px;
+  //    padding: 24px 8px;
+  //  }
+  //}
+
+  @media (max-width: $screen-xs-max) {
+    height: 100%;
   }
 }
