@@ -1,5 +1,6 @@
 {% if locale.language === 'en' %}
 <script>
+
     window.language = 'en';
 </script>
 {% endif %}
@@ -85,10 +86,10 @@
     function prepareForm() {
       var navListItems = $('div.setup-panel div a'),
         allWells = $('.setup-content'),
-        allNextBtn = $('.nextBtn'),
+        allNextBtn = $('.nextBtn');
         allPrevBtn = $('.prevBtn');
-
-      allWells.hide();
+        submitBtn = $('.submitBtn');
+        allWells.hide();
 
       navListItems.click(function(e) {
         e.preventDefault();
@@ -96,13 +97,8 @@
           $item = $(this);
 
         if (!$item.hasClass('disabled')) {
-          navListItems.removeClass('active-selection')
-{#                  .addClass('btn-default');#}
-{#          navListItems.removeClass('btn');#}
-{#          navListItems.removeClass('btn-circle');#}
+          navListItems.removeClass('active-selection');
           $item.addClass('active-selection');
-{#          $item.addClass('btn');#}
-{#          $item.addClass('btn-circle');#}
           allWells.hide();
           $target.show();
           $target.find('input:eq(0)').focus();
@@ -116,11 +112,6 @@
           curInputs = curStep.find("input[type='text'],input[type='email'], #turnover:selected, #staff:selected"),
           isValid = true;
 
-        console.log(curStep);
-        console.log(curStepBtn);
-        console.log(curInputs);
-
-
         $(".form-group").removeClass("has-error");
         for (var i = 0; i < curInputs.length; i++) {
           if (!curInputs[i].validity.valid) {
@@ -128,6 +119,7 @@
             $(curInputs[i]).closest(".form-group").addClass("has-error");
           }
         }
+
 
 
         if (isValid)
@@ -152,3 +144,4 @@
         //
     });
 </script>
+
