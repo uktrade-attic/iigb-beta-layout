@@ -96,13 +96,8 @@
           $item = $(this);
 
         if (!$item.hasClass('disabled')) {
-          navListItems.removeClass('active-selection')
-{#                  .addClass('btn-default');#}
-{#          navListItems.removeClass('btn');#}
-{#          navListItems.removeClass('btn-circle');#}
+          navListItems.removeClass('active-selection');
           $item.addClass('active-selection');
-{#          $item.addClass('btn');#}
-{#          $item.addClass('btn-circle');#}
           allWells.hide();
           $target.show();
           $target.find('input:eq(0)').focus();
@@ -116,9 +111,9 @@
           curInputs = curStep.find("input[type='text'],input[type='email'], #turnover:selected, #staff:selected"),
           isValid = true;
 
-        console.log(curStep);
-        console.log(curStepBtn);
-        console.log(curInputs);
+//        console.log(curStep);
+//        console.log(curStepBtn);
+//        console.log(curInputs);
 
 
         $(".form-group").removeClass("has-error");

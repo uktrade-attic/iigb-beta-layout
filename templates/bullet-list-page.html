@@ -1,8 +1,12 @@
-{% extends "base/content.html" %}
+{% extends "base/index.html" %}
 {% import "partials/markups.html" as markups %}
 
-{% block page_content %}
+{% block content %}
 
-{{ markups.bullet_list(list = contentBlocks.listItems, country = locale.country  ) }}
+{% include "partials/header-nav.html" %}
+{% include "partials/jumbotron.html" %}
+
+{{ markups.bullet_list(list = contentBlocks.listItems, country = locale.country) }}
 
 {% endblock %}
+

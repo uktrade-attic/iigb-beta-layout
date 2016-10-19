@@ -12,6 +12,10 @@
   //background: transparent;
   border-bottom: 5px solid $red-line-colour;
 
+  .dit-content-section {
+    display: none;
+  }
+
   h1 {
     margin-top: 200px;
   }
@@ -28,15 +32,22 @@
     font-size: 28px;
     top: -40px;
     padding: 10px 8px 10px 12px;
-    color: black;
+    color: $white;
     text-shadow: 0 0 0 white;
     margin-right: 8px;
     float: right;
   }
 
   .dit-play-icon {
-    background-color: $white;
-    border-radius: 50%;
+    //background-color: $white;
+    //border-radius: 50%;
+  }
+
+  .dit-remove-icon {
+    position: absolute;
+    top: 25px;
+    right: 60px;
+    font-size: 36px;
   }
 
   .dit-play-video {

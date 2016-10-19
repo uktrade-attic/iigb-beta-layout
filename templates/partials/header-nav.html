@@ -13,21 +13,21 @@
             </a>
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse-1">
-            <ul class="nav navbar-nav dit-main-nav-list-alt">
-
+            <ul class="nav navbar-nav dit-main-nav-list-alt pull-right">
                 <li><a href="/{{locale.country}}/">{{labels.home}}</a></li>
                 <li><a href="/{{locale.country}}/investment-guide/">{{labels.investment_guide}}</a></li>
                 <li><a href="/{{locale.country}}/industries/">{{labels.industries}}<span class="sr-only">(current)</span></a></li>
-                <li><a href="#">{{labels.how_we_help}}</a></li>
-
+                <!--<li><a href="#">{{labels.how_we_help}}</a></li>-->
+                <li>
+                    <form class="navbar-form navbar-right dit-main-search" role="search">
+                        <div class="form-group">
+                            <input type="text" class="dit-main-search__input-field" placeholder="{{labels.search}}">
+                        </div>
+                        <button type="submit" class="dit-main-search__submit"><span
+                                class="glyphicon glyphicon-search dit-main-search__glyph" aria-hidden="true"></span></button>
+                    </form>
+                </li>
             </ul>
-            <form class="navbar-form navbar-right dit-main-search" role="search">
-                <div class="form-group">
-                    <input type="text" class="dit-main-search__input-field" placeholder="{{labels.search}}">
-                </div>
-                <button type="submit" class="dit-main-search__submit"><span
-                        class="glyphicon glyphicon-search dit-main-search__glyph" aria-hidden="true"></span></button>
-            </form>
         </div>
     </div>
 </nav>

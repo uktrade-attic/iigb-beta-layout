@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <section class="container dit-form-section">
-        <div class="col-md-4" style="min-height:58rem; border-right: 1px solid #D8D8D8;">
-            <h3 class="dark-grey">{{ contentBlocks.formBlock.content.title }}</h3>
+        <div class="col-md-4 dit-form-section__info">
+            <h3>{{ contentBlocks.formBlock.content.title }}</h3>
             <p>
                 {{ contentBlocks.formBlock.content.contents | safe }}
             </p>
@@ -11,12 +11,12 @@
                         <span class="glyphicon glyphicon-star" aria-hidden="true" style="color:red;"></span>
                     </div>
                     <div class="col-md-10">
-                        <p>{{ l | safe }}</p>
+                        <p class="light-grey">{{ l | safe }}</p>
                     </div>
                 </div>
             {% endfor %}
         </div>
-        <div class="col-md-8" style="min-height:58rem;">
+        <div class="col-md-8 dit-form-section__body">
             <form role="form" action="" method="post">
                 <div class="stepwizard">
                     <div class="stepwizard-row setup-panel">
@@ -33,8 +33,8 @@
                 </div>
                 <div class="row setup-content" id="step-1">
                     <div class="col-lg-12">
-                        <div class="col-md-12" style="min-height:58rem;">
-                            <h3 style="margin-bottom: 30px; margin-left: 15px;">{{ labels.form_contact_details }}</h3>
+                        <div class="col-md-12 dit-form-section__step">
+                            <h3>{{ labels.form_contact_details }}</h3>
                             <div class="form-group col-lg-10">
                                 <label class="control-label">{{ labels.form_full_name }}</label>
                                 <input maxlength="100" type="text" required="required" class="form-control"
@@ -58,7 +58,7 @@
                             <div class="form-group__button col-lg-12 push-to-bottom">
                                 <button class="btn btn-primary nextBtn btn-lg pull-right"
                                         type="button">{{ labels.form_next }}<span
-                                        class="glyphicon glyphicon-triangle-right" style="margin-left:20px;"></span>
+                                        class="glyphicon glyphicon-triangle-right"></span>
                                 </button>
                             </div>
                         </div>
@@ -66,8 +66,8 @@
                 </div>
                 <div class="row setup-content" id="step-2">
                     <div class="col-lg-12">
-                        <div class="col-md-12" style="min-height:58rem;">
-                            <h3 style="margin-bottom: 30px; margin-left: 15px;">{{ labels.form_investment }}</h3>
+                        <div class="col-md-12 dit-form-section__step">
+                            <h3>{{ labels.form_investment }}</h3>
                             <div class="form-group col-lg-8 bottom-buffer">
                                 <label for="turnover">{{ labels.form_annual_turnover.label }}</label>
                                 <select class="form-control" id="turnover">
@@ -120,8 +120,7 @@
                                             class="glyphicon glyphicon-triangle-right"></span>
                                 </button>
                                 <button class="btn btn-primary prevBtn btn-lg pull-right" type="button">
-                                    <span class="glyphicon glyphicon-triangle-left pull-left"
-                                          style="margin-top: 6px;"></span>
+                                    <span class="glyphicon glyphicon-triangle-left pull-left"></span>
                                     {{ labels.form_previous }}</button>
                             </div>
                         </div>
@@ -129,8 +128,8 @@
                 </div>
                 <div class="row setup-content" id="step-3">
                     <div class="col-lg-12">
-                        <div class="col-md-12" style="min-height:58rem;">
-                            <h3 style="margin-bottom: 30px; margin-left: 15px;">{{ labels.form_company }}</h3>
+                        <div class="col-md-12 dit-form-section__step">
+                            <h3>{{ labels.form_company }}</h3>
                             <div class="form-group col-lg-10">
                                 <label class="control-label">{{ labels.form_registered_company }}</label>
                                 <input maxlength="100" type="text" required="required" class="form-control"
@@ -169,8 +168,7 @@
                                     {{ labels.form_submit }}
                                 </button>
                                 <button class="btn btn-primary prevBtn btn-lg pull-right" type="button">
-                                    <span class="glyphicon glyphicon-triangle-left pull-left"
-                                          style="margin-top: 6px;"></span>
+                                    <span class="glyphicon glyphicon-triangle-left pull-left"></span>
                                     {{ labels.form_previous }}</button>
                             </div>
                         </div>
