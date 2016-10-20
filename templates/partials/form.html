@@ -16,8 +16,8 @@
                 </div>
             {% endfor %}
         </div>
-        <div class="col-md-8" style="min-height:58rem;">
-            <form enctype='application/json' role="form" action="https://iigb-forms.herokuapp.com/form" method="post">
+        <div class="col-md-8 dit-form-section__body">
+            <form enctype='application/json' role="form" action="http://iigb-forms.herokuapp.com/form" method="post">
                 <div class="stepwizard">
                     <div class="stepwizard-row setup-panel">
                         <div class="stepwizard-step">
@@ -32,10 +32,10 @@
                     </div>
                 </div>
                 <div class="row setup-content" id="step-1">
-                    <div class="col-lg-12">
+                    <div class="col-md-12">
                         <div class="col-md-12" style="min-height:58rem;">
-                            <h3 style="margin-bottom: 30px; margin-left: 15px;">{{ labels.form_contact_details }}</h3>
-                            <div class="form-group col-lg-10">
+                            <h3>{{ labels.form_contact_details }}</h3>
+                            <div class="form-group col-md-10">
                                 <input id="hidden_field" name="language" type="hidden" value="{{locale.language}}">
                                 <label class="control-label">{{ labels.form_full_name }}</label>
                                 <input maxlength="100" type="text" name="user[name]" required="required" class="form-control"
@@ -64,8 +64,8 @@
                                 <input name="english[form_city]" type="hidden" value="{{ labels.en.form_city }}">
                                 <input name="multilingual[form_city]" type="hidden" value="{{ labels.form_city }}">
                             </div>
-                            <div class="form-group__button col-lg-12 push-to-bottom">
-                                <button class="btn btn-primary nextBtn btn-lg pull-right"
+                            <div class="form-group__button col-md-12 push-to-bottom">
+                                <button class="btn btn-primary nextBtn btn-md pull-right"
                                 type="button">{{ labels.form_next }}<span
                                 class="glyphicon glyphicon-triangle-right" style="margin-left:20px;"></span>
 
@@ -89,9 +89,9 @@
                                 <input name="english[form_annual_turnover]" type="hidden" value="{{ labels.en.form_annual_turnover.label }}">
                                 <input name="multilingual[form_annual_turnover]" type="hidden" value="{{ labels.form_annual_turnover.label }}">
                             </div>
-                            <div class="form-group col-lg-8">
-                                <label for="staff" class="control-label">{{ labels.form_staff_number.label }}</label>
-                                <select name="organisation[number_of_employees]" class="form-control" id="staff" required>
+                            <div class="form-group col-md-8">
+                                <label for="sel1">{{ labels.form_staff_number.label }}</label>
+                                <select name="organisation[number_of_employees]" class="form-control" id="staff">
                                     <option value="" disabled selected>{{ labels.please_select }}</option>
                                     {% for o in labels.form_staff_number.options %}
                                         <option value="{{loop.index}}-staff:{{o}}:{{labels.en.form_staff_number.options[loop.index0]}}">{{ o }}</option>
@@ -148,23 +148,23 @@
                     </div>
                 </div>
                 <div class="row setup-content" id="step-3">
-                    <div class="col-lg-12">
+                    <div class="col-md-12">
                         <div class="col-md-12 dit-form-section__step">
                             <h3>{{ labels.form_company }}</h3>
-                            <div class="form-group col-lg-10">
+                            <div class="form-group col-md-10">
                                 <label for="company_name" class="control-label">{{ labels.form_registered_company }}</label>
-                                <input maxlength="100" type="text" name="organisation[name]" id="company_name" required="required" class="form-control"
+                                <input maxlength="100" type="text" name="organisation[name]" required="required" class="form-control"
                                 placeholder="{{ labels.form_enter_registered_company }}"/>
                                 <input name="english[form_registered_company]" type="hidden" value="{{ labels.en.form_registered_company }}">
                                 <input name="multilingual[form_registered_company]" type="hidden" value="{{ labels.form_registered_company }}">                            </div>
-                                <div class="form-group col-lg-10">
+                                <div class="form-group col-md-10">
                                     <label for="website" class="control-label">{{ labels.form_website }}</label>
                                     <input type="text" name="organisation[website]" required="required" id="website" class="form-control"
                                     placeholder="{{ labels.form_enter_website }}"/>
                                     <input name="english[form_website]" type="hidden" value="{{ labels.en.form_website }}">
                                     <input name="multilingual[form_website]" type="hidden" value="{{ labels.form_website }}">
                                 </div>
-                                <div class="form-group col-lg-8">
+                                <div class="form-group col-md-8">
                                     <label for="country" class="control-label">{{ labels.form_headquarters }}</label>
                                     <select name="organisation[headquarters_country]" class="form-control" id="country" required>
                                         <option value="" disabled selected>{{ labels.please_select }}</option>
@@ -175,7 +175,7 @@
                                     <input name="english[form_headquarters]" type="hidden" value="{{ labels.en.form_headquarters }}">
                                     <input name="multilingual[form_headquarters]" type="hidden" value="{{ labels.form_headquarters}}">
                                 </div>
-                                <div class="form-group col-lg-8">
+                                <div class="form-group col-md-8">
                                     <label for="industry" class="control-label">{{ labels.form_primary_industry.label }}</label>
                                     <select name="organisation[industry]" class="form-control" id="industry" required>
                                         <option value="" disabled selected>{{ labels.please_select }}</option>
@@ -186,13 +186,13 @@
                                     <input name="english[form_primary_industry]" type="hidden" value="{{ labels.en.form_primary_industry.label }}">
                                     <input name="multilingual[form_primary_industry]" type="hidden" value="{{ labels.form_primary_industry.label}}">
                                 </div>
-                                <div class="form-group col-lg-10">
+                                <div class="form-group col-md-10">
                                     <label class="control-label">{{ labels.form_other }}</label>
                                     <input type="text" name="user[other]" class="form-control" placeholder="{{ labels.form_enter_email }}"/>
                                     <input name="english[form_other]" type="hidden" value="{{ labels.en.form_other}}">
                                     <input name="multilingual[form_other]" type="hidden" value="{{ labels.form_other}}">
                                 </div>
-                                <div class="form-group__button col-lg-12 push-to-bottom">
+                                <div class="form-group__button col-md-12 push-to-bottom">
                                     <button class="btn btn-primary nextBtn btn-lg pull-right"
                                     type="submit">
                                     {{ labels.form_submit }}
