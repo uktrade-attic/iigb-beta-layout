@@ -7,20 +7,17 @@
   overflow: hidden;
 
   &__item {
-    padding: 15px;
-    width: 25%;
-    float: left;
-    position: relative;
-    margin-bottom: 30px;
-    overflow: hidden;
+    //padding: 15px;
+    //width: 25%;
+    //float: left;
+    //position: relative;
+    //margin-bottom: 30px;
+    //overflow: hidden;
+    margin: 16px 0;
 
-    @media (max-width: $screen-sm-max) {
-      width: 50%;
-    }
-
-    @media (max-width: $screen-xs-max) {
-      width: 50%;
-    }
+    //@media (max-width: $screen-sm-max) {
+    //  width: 50%;
+    //}
 
     a {
       color: $white;
