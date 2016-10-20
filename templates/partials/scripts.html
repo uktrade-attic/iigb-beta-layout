@@ -85,7 +85,7 @@
     }
 
     function checkHeight() {
-        var needsHeightChange = $('.dit-outer-wrapper').find('.check-height')
+        var needsHeightChange = $('.dit-outer-wrapper').find('.check-height');
         console.log(needsHeightChange);
     }
 
@@ -108,6 +108,7 @@
           
         location_radio_no.click(
           function(e){
+            $('#location').prop('selectedIndex', 0);
             location_selectors.hide();
         });
 
