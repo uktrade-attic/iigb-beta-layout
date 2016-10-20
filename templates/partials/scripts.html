@@ -95,8 +95,20 @@
         allPrevBtn = $('.prevBtn');
         submitBtn = $('.submitBtn');
         allWells.hide();
+        location_selectors = $('#location_selectors');
+        location_radio_yes = $('#location_radio_yes');
+        location_radio_no = $('#location_radio_no');
+        location_selectors.hide();
 
-
+        location_radio_yes.click(
+          function(e){
+            location_selectors.show();
+        });
+          
+        location_radio_no.click(
+          function(e){
+            location_selectors.hide();
+        });
 
       navListItems.click(function(e) {
         e.preventDefault();
@@ -116,7 +128,7 @@
         var curStep = $(this).closest(".setup-content"),
           curStepBtn = curStep.attr("id"),
           nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
-          curInputs = curStep.find("input[type='text'],input[type='email'], #location, #turnover, #country, #industry, #staff,input[type='date']"),
+          curInputs = curStep.find("input[type='text'],input[type='email'], #location_radio_yes, #turnover, #country, #industry, #staff,input[type='date']"),
           isValid = true;
 
         $(".form-group").removeClass("has-error");

@@ -101,21 +101,21 @@
                                 <input name="multilingual[form_staff_number]" type="hidden" value="{{ labels.form_staff_number.label }}">
                             </div>
                             <div class="form-group col-md-10">
-                                <label class="control-label">{{ labels.form_location }}</label>
+                                <label for="location_radio_yes" class="control-label">{{ labels.form_location }}</label>
                                 <fieldset class="inline">
                                     <label class="block-label" for="radio-inline-1">
-                                        <input id="location_yes" type="radio" name="enquiry[location_is_specific]" value="Yes">
+                                        <input id="location_radio_yes" type="radio" name="enquiry[location_is_specific]" value="Yes" required>
                                         {{ labels.yes }}
                                     </label>
                                     <label class="block-label" for="radio-inline-2">
-                                        <input id="radio-inline-2" type="radio" name="enquiry[location_is_specific]" value="No">
+                                        <input id="location_radio_no" type="radio" name="enquiry[location_is_specific]" value="No">
                                         {{ labels.no }}
                                     </label>
                                 </fieldset>
                                 <input name="english[form_location]" type="hidden" value="{{ labels.en.form_location }}">
                                 <input name="multilingual[form_location]" type="hidden" value="{{ labels.form_location }}">
                             </div>
-                            <div class="form-group col-md-8">
+                            <div class="form-group col-md-8" id="location_selectors">
                                 <label for="location" class="control-label">{{ labels.form_which_part.label }}</label>
                                 <select name="enquiry[primary_location]" class="form-control" id="location">
                                     <option value="" disabled selected>{{ labels.please_select }}</option>
