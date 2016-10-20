@@ -85,7 +85,7 @@
     }
 
     function checkHeight() {
-        var needsHeightChange = $('.dit-outer-wrapper').find('.check-height')
+        var needsHeightChange = $('.dit-outer-wrapper').find('.check-height');
     }
 
     function prepareForm() {
@@ -95,6 +95,8 @@
         allPrevBtn = $('.prevBtn');
         submitBtn = $('.submitBtn');
         allWells.hide();
+
+
 
       navListItems.click(function(e) {
         e.preventDefault();
@@ -114,7 +116,7 @@
         var curStep = $(this).closest(".setup-content"),
           curStepBtn = curStep.attr("id"),
           nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
-          curInputs = curStep.find("input[type='text'],input[type='email'], #turnover:selected, #staff:selected"),
+          curInputs = curStep.find("input[type='text'],input[type='email'], #location, #turnover, #country, #industry, #staff,input[type='date']"),
           isValid = true;
 
         $(".form-group").removeClass("has-error");
@@ -124,8 +126,6 @@
             $(curInputs[i]).closest(".form-group").addClass("has-error");
           }
         }
-
-
 
         if (isValid)
           nextStepWizard.removeAttr('disabled').trigger('click');
