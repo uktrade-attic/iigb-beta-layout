@@ -118,7 +118,7 @@
                             <div class="form-group col-md-8" id="location_selectors">
                                 <label for="location" class="control-label">{{ labels.form_which_part.label }}</label>
                                 <select name="enquiry[primary_location]" class="form-control" id="location">
-                                    <option value="" disabled selected>{{ labels.please_select }}</option>
+                                    <option value="0-potential-location" disabled selected>{{ labels.please_select }}</option>
                                     {% for o in labels.form_which_part.options %}
                                         <option value="{{loop.index}}-potential-location:{{o}}:{{labels.en.form_which_part.options[loop.index0]}}">{{ o }}</option>
                                     {% endfor %}
