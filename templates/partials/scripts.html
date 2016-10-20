@@ -1,5 +1,6 @@
 {% if locale.language === 'en' %}
 <script>
+
     window.language = 'en';
 </script>
 {% endif %}
@@ -90,10 +91,10 @@
     function prepareForm() {
       var navListItems = $('div.setup-panel div a'),
         allWells = $('.setup-content'),
-        allNextBtn = $('.nextBtn'),
+        allNextBtn = $('.nextBtn');
         allPrevBtn = $('.prevBtn');
-
-      allWells.hide();
+        submitBtn = $('.submitBtn');
+        allWells.hide();
 
       navListItems.click(function(e) {
         e.preventDefault();
@@ -125,6 +126,7 @@
         }
 
 
+
         if (isValid)
           nextStepWizard.removeAttr('disabled').trigger('click');
       });
@@ -147,3 +149,4 @@
         //
     });
 </script>
+
