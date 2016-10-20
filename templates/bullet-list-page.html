@@ -6,7 +6,9 @@
 {% include "partials/header-nav.html" %}
 {% include "partials/jumbotron-short.html" %}
 
-{{ markups.bullet_list(list = contentBlocks.listItems, country = locale.country) }}
+<div class="container">
+    {{ markups.bullet_list(list = contentBlocks.listItems, country = locale.country) }}
+</div>
 
 {% endblock %}
 
