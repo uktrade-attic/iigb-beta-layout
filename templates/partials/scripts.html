@@ -46,7 +46,7 @@
     function onLoaded() {
         smoothScroll();
         addActive();
-        checkHeights();
+        checkHeight();
     }
 
     function smoothScroll() {
@@ -85,7 +85,8 @@
     }
 
     function checkHeight() {
-        var needsHeightChange = $('.dit-outer-wrapper').find('.check-height');
+        var needsHeightChange = $('.dit-outer-wrapper').find('.check-height')
+        console.log(needsHeightChange);
     }
 
     function prepareForm() {
