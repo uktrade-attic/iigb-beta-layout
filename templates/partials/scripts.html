@@ -85,8 +85,10 @@
     }
 
     function checkHeight() {
-        var needsHeightChange = $('.dit-outer-wrapper').find('.check-height')
-        console.log(needsHeightChange);
+        var that = $('div').find('.check-height');
+        if (that.length > 0) {
+            equalheight(that)
+        }
     }
 
     function prepareForm() {
@@ -105,7 +107,7 @@
           function(e){
             location_selectors.show();
         });
-          
+
         location_radio_no.click(
           function(e){
             location_selectors.hide();
@@ -159,7 +161,7 @@
     }
 
     $(window).on('resize', function () {
-        //
+        checkHeight()
     });
 </script>
 

@@ -46,6 +46,7 @@
     overflow: hidden;
   }
 }
+
 .dit-ind-bottom-desc-list {
   list-style: none;
   padding: 0;
@@ -54,11 +55,10 @@
 
   &__item {
     padding: 15px;
-    width: 30%;
-    float: left;
+    width: 100%;
     position: relative;
     display: inline-block;
-    margin: 10px 17px;
+    margin: 8px 0px;
     border: 1px solid $tile-border-colour;
     overflow: hidden;
     color: $text-colour;
@@ -66,16 +66,6 @@
     &:hover {
       background-color: $toc-colour;
       border: 1px solid $link-colour;
-    }
-
-    @media (max-width: $screen-sm-max) {
-      width: 32%;
-      margin: 8px 4px;
-    }
-
-    @media (max-width: $screen-xs-max) {
-      width: 100%;
-      margin: 8px 0;
     }
   }
 
