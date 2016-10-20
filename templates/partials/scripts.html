@@ -45,6 +45,7 @@
     function onLoaded() {
         smoothScroll();
         addActive();
+        checkHeights();
     }
 
     function smoothScroll() {
@@ -82,6 +83,10 @@
         }
     }
 
+    function checkHeight() {
+        var needsHeightChange = $('.dit-outer-wrapper').find('.check-height')
+    }
+
     function prepareForm() {
       var navListItems = $('div.setup-panel div a'),
         allWells = $('.setup-content'),
@@ -110,11 +115,6 @@
           nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
           curInputs = curStep.find("input[type='text'],input[type='email'], #turnover:selected, #staff:selected"),
           isValid = true;
-
-//        console.log(curStep);
-//        console.log(curStepBtn);
-//        console.log(curInputs);
-
 
         $(".form-group").removeClass("has-error");
         for (var i = 0; i < curInputs.length; i++) {

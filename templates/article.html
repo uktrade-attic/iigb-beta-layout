@@ -9,10 +9,12 @@
             <h2 class="dit-toc__heading">{{labels.on_this_page}}</h2>
             <ol class="dit-toc__list">
                 {% for a in contentBlocks.sections %}
-                  <li class="dit-toc__list-item"><a href="#{{a.content.title|slug(locale.language)}}">{{a.content.title}}</a></li>
+                <li class="dit-toc__list-item"><a
+                        href="#{{a.content.title|slug(locale.language)}}">{{a.content.title}}</a></li>
                 {% endfor %}
                 {% if contentBlocks.subContent %}
-                <li class="dit-toc__list-item"><a href="#sub-sectors">{{labels.pre_word}}{{contentBlocks.pageHeader.content.title}}{{labels.post_word}}</a></li>
+                <li class="dit-toc__list-item"><a href="#sub-sectors">{{labels.pre_word}}{{contentBlocks.pageHeader.content.title}}{{labels.post_word}}</a>
+                </li>
                 {% endif %}
             </ol>
         </div>
@@ -26,23 +28,25 @@
         <div class="row">
             <div class="col-md-7 col-sm-10 dit-main-content__body">
                 {% for a in contentBlocks.sections %}
-                  {{ markups.section(a, labels, locale.language) }}
+                {{ markups.section(a, labels, locale.language) }}
                 {% endfor %}
                 <p class="dit-updated">Page updated {{now()|date}}</p>
             </div>
         </div>
+
+        {% if contentBlocks.subContent %}
+        <div class="dit-industries-subsectors">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 id="sub-sectors">
+                            {{labels.pre_word}}{{contentBlocks.pageHeader.content.title}}{{labels.post_word}}:</h2>
+                        {{markups.tilesSector(list = contentBlocks.subContent, country = locale.country)}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
     </div>
-    {% if contentBlocks.subContent %}
-      <div class="dit-industries-subsectors">
-          <div class="container">
-              <div class="row">
-                  <div class="col-md-12">
-                      <h2 id="sub-sectors">{{labels.pre_word}}{{contentBlocks.pageHeader.content.title}}{{labels.post_word}}:</h2>
-                      {{markups.tilesSector(list = contentBlocks.subContent, country = locale.country)}}
-                  </div>
-              </div>
-          </div>
-      </div>
-    {% endif %}
 </div>
 {% endblock %}

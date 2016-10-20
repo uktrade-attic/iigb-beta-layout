@@ -3,9 +3,10 @@
 
 {% block page_content %}
 
-    {% include "partials/jumbotron.html" %}
+{% include "partials/jumbotron.html" %}
 
-    <section class="dit-content-section container">
+<div class="container">
+    <section class="dit-content-section">
         <div class="row">
             <div class="col-xs-12">
                 {{ markups.intro(contentBlocks.sections[0]) }}
@@ -14,15 +15,16 @@
     </section>
 
     {% if contentBlocks.subContent %}
-        <section class="dit-content-section container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h2 id="sub-sectors">
-                        {{ contentBlocks.pageHeader.content.title }} {{ labels.post_GB }} {{labels.post_strengths}}:</h2>
-                    {{ markups.tilesWithBottomDescription(list = contentBlocks.subContent, country = locale.country) }}
-                </div>
+    <section class="dit-content-section">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 id="sub-sectors">
+                    {{ contentBlocks.pageHeader.content.title }} {{ labels.post_GB }} {{labels.post_strengths}}:</h2>
+                {{ markups.tilesWithBottomDescription(list = contentBlocks.subContent, country = locale.country) }}
             </div>
-        </section>
+        </div>
+    </section>
     {% endif %}
+</div>
 
 {% endblock %}
