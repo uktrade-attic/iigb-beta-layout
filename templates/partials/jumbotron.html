@@ -18,14 +18,13 @@
         <div class="dit-hero__content">
 
             <div class="row">
-                <div class="col-sm-8">
-                    <h1>{{ pageTitle }}</h1>
+                <div class="col-sm-10 col-md-8">
+                    <h1>{{ contentBlocks.pageHeader.content.title }}</h1>
                     <p>{{ contentBlocks.pageHeader.content.contents | safe }}</p>
                 </div>
             </div>
 
-            {#    change to contentBlocks.pageHeader.heroVideo#}
-            {% if not contentBlocks.pageHeader.heroImage %}
+            {% if contentBlocks.pageHeader.heroVideo %}
                 <!--[if ! IE]><!-->
                 <p>
                     <a href="#" class="bg-video-inactive bg-video-play dit-text-decoration-none" data-toggle="modal"
@@ -47,31 +46,23 @@
         <![endif]-->
                 <!--[if lte IE 8]>
         <iframe width="560" height="315" title="YouTube video player" id="yt0" role="presentation"
-                src="https://www.youtube.com/embed/yoHrRcKIBKw?controls=0&showinfo=0&origin=https%3A%2F%2Fwww.gov.uk&rel=0&enablejsapi=1&widgetid=1"
+                src="{{contentBlocks.pageHeader.externalVideo}}?controls=0&showinfo=0&origin=https%3A%2F%2Fwww.gov.uk&rel=0&enablejsapi=1&widgetid=1"
                 frameBorder="0" allowfullscreen="1"></iframe>
         <![endif]-->
             {% endif %}
         </div>
-
-        {#    <nav>#}
-        {#        <ul class="text-center list-inline dit-home-section-anchors">#}
-        {#            <li><a href="#why-uk">{{labels.reasons}}</a></li>#}
-        {#            <li><a href="#industries">{{labels.great_british_industries}}</a></li>#}
-        {#            <li><a href="#guide">{{labels.simple_investment}}</a></li>#}
-        {#            <li><a href="/us/search">{{labels.search}}</a></li>#}
-        {#        </ul>#}
-        {#    </nav>#}
     </div>
-    {% if not contentBlocks.pageHeader.heroImage %}
+    {% if contentBlocks.pageHeader.heroVideo %}
         <div class="modal fade" id="heroVideo" role="dialog">
+            <span class="glyphicon glyphicon-remove-sign dit-remove-icon" data-dismiss="modal"></span>
             <div class="modal-dialog video-wrapper">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/yoHrRcKIBKw" frameborder="0"
+                <iframe width="560" height="315" src="{{contentBlocks.pageHeader.externalVideo}}" frameborder="0"
                         allowfullscreen></iframe>
             </div>
         </div>
 
-        <video autoplay loop poster="/assets/img/northern-powerhouse.jpg" class="dit-hero__video-bg">
-            <source src="/assets/vid/northern-powerhouse.mp4" type="video/mp4">
+        <video autoplay loop poster="/assets/vid/{{contentBlocks.pageHeader.heroVideoImage}}" class="dit-hero__video-bg">
+            <source src="/assets/vid/{{contentBlocks.pageHeader.heroVideo}}" type="video/mp4">
         </video>
     {% endif %}
 </div>

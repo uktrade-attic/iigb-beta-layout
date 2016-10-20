@@ -46,6 +46,7 @@
     function onLoaded() {
         smoothScroll();
         addActive();
+        checkHeights();
     }
 
     function smoothScroll() {
@@ -81,6 +82,10 @@
         if ($('ul.nav a')) {
             $('ul.nav a[href="' + language[0] + child + '"]').parent().addClass('active');
         }
+    }
+
+    function checkHeight() {
+        var needsHeightChange = $('.dit-outer-wrapper').find('.check-height')
     }
 
     function prepareForm() {

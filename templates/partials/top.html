@@ -50,6 +50,23 @@
     .navbar-brand img {
         height: 40px;
         width: auto;
+        margin-left: 0;
+    }
+
+    @media (max-width: 767px) {
+        .navbar-brand img {
+            margin-left: -45px !important;
+        }
+    }
+
+    @media (max-width: 991px) and (min-width: 768px)  {
+        .navbar-brand img {
+            margin-left: -30px !important;
+        }
+    }
+
+    .navbar-toggle {
+        margin-right: -30px;
     }
 
     .navbar-default {

@@ -5,8 +5,7 @@
   margin-top: 60px;
   border: 1px solid $tile-border-colour;
   border-bottom: 5px solid $red-line-colour;
-
-
+  overflow: hidden;
 
   &__heading {
     font-size: 40px;
@@ -18,21 +17,39 @@
     }
   }
 
-  &__lead {
+  &__info {
+    min-height: 58rem;
+    border-right: 1px solid $tile-border-colour;
+    padding-left: 24px;
 
-    & p {
-      font-size: 21px;
+    .light-grey {
       font-weight: 100;
-      width: 80%;
-
-      @media (max-width: $screen-xs-max) {
-        font-size: 24px;
-      }
+      color: lighten($text-colour, 25%);
     }
   }
 
-  &__read-more-link {
-    margin-top: 15px;
-    display: inline-block;
+  @media (max-width: $screen-xs-max) {
+    &__info {
+      border-right: 0;
+    }
   }
+
+  @media (max-width: $screen-sm-max) {
+    &__info {
+      border-right: 0;
+    }
+  }
+
+  &__body {
+    min-height: 58rem;
+  }
+
+  &__step {
+    min-height: 58rem;
+  }
+
+  .glyphicon-triangle-left {
+    margin-top: 6px !important;
+  }
+
 }

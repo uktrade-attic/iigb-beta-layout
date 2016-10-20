@@ -7,11 +7,13 @@
 
 {% include "partials/jumbotron.html" %}
 
+<div class="container">
+
 {{contentBlocks.firstSection.content.contents|safe}}
 
 {{ markups.bullet_list( header = contentBlocks.listHeader, list = contentBlocks.listItems, country = locale.country  ) }}
 
-<section class="dit-content-section container">
+<section class="dit-content-section">
     <div class="row">
       <div class="col-md-12">
         {{ markups.tilesWithSideDescription( header = labels.great_british_industries, list = contentBlocks.tileItems, country = locale.country  ) }}
@@ -23,5 +25,6 @@
   </div>
 </section>
 
+</div>
 {% endblock %}
 

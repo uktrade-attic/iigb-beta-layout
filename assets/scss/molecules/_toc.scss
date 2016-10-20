@@ -2,8 +2,8 @@
 
 .dit-toc {
   counter-reset: dit-toc-counter;
-  background: $text-colour;
-  color: $white;
+  background: $toc-colour;
+  color: $text-colour;
 
   &__heading {
     margin-bottom: 16px;
@@ -41,7 +41,7 @@
     }
 
     a {
-      color: $white;
+      color: $text-colour;
       border-bottom: 1px solid $tile-border-colour;
 
       &:hover {
