@@ -90,8 +90,8 @@
                                 <input name="multilingual[form_annual_turnover]" type="hidden" value="{{ labels.form_annual_turnover.label }}">
                             </div>
                             <div class="form-group col-md-8">
-                                <label for="sel1">{{ labels.form_staff_number.label }}</label>
-                                <select name="organisation[number_of_employees]" class="form-control" id="staff">
+                                <label for="staff" class="control-label">{{ labels.form_staff_number.label }}</label>
+                                <select name="organisation[number_of_employees]" class="form-control" id="staff" required>
                                     <option value="" disabled selected>{{ labels.please_select }}</option>
                                     {% for o in labels.form_staff_number.options %}
                                         <option value="{{loop.index}}-staff:{{o}}:{{labels.en.form_staff_number.options[loop.index0]}}">{{ o }}</option>
