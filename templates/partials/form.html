@@ -36,6 +36,7 @@
                         <div class="col-md-12" style="min-height:58rem;">
                             <h3 style="margin-bottom: 30px; margin-left: 15px;">{{ labels.form_contact_details }}</h3>
                             <div class="form-group col-lg-10">
+                                <input id="hidden_field" name="language" type="hidden" value="{{locale.language}}">
                                 <label class="control-label">{{ labels.form_full_name }}</label>
                                 <input maxlength="100" type="text" name="user[name]" required="required" class="form-control"
                                 placeholder="{{ labels.form_enter_full_name }}"/>
@@ -127,7 +128,7 @@
                             </div>
                             <div class="form-group col-md-10">
                                 <label class="control-label">{{ labels.form_when }}</label>
-                                <input type="date" name="enquiry[start_date]" required="required" class="form-control" placeholder="dd/mm/yyyy"/>
+                                <input type="date" name="enquiry[start_date]" required class="form-control" placeholder="dd/mm/yyyy"/>
                                 <input name="english[form_when]" type="hidden" value="{{ labels.en.form_when }}">
                                 <input name="multilingual[form_when]" type="hidden" value="{{ labels.form_when }}">
                             </div>
