@@ -34,6 +34,11 @@
   right: 10px;
   top: 0;
   color: $link-colour;
+
+  @media (max-width: $screen-sm-max) {
+    right: 0px;
+    top: -50px;
+  }
 }
 
 .stepwizard-row:before {
