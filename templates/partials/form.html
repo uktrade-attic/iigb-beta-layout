@@ -17,7 +17,7 @@
             {% endfor %}
         </div>
         <div class="col-md-8" style="min-height:58rem;">
-            <form enctype='application/json' role="form" action="http://localhost:4000/form" method="post">
+            <form enctype='application/json' role="form" action="http://iigb-forms.herokuapp.com/form" method="post">
                 <div class="stepwizard">
                     <div class="stepwizard-row setup-panel">
                         <div class="stepwizard-step">
@@ -160,50 +160,51 @@
                                     <label class="control-label">{{ labels.form_website }}</label>
                                     <input type="text" name="organisation[website]" required="required" class="form-control"
                                     placeholder="{{ labels.form_enter_website }}"/>
-                                    <input name="english[form_website]" type="hidden" value="{{ labels.en.form_website.label }}">
-                                    <input name="multilingual[form_website]" type="hidden" value="{{ labels.form_website.label }}">                            </div>
-                                    <div class="form-group col-lg-8">
-                                        <label for="country">{{ labels.form_headquarters }}</label>
-                                        <select name="organisation[headquarters_country]" class="form-control" id="country">
-                                            <option value="" disabled selected>{{ labels.please_select }}</option>
-                                            <option value="1">US</option>
-                                            <option value="2">DE</option>
-                                            <option value="3">CN</option>
-                                        </select>
-                                        <input name="english[form_headquarters]" type="hidden" value="{{ labels.en.form_headquarters }}">
-                                        <input name="multilingual[form_headquarters]" type="hidden" value="{{ labels.form_headquarters}}">
-                                    </div>
-                                    <div class="form-group col-lg-8">
-                                        <label for="industry">{{ labels.form_primary_industry.label }}</label>
-                                        <select name="organisation[industry]" class="form-control" id="industry">
-                                            <option value="" disabled selected>{{ labels.please_select }}</option>
-                                    {% for o in labels.form_primary_industry.options %}
-                                        <option value="{{loop.index}}-industry:{{o}}:{{labels.en.form_primary_industry.options[loop.index0]}}">{{ o }}</option>
-                                    {% endfor %}
-                                        </select>
-                                        <input name="english[form_primary_industry]" type="hidden" value="{{ labels.en.form_primary_industry.label }}">
-                                        <input name="multilingual[form_primary_industry]" type="hidden" value="{{ labels.form_primary_industry.label}}">
-                                    </div>
-                                    <div class="form-group col-lg-10">
-                                        <label class="control-label">{{ labels.form_other }}</label>
-                                        <input type="text" name="user[other]" class="form-control" placeholder="{{ labels.form_enter_email }}"/>
-                                        <input name="english[form_other]" type="hidden" value="{{ labels.en.form_other}}">
-                                        <input name="multilingual[form_other]" type="hidden" value="{{ labels.form_other}}">
-                                    </div>
-                                    <div class="form-group__button col-lg-12 push-to-bottom">
-                                        <button class="btn btn-primary nextBtn btn-lg pull-right"
-                                        type="submit">
-                                        {{ labels.form_submit }}
-                                        </button>
-                                        <button class="btn btn-primary prevBtn btn-lg pull-right" type="button">
-                                        <span class="glyphicon glyphicon-triangle-left pull-left"
-                                        style="margin-top: 6px;"></span>
-                                        {{ labels.form_previous }}</button>
-                                    </div>
+                                    <input name="english[form_website]" type="hidden" value="{{ labels.en.form_website }}">
+                                    <input name="multilingual[form_website]" type="hidden" value="{{ labels.form_website }}">
+                                </div>
+                                <div class="form-group col-lg-8">
+                                    <label for="country">{{ labels.form_headquarters }}</label>
+                                    <select name="organisation[headquarters_country]" class="form-control" id="country">
+                                        <option value="" disabled selected>{{ labels.please_select }}</option>
+                                        <option value="1">US</option>
+                                        <option value="2">DE</option>
+                                        <option value="3">CN</option>
+                                    </select>
+                                    <input name="english[form_headquarters]" type="hidden" value="{{ labels.en.form_headquarters }}">
+                                    <input name="multilingual[form_headquarters]" type="hidden" value="{{ labels.form_headquarters}}">
+                                </div>
+                                <div class="form-group col-lg-8">
+                                    <label for="industry">{{ labels.form_primary_industry.label }}</label>
+                                    <select name="organisation[industry]" class="form-control" id="industry">
+                                        <option value="" disabled selected>{{ labels.please_select }}</option>
+                                        {% for o in labels.form_primary_industry.options %}
+                                            <option value="{{loop.index}}-industry:{{o}}:{{labels.en.form_primary_industry.options[loop.index0]}}">{{ o }}</option>
+                                        {% endfor %}
+                                    </select>
+                                    <input name="english[form_primary_industry]" type="hidden" value="{{ labels.en.form_primary_industry.label }}">
+                                    <input name="multilingual[form_primary_industry]" type="hidden" value="{{ labels.form_primary_industry.label}}">
+                                </div>
+                                <div class="form-group col-lg-10">
+                                    <label class="control-label">{{ labels.form_other }}</label>
+                                    <input type="text" name="user[other]" class="form-control" placeholder="{{ labels.form_enter_email }}"/>
+                                    <input name="english[form_other]" type="hidden" value="{{ labels.en.form_other}}">
+                                    <input name="multilingual[form_other]" type="hidden" value="{{ labels.form_other}}">
+                                </div>
+                                <div class="form-group__button col-lg-12 push-to-bottom">
+                                    <button class="btn btn-primary nextBtn btn-lg pull-right"
+                                    type="submit">
+                                    {{ labels.form_submit }}
+                                    </button>
+                                    <button class="btn btn-primary prevBtn btn-lg pull-right" type="button">
+                                    <span class="glyphicon glyphicon-triangle-left pull-left"
+                                    style="margin-top: 6px;"></span>
+                                    {{ labels.form_previous }}</button>
                                 </div>
                             </div>
                         </div>
-                    </form>
-                </div>
-            </section>
-        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
