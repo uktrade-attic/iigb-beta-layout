@@ -68,9 +68,9 @@
                                 <input name="multilingual[form_city]" type="hidden" value="{{ labels.form_city }}">
                             </div>
                             <div class="form-group__button">
-                                <button class="dit-btn dit-btn--sm nextBtn pull-right"
+                                <button class="dit-btn--sm nextBtn"
                                         type="button">{{ labels.form_next }}<span
-                                        class="glyphicon glyphicon-triangle-right"></span>
+                                        class="glyphicon glyphicon-chevron-right"></span>
 
                                 </button>
                             </div>
@@ -136,15 +136,15 @@
                                 <input name="multilingual[form_when]" type="hidden" value="{{ labels.form_when }}">
                             </div>
                             <div class="form-group__button">
-                                <button class="dit-btn nextBtn"
-                                type="button">
-                                {{ labels.form_next }}
-                                <span
-                                class="glyphicon glyphicon-triangle-right"></span>
+                                <button class="dit-btn--sm prevBtn" type="button">
+                                    <span class="glyphicon glyphicon-chevron-left pull-left"></span>
+                                    {{ labels.form_previous }}
                                 </button>
-                                <button class="dit-btn prevBtn" type="button">
-                                <span class="glyphicon glyphicon-triangle-left pull-left"></span>
-                                {{ labels.form_previous }}</button>
+                                <button class="dit-btn--sm nextBtn"
+                                        type="button">
+                                    {{ labels.form_next }}
+                                    <span class="glyphicon glyphicon-chevron-right"></span>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -195,13 +195,15 @@
                                     <input name="multilingual[form_other]" type="hidden" value="{{ labels.form_other}}">
                                 </div>
                                 <div class="form-group__button">
-                                    <button class="dit-btn nextBtn"
-                                    type="submit">
-                                    {{ labels.form_submit }}
+                                    <button class="dit-btn--sm prevBtn" type="button">
+                                        <span class="glyphicon glyphicon-chevron-left pull-left"></span>
+                                        {{ labels.form_previous }}
                                     </button>
-                                    <button class="dit-btn prevBtn" type="button">
-                                    <span class="glyphicon glyphicon-triangle-left pull-left"></span>
-                                    {{ labels.form_previous }}</button>
+                                    <button class="dit-btn--sm nextBtn"
+                                            type="submit">
+                                        {{ labels.form_submit }}
+                                        <span class="glyphicon glyphicon-send"></span>
+                                    </button>
                                 </div>
                             </div>
                         </div>
