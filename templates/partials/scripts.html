@@ -95,24 +95,24 @@
     function prepareForm() {
       var navListItems = $('div.setup-panel div a'),
         allWells = $('.setup-content'),
-        allNextBtn = $('.nextBtn');
-        allPrevBtn = $('.prevBtn');
-        submitBtn = $('.submitBtn');
+        allNextBtn = $('.nextBtn'),
+        allPrevBtn = $('.prevBtn'),
+        submitBtn = $('.submitBtn'),
+        locationSelectors = $('#location_selectors'),
+        locationRadioYes = $('#location_radio_yes'),
+        locationRadioNo = $('#location_radio_no');
         allWells.hide();
-        location_selectors = $('#location_selectors');
-        location_radio_yes = $('#location_radio_yes');
-        location_radio_no = $('#location_radio_no');
-        location_selectors.hide();
+        locationSelectors.hide();
 
-        location_radio_yes.click(
+        locationRadioYes.click(
           function(e){
-            location_selectors.show();
+            locationSelectors.show();
         });
 
-        location_radio_no.click(
+        locationRadioNo.click(
           function(e){
             $('#location').prop('selectedIndex', 0);
-            location_selectors.hide();
+            locationSelectors.hide();
         });
 
       navListItems.click(function(e) {
@@ -138,7 +138,7 @@
 
         $(".form-group").removeClass("has-error");
         for (var i = 0; i < curInputs.length; i++) {
-          if (!curInputs[i].validity.valid) {
+          if (!curInputs[i].hasAttribute('required') && curInputs[i].value === '') {  //changed for IE8 compatibility
             isValid = false;
             $(curInputs[i]).closest(".form-group").addClass("has-error");
           }

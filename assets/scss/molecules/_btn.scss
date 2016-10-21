@@ -16,7 +16,18 @@
   }
 }
 
-&--sm {
-  padding: 8px 24px;
+.dit-btn--sm {
+  border: 3px solid $link-colour;
+  border-radius: 6px;
   font-size: 18px;
+  font-weight: 100;
+  padding: 8px 16px;
+  color: $link-colour;
+  background-color: $white;
+
+  &:hover {
+    background: $link-colour;
+    color: $white;
+    font-weight: 300;
+  }
 }
