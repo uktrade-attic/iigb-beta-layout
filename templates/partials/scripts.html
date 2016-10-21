@@ -85,9 +85,10 @@
     }
 
     function checkHeight() {
+
         var elem = $('div').find('.check-height');
         if (elem.length > 0) {
-            equalheight(elem)
+            equalheight(elem);
         }
     }
 
@@ -110,6 +111,7 @@
 
         location_radio_no.click(
           function(e){
+            $('#location').prop('selectedIndex', 0);
             location_selectors.hide();
         });
 
@@ -161,7 +163,7 @@
     }
 
     $(window).on('resize', function () {
-        checkHeight()
+        checkHeight();
     });
 </script>
 
