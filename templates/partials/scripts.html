@@ -133,7 +133,7 @@
         var curStep = $(this).closest(".setup-content"),
           curStepBtn = curStep.attr("id"),
           nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
-          curInputs = curStep.find("input[type='text'],input[type='email'], #location_radio_yes, #turnover, #country, #industry, #staff,input[type='date']"),
+          curInputs = curStep.find("input[type='text'],input[type='email'], #location_radio_yes, #start_date_month, #start_date_year, #turnover, #country, #industry, #staff,input[type='date']"),
           isValid = true;
 
         $(".form-group").removeClass("has-error");
