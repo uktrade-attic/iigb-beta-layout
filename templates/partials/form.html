@@ -105,16 +105,23 @@
                             </div>
                             <div class="form-group col-md-10">
                                 <label for="location_radio_yes" class="control-label">{{ labels.form_location }}</label>
-                                <fieldset class="inline">
-                                    <label class="block-label" for="radio-inline-1">
-                                        <input id="location_radio_yes" type="radio" name="enquiry[location_is_specific]" value="Yes" required>
-                                        {{ labels.yes }}
-                                    </label>
-                                    <label class="block-label" for="radio-inline-2">
-                                        <input id="location_radio_no" type="radio" name="enquiry[location_is_specific]" value="No">
-                                        {{ labels.no }}
-                                    </label>
-                                </fieldset>
+                                <!--<fieldset class="inline">-->
+                                    <!--<label class="block-label" for="radio-inline-1">-->
+                                        <!--<input id="location_radio_yes" type="radio" name="enquiry[location_is_specific]" value="Yes" required>-->
+                                        <!--{{ labels.yes }}-->
+                                    <!--</label>-->
+                                    <!--<label class="block-label" for="radio-inline-2">-->
+                                        <!--<input id="location_radio_no" type="radio" name="enquiry[location_is_specific]" value="No">-->
+                                        <!--{{ labels.no }}-->
+                                    <!--</label>-->
+                                <!--</fieldset>-->
+                                <div class="input-group">
+                                    <div  class="radio-group">
+                                        <a id="location_radio_yes" class="dit-btn--radio notActive" data-toggle="loc" data-title="Y">{{ labels.yes }}</a>
+                                        <a id="location_radio_no" class="dit-btn--radio active" data-toggle="loc" data-title="N">{{ labels.no }}</a>
+                                    </div>
+                                    <input type="hidden" name="loc" class="loc">
+                                </div>
                                 <input name="english[form_location]" type="hidden" value="{{ labels.en.form_location }}">
                                 <input name="multilingual[form_location]" type="hidden" value="{{ labels.form_location }}">
                             </div>

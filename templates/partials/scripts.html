@@ -93,73 +93,81 @@
     }
 
     function prepareForm() {
-      var navListItems = $('div.setup-panel div a'),
-        allWells = $('.setup-content'),
-        allNextBtn = $('.nextBtn'),
-        allPrevBtn = $('.prevBtn'),
-        submitBtn = $('.submitBtn'),
-        locationSelectors = $('#location_selectors'),
-        locationRadioYes = $('#location_radio_yes'),
-        locationRadioNo = $('#location_radio_no');
+        var navListItems = $('div.setup-panel div a'),
+                allWells = $('.setup-content'),
+                allNextBtn = $('.nextBtn'),
+                allPrevBtn = $('.prevBtn'),
+                submitBtn = $('.submitBtn'),
+                locationSelectors = $('#location_selectors'),
+                locationRadioYes = $('#location_radio_yes'),
+                locationRadioNo = $('#location_radio_no');
         allWells.hide();
         locationSelectors.hide();
 
         locationRadioYes.click(
-          function(e){
-            locationSelectors.show();
-        });
+                function (e) {
+                    locationSelectors.show();
+                });
 
         locationRadioNo.click(
-          function(e){
-            $('#location').prop('selectedIndex', 0);
-            locationSelectors.hide();
+                function (e) {
+                    $('#location').prop('selectedIndex', 0);
+                    locationSelectors.hide();
+                });
+
+        $('#step-2').on('click', '.radio-group a', function() {
+            var sel = $(this).data('title');
+            var tog = $(this).data('toggle');
+            $(this).parent().next('.' + tog).prop('value', sel);
+            $(this).parent().find('a[data-toggle="' + tog + '"]').not('[data-title="' + sel + '"]').removeClass('active').addClass('notActive');
+            $(this).parent().find('a[data-toggle="' + tog + '"][data-title="' + sel + '"]').removeClass('notActive').addClass('active');
         });
 
-      navListItems.click(function(e) {
-        e.preventDefault();
-        var $target = $($(this).attr('href')),
-          $item = $(this);
+        navListItems.click(function (e) {
+            e.preventDefault();
+            var $target = $($(this).attr('href')),
+                    $item = $(this);
 
-        if (!$item.hasClass('disabled')) {
-          navListItems.removeClass('active-selection');
-          $item.addClass('active-selection');
-          allWells.hide();
-          $target.show();
-          $target.find('input:eq(0)').focus();
-        }
-      });
+            if (!$item.hasClass('disabled')) {
+                navListItems.removeClass('active-selection');
+                $item.addClass('active-selection');
+                allWells.hide();
+                $target.show();
+                $target.find('input:eq(0)').focus();
+            }
+        });
 
-      allNextBtn.click(function() {
-        var curStep = $(this).closest(".setup-content"),
-          curStepBtn = curStep.attr("id"),
-          nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
-          curInputs = curStep.find("input[type='text'],input[type='email'], #location_radio_yes, #turnover, #country, #industry, #staff,input[type='date']"),
-          isValid = true;
+        allNextBtn.click(function () {
+            var curStep = $(this).closest(".setup-content"),
+                    curStepBtn = curStep.attr("id"),
+                    nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+                    curInputs = curStep.find("input[type='text'],input[type='email'], #location_radio_yes, #turnover, #country, #industry, #staff,input[type='date']"),
+                    isValid = true;
 
-        $(".form-group").removeClass("has-error");
-        for (var i = 0; i < curInputs.length; i++) {
-          if (!curInputs[i].hasAttribute('required') && curInputs[i].value === '') {  //changed for IE8 compatibility
-            isValid = false;
-            $(curInputs[i]).closest(".form-group").addClass("has-error");
-          }
-        }
+            $(".form-group").removeClass("has-error");
+            for (var i = 0; i < curInputs.length; i++) {
+                if (!curInputs[i].hasAttribute('required') && curInputs[i].value === '') {  //changed for IE8 compatibility
+                    isValid = false;
+                    $(curInputs[i]).closest(".form-group").addClass("has-error");
+                }
+            }
 
-        if (isValid)
-          nextStepWizard.removeAttr('disabled').trigger('click');
-      });
+            if (isValid)
+                nextStepWizard.removeAttr('disabled').trigger('click');
+        });
 
-      allPrevBtn.click(function() {
-        var curStep = $(this).closest(".setup-content"),
-          curStepBtn = curStep.attr("id"),
-          prevStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().prev().children("a"),
-          curInputs = curStep.find("input[type='text'],input[type='email'], #turnover:selected, #staff:selected, #country:selected, #location:selected"),
-          isValid = true;
+        allPrevBtn.click(function () {
+            var curStep = $(this).closest(".setup-content"),
+                    curStepBtn = curStep.attr("id"),
+                    prevStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().prev().children("a"),
+                    curInputs = curStep.find("input[type='text'],input[type='email'], #turnover:selected, #staff:selected, #country:selected, #location:selected"),
+                    isValid = true;
 
-        if (isValid)
-          prevStepWizard.removeAttr('disabled').trigger('click');
-      });
+            if (isValid)
+                prevStepWizard.removeAttr('disabled').trigger('click');
+        });
 
-      $('div.setup-panel div a.active-selection').trigger('click');
+        $('div.setup-panel div a.active-selection').trigger('click');
     }
 
     $(window).on('resize', function () {
