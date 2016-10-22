@@ -25,13 +25,12 @@
 }
 
 .dit-video-anchor {
-  border-bottom: 1px solid $light-gray;
-  padding: 0px 0px 4px 0px;
+  border-bottom: 0;
+  padding: 0px 0px 4px 20px;
+  text-decoration: none;
 
   &:hover {
     text-decoration: none;
-    color: $link-colour;
-    border-bottom: 1px solid $link-colour;
   }
 }
 

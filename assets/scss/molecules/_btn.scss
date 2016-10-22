@@ -1,17 +1,54 @@
 //_btn.scss
 
-.btn {
+.dit-btn {
   border: 3px solid $link-colour;
   border-radius: 6px;
   font-size: 20px;
   font-weight: 100;
-  line-height: 40px;
-  padding: 4px 40px;
+  padding: 8px 40px;
   color: $link-colour;
+  background-color: $white;
 
   &:hover {
     background: $link-colour;
     color: $white;
     font-weight: 300;
+  }
+}
+
+.dit-btn--sm {
+  border: 3px solid $link-colour;
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: 100;
+  padding: 8px 16px;
+  color: $link-colour;
+  background-color: $white;
+
+  &:hover {
+    background: $link-colour;
+    color: $white;
+    font-weight: 300;
+  }
+}
+
+.dit-btn--radio {
+  border: 1px solid $tile-border-colour;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 100;
+  padding: 8px 30px;
+  color: $text-colour;
+  background-color: $white;
+
+  &:hover {
+    background: $toc-colour;
+    color: $text-colour;
+  }
+
+  &.active {
+    color: $text-colour;
+    background-color: $toc-colour;
+    font-weight: 700;
   }
 }

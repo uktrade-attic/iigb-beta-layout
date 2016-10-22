@@ -19,13 +19,14 @@
     &:hover {
       background-color: $toc-colour;
       border: 1px solid $link-colour;
+      color: $text-colour;
     }
   }
 
   &__image {
     width: 100%;
     height: auto;
-    border-radius: 10px;
+    //border-radius: 10px;
   }
 
   &__title {
@@ -66,6 +67,7 @@
     &:hover {
       background-color: $toc-colour;
       border: 1px solid $link-colour;
+      color: $text-colour;
     }
   }
 

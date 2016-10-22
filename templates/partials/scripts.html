@@ -93,73 +93,81 @@
     }
 
     function prepareForm() {
-      var navListItems = $('div.setup-panel div a'),
-        allWells = $('.setup-content'),
-        allNextBtn = $('.nextBtn');
-        allPrevBtn = $('.prevBtn');
-        submitBtn = $('.submitBtn');
+        var navListItems = $('div.setup-panel div a'),
+                allWells = $('.setup-content'),
+                allNextBtn = $('.nextBtn'),
+                allPrevBtn = $('.prevBtn'),
+                submitBtn = $('.submitBtn'),
+                locationSelectors = $('#location_selectors'),
+                locationRadioYes = $('#location_radio_yes'),
+                locationRadioNo = $('#location_radio_no');
         allWells.hide();
-        location_selectors = $('#location_selectors');
-        location_radio_yes = $('#location_radio_yes');
-        location_radio_no = $('#location_radio_no');
-        location_selectors.hide();
+        locationSelectors.hide();
 
-        location_radio_yes.click(
-          function(e){
-            location_selectors.show();
+        locationRadioYes.click(
+                function (e) {
+                    locationSelectors.show();
+                });
+
+        locationRadioNo.click(
+                function (e) {
+                    $('#location').prop('selectedIndex', 0);
+                    locationSelectors.hide();
+                });
+
+        $('#step-2').on('click', '.radio-group a', function() {
+            var sel = $(this).data('title');
+            var tog = $(this).data('toggle');
+            $(this).parent().next('.' + tog).prop('value', sel);
+            $(this).parent().find('a[data-toggle="' + tog + '"]').not('[data-title="' + sel + '"]').removeClass('active').addClass('notActive');
+            $(this).parent().find('a[data-toggle="' + tog + '"][data-title="' + sel + '"]').removeClass('notActive').addClass('active');
         });
 
-        location_radio_no.click(
-          function(e){
-            $('#location').prop('selectedIndex', 0);
-            location_selectors.hide();
+        navListItems.click(function (e) {
+            e.preventDefault();
+            var $target = $($(this).attr('href')),
+                    $item = $(this);
+
+            if (!$item.hasClass('disabled')) {
+                navListItems.removeClass('active-selection');
+                $item.addClass('active-selection');
+                allWells.hide();
+                $target.show();
+                $target.find('input:eq(0)').focus();
+            }
         });
 
-      navListItems.click(function(e) {
-        e.preventDefault();
-        var $target = $($(this).attr('href')),
-          $item = $(this);
+        allNextBtn.click(function () {
+            var curStep = $(this).closest(".setup-content"),
+                    curStepBtn = curStep.attr("id"),
+                    nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+                    curInputs = curStep.find("input[type='text'],input[type='email'], #location_radio_yes, #turnover, #country, #industry, #staff,input[type='date']"),
+                    isValid = true;
 
-        if (!$item.hasClass('disabled')) {
-          navListItems.removeClass('active-selection');
-          $item.addClass('active-selection');
-          allWells.hide();
-          $target.show();
-          $target.find('input:eq(0)').focus();
-        }
-      });
+            $(".form-group").removeClass("has-error");
+            for (var i = 0; i < curInputs.length; i++) {
+                if (curInputs[i].hasAttribute('required') && curInputs[i].value === '') {  //changed for IE8 compatibility
+                    isValid = false;
+                    $(curInputs[i]).closest(".form-group").addClass("has-error");
+                }
+            }
 
-      allNextBtn.click(function() {
-        var curStep = $(this).closest(".setup-content"),
-          curStepBtn = curStep.attr("id"),
-          nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
-          curInputs = curStep.find("input[type='text'],input[type='email'], #location_radio_yes, #start_date_month, #start_date_year, #turnover, #country, #industry, #staff,input[type='date']"),
-          isValid = true;
+            if (isValid)
+                nextStepWizard.removeAttr('disabled').trigger('click');
+        });
 
-        $(".form-group").removeClass("has-error");
-        for (var i = 0; i < curInputs.length; i++) {
-          if (!curInputs[i].validity.valid) {
-            isValid = false;
-            $(curInputs[i]).closest(".form-group").addClass("has-error");
-          }
-        }
+        allPrevBtn.click(function () {
+            var curStep = $(this).closest(".setup-content"),
+                    curStepBtn = curStep.attr("id"),
+                    prevStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().prev().children("a"),
+                    curInputs = curStep.find("input[type='text'],input[type='email'], #turnover:selected, #staff:selected, #country:selected, #location:selected"),
+                    isValid = true;
 
-        if (isValid)
-          nextStepWizard.removeAttr('disabled').trigger('click');
-      });
+            if (isValid)
+                prevStepWizard.removeAttr('disabled').trigger('click');
+        });
 
-      allPrevBtn.click(function() {
-        var curStep = $(this).closest(".setup-content"),
-          curStepBtn = curStep.attr("id"),
-          prevStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().prev().children("a"),
-          curInputs = curStep.find("input[type='text'],input[type='email'], #turnover:selected, #staff:selected, #country:selected, #location:selected"),
-          isValid = true;
-
-        if (isValid)
-          prevStepWizard.removeAttr('disabled').trigger('click');
-      });
-
-      $('div.setup-panel div a.active-selection').trigger('click');
+        $('div.setup-panel div a.active-selection').trigger('click');
     }
 
     $(window).on('resize', function () {

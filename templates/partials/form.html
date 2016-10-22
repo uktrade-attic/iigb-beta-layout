@@ -6,14 +6,14 @@
                 {{ contentBlocks.formBlock.content.contents | safe }}
             </p>
             {% for l in contentBlocks.formBlock.content.list %}
-                <div class="row bottom-buffer">
-                    <div class="col-xs-2">
-                        <span class="glyphicon glyphicon-star" aria-hidden="true" style="color:red;"></span>
-                    </div>
-                    <div class="col-xs-10">
-                        <p class="light-grey">{{ l | safe }}</p>
-                    </div>
+            <div class="row bottom-buffer">
+                <div class="col-xs-2">
+                    <span class="glyphicon glyphicon-star" aria-hidden="true" style="color:red;"></span>
                 </div>
+                <div class="col-xs-10">
+                    <p class="light-grey">{{ l | safe }}</p>
+                </div>
+            </div>
             {% endfor %}
         </div>
         <div class="col-md-8 dit-form-section__body">
@@ -38,36 +38,39 @@
                             <div class="form-group col-md-10">
                                 <input id="hidden_field" name="language" type="hidden" value="{{locale.language}}">
                                 <label class="control-label">{{ labels.form_full_name }}</label>
-                                <input maxlength="100" type="text" name="user[name]" required="required" class="form-control"
-                                placeholder="{{ labels.form_enter_full_name }}"/>
-                                <input name="english[form_full_name]" type="hidden" value="{{ labels.en.form_full_name }}">
-                                <input name="multilingual[form_full_name]" type="hidden" value="{{ labels.form_full_name }}">
+                                <input maxlength="100" type="text" name="user[name]" required="required"
+                                       class="form-control"
+                                       placeholder="{{ labels.form_enter_full_name }}"/>
+                                <input name="english[form_full_name]" type="hidden"
+                                       value="{{ labels.en.form_full_name }}">
+                                <input name="multilingual[form_full_name]" type="hidden"
+                                       value="{{ labels.form_full_name }}">
                             </div>
                             <div class="form-group col-md-10">
                                 <label class="control-label">{{ labels.form_email }}</label>
-                                <input type="email" name="user[email]" required="required" class="form-control"
-                                placeholder="{{ labels.form_enter_email }}"/>
+                                <input type="text" name="user[email]" required="required" class="form-control"
+                                       placeholder="{{ labels.form_enter_email }}"/>
                                 <input name="english[form_email]" type="hidden" value="{{ labels.en.form_email }}">
                                 <input name="multilingual[form_email]" type="hidden" value="{{ labels.form_email }}">
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="control-label">{{ labels.form_phone }}</label>
                                 <input type="text" name="user[phone]" class="form-control"
-                                placeholder="{{ labels.form_enter_phone }}"/>
+                                       placeholder="{{ labels.form_enter_phone }}"/>
                                 <input name="english[form_phone]" type="hidden" value="{{ labels.en.form_phone }}">
                                 <input name="multilingual[form_phone]" type="hidden" value="{{ labels.form_phone }}">
                             </div>
                             <div class="form-group col-md-8">
                                 <label class="control-label">{{ labels.form_city }}</label>
                                 <input type="text" name="user[city]" required="required" class="form-control"
-                                placeholder="{{ labels.form_enter_city }}"/>
+                                       placeholder="{{ labels.form_enter_city }}"/>
                                 <input name="english[form_city]" type="hidden" value="{{ labels.en.form_city }}">
                                 <input name="multilingual[form_city]" type="hidden" value="{{ labels.form_city }}">
                             </div>
-                            <div class="form-group__button col-md-12 push-to-bottom">
-                                <button class="btn btn-primary nextBtn btn-md pull-right"
-                                type="button">{{ labels.form_next }}<span
-                                class="glyphicon glyphicon-triangle-right" style="margin-left:20px;"></span>
+                            <div class="form-group__button">
+                                <button class="dit-btn--sm nextBtn"
+                                        type="button">{{ labels.form_next }}<span
+                                        class="glyphicon glyphicon-chevron-right"></span>
 
                                 </button>
                             </div>
@@ -102,16 +105,23 @@
                             </div>
                             <div class="form-group col-md-10">
                                 <label for="location_radio_yes" class="control-label">{{ labels.form_location }}</label>
-                                <fieldset class="inline">
-                                    <label class="block-label" for="radio-inline-1">
-                                        <input id="location_radio_yes" type="radio" name="enquiry[location_is_specific]" value="Yes" required>
-                                        {{ labels.yes }}
-                                    </label>
-                                    <label class="block-label" for="radio-inline-2">
-                                        <input id="location_radio_no" type="radio" name="enquiry[location_is_specific]" value="No">
-                                        {{ labels.no }}
-                                    </label>
-                                </fieldset>
+                                <!--<fieldset class="inline">-->
+                                    <!--<label class="block-label" for="radio-inline-1">-->
+                                        <!--<input id="location_radio_yes" type="radio" name="enquiry[location_is_specific]" value="Yes" required>-->
+                                        <!--{{ labels.yes }}-->
+                                    <!--</label>-->
+                                    <!--<label class="block-label" for="radio-inline-2">-->
+                                        <!--<input id="location_radio_no" type="radio" name="enquiry[location_is_specific]" value="No">-->
+                                        <!--{{ labels.no }}-->
+                                    <!--</label>-->
+                                <!--</fieldset>-->
+                                <div class="input-group">
+                                    <div  class="radio-group">
+                                        <a id="location_radio_yes" class="dit-btn--radio notActive" data-toggle="loc" data-title="Y">{{ labels.yes }}</a>
+                                        <a id="location_radio_no" class="dit-btn--radio active" data-toggle="loc" data-title="N">{{ labels.no }}</a>
+                                    </div>
+                                    <input type="hidden" name="loc" class="loc">
+                                </div>
                                 <input name="english[form_location]" type="hidden" value="{{ labels.en.form_location }}">
                                 <input name="multilingual[form_location]" type="hidden" value="{{ labels.form_location }}">
                             </div>
@@ -145,17 +155,16 @@
                                 <input name="multilingual[form_when]" type="hidden" value="{{ labels.form_when }}">
                                 </div>
                             </div>
-                            <div class="form-group__button col-md-12 push-to-bottom">
-                                <button class="btn btn-primary nextBtn btn-lg pull-right"
-                                type="button">
-                                {{ labels.form_next }}
-                                <span
-                                class="glyphicon glyphicon-triangle-right"></span>
+                            <div class="form-group__button">
+                                <button class="dit-btn--sm prevBtn" type="button">
+                                    <span class="glyphicon glyphicon-chevron-left pull-left"></span>
+                                    {{ labels.form_previous }}
                                 </button>
-                                <button class="btn btn-primary prevBtn btn-lg pull-right" type="button">
-                                <span class="glyphicon glyphicon-triangle-left pull-left"
-                                style="margin-top: 6px;"></span>
-                                {{ labels.form_previous }}</button>
+                                <button class="dit-btn--sm nextBtn"
+                                        type="button">
+                                    {{ labels.form_next }}
+                                    <span class="glyphicon glyphicon-chevron-right"></span>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -201,19 +210,20 @@
                                 </div>
                                 <div class="form-group col-md-10">
                                     <label class="control-label">{{ labels.form_other }}</label>
-                                    <input type="text" name="user[other]" class="form-control" placeholder="{{ labels.form_enter_other }}"/>
+                                    <input type="text" name="user[other]" class="form-control" placeholder="{{ labels.form_enter_email }}"/>
                                     <input name="english[form_other]" type="hidden" value="{{ labels.en.form_other}}">
                                     <input name="multilingual[form_other]" type="hidden" value="{{ labels.form_other}}">
                                 </div>
-                                <div class="form-group__button col-md-12 push-to-bottom">
-                                    <button class="btn btn-primary nextBtn btn-lg pull-right"
-                                    type="submit">
-                                    {{ labels.form_submit }}
+                                <div class="form-group__button">
+                                    <button class="dit-btn--sm prevBtn" type="button">
+                                        <span class="glyphicon glyphicon-chevron-left pull-left"></span>
+                                        {{ labels.form_previous }}
                                     </button>
-                                    <button class="btn btn-primary prevBtn btn-lg pull-right" type="button">
-                                    <span class="glyphicon glyphicon-triangle-left pull-left"
-                                    style="margin-top: 6px;"></span>
-                                    {{ labels.form_previous }}</button>
+                                    <button class="dit-btn--sm nextBtn"
+                                            type="submit">
+                                        {{ labels.form_submit }}
+                                        <span class="glyphicon glyphicon-send"></span>
+                                    </button>
                                 </div>
                             </div>
                         </div>

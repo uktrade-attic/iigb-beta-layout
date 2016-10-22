@@ -1,8 +1,8 @@
 //toc.scss
 
 .dit-toc {
-  background: #363636;
-  color: #fff;
+  background: #EFEAE2;
+  color: #424242;
 
   &__heading {
     margin-bottom: 16px;
@@ -35,13 +35,13 @@
     }
 
     a {
-      color: #fff;
-      border-bottom: 1px solid #777;
+      color: #424242;
+      border-bottom: 1px solid #D8D8D8;
 
       &:hover {
         text-decoration: none;
-        color: #639aca;
-        border-bottom: 1px solid #639aca;
+        color: #0C3F6D;
+        border-bottom: 1px solid #0C3F6D;
       }
     }
   }
