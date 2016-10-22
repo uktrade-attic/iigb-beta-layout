@@ -51,3 +51,20 @@
 
 
 //organisms
+
+#overlay {
+    opacity: 0.5;
+    top: 0px;
+    width: 2.22222px;
+    height: 100%;
+    position: absolute;
+    margin: 0 auto;
+    z-index: 2;
+    display:none;
+}
+
+#img-load{
+    left: 230px;
+    top: 170px;
+    position: absolute;
+}

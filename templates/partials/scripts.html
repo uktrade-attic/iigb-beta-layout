@@ -19,6 +19,7 @@
     $(document).ready(function () {
         enhance();
         prepareForm();
+        formLoading();
         setTimeout(showcontent, 500);
         setTimeout(removeloading, 1000);
         setTimeout(onLoaded, 1005);
@@ -160,6 +161,24 @@
       });
 
       $('div.setup-panel div a.active-selection').trigger('click');
+    }
+
+    function formLoading(){
+
+      $t = $('.dit-form-section');
+      var submitBtn = $('.submitBtn');
+
+      $('#overlay').css({
+        opacity: 0.5,
+        top: $t.offset().top,
+        width: $t.outerWidth(),
+        height: $t.outerHeight(),
+      });
+
+      submitBtn.click(function() {
+        $('#overlay').fadeIn();
+      });
+
     }
 
     $(window).on('resize', function () {
