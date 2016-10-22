@@ -146,7 +146,7 @@
 
             $(".form-group").removeClass("has-error");
             for (var i = 0; i < curInputs.length; i++) {
-                if (!curInputs[i].hasAttribute('required') && curInputs[i].value === '') {  //changed for IE8 compatibility
+                if (curInputs[i].hasAttribute('required') && curInputs[i].value === '') {  //changed for IE8 compatibility
                     isValid = false;
                     $(curInputs[i]).closest(".form-group").addClass("has-error");
                 }
