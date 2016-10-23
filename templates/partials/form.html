@@ -105,22 +105,12 @@
                             </div>
                             <div class="form-group col-md-10">
                                 <label for="location_radio_yes" class="control-label">{{ labels.form_location }}</label>
-                                <!--<fieldset class="inline">-->
-                                    <!--<label class="block-label" for="radio-inline-1">-->
-                                        <!--<input id="location_radio_yes" type="radio" name="enquiry[location_is_specific]" value="Yes" required>-->
-                                        <!--{{ labels.yes }}-->
-                                    <!--</label>-->
-                                    <!--<label class="block-label" for="radio-inline-2">-->
-                                        <!--<input id="location_radio_no" type="radio" name="enquiry[location_is_specific]" value="No">-->
-                                        <!--{{ labels.no }}-->
-                                    <!--</label>-->
-                                <!--</fieldset>-->
                                 <div class="input-group">
                                     <div  class="radio-group">
-                                        <a id="location_radio_yes" class="dit-btn--radio notActive" data-toggle="loc" data-title="Y">{{ labels.yes }}</a>
-                                        <a id="location_radio_no" class="dit-btn--radio active" data-toggle="loc" data-title="N">{{ labels.no }}</a>
+                                        <a id="location_radio_yes" class="dit-btn--radio notActive" data-toggle="loc" data-title="true">{{ labels.yes }}</a>
+                                        <a id="location_radio_no" class="dit-btn--radio active" data-toggle="loc" data-title="false">{{ labels.no }}</a>
                                     </div>
-                                    <input type="hidden" name="loc" class="loc">
+                                    <input type="hidden" name="enquiry[location_is_specific]" class="loc">
                                 </div>
                                 <input name="english[form_location]" type="hidden" value="{{ labels.en.form_location }}">
                                 <input name="multilingual[form_location]" type="hidden" value="{{ labels.form_location }}">
@@ -145,7 +135,7 @@
                                         <option value="{{loop.index}}">{{ o }}</option>
                                     {% endfor %}
                                 </select>
-                                <select name="enquiry[start_date]" class="form-control" id="start_date_year" required="">
+                                <select name="enquiry[start_date]" class="form-control" id="start_date_year" required>
                                     <option value="" disabled selected>{{ labels.form_when_year.please_select }}</option>
                                     {% for o in labels.form_when_year.options %}
                                         <option value="{{o}}">{{ o }}</option>
@@ -187,15 +177,10 @@
                                     <input name="multilingual[form_website]" type="hidden" value="{{ labels.form_website }}">
                                 </div>
                                 <div class="form-group col-md-8">
-                                    <label for="country" class="control-label">{{ labels.form_headquarters }}</label>
-                                    <select name="organisation[headquarters_country]" class="form-control" id="country" required>
-                                        <option value="" disabled selected>{{ labels.please_select }}</option>
-                                        <option value="1">US</option>
-                                        <option value="2">DE</option>
-                                        <option value="3">CN</option>
-                                    </select>
-                                    <input name="english[form_headquarters]" type="hidden" value="{{ labels.en.form_headquarters }}">
-                                    <input name="multilingual[form_headquarters]" type="hidden" value="{{ labels.form_headquarters}}">
+                                    <label for="country" class="control-label">{{ labels.form_headquarters.label }}</label>
+                                    <input type="text" name="organisation[headquarters_country]" class="form-control" id="country" placeholder="{{labels.form_enter_headquarters}}" required>
+                                    <input name="english[form_headquarters]" type="hidden" value="{{ labels.en.form_headquarters.label }}">
+                                    <input name="multilingual[form_headquarters]" type="hidden" value="{{ labels.form_headquarters.label}}">
                                 </div>
                                 <div class="form-group col-md-8">
                                     <label for="industry" class="control-label">{{ labels.form_primary_industry.label }}</label>
