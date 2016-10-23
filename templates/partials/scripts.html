@@ -47,6 +47,7 @@
         smoothScroll();
         addActive();
         checkHeight();
+        checkFormStatus();
     }
 
     function smoothScroll() {
@@ -91,6 +92,47 @@
             equalheight(elem);
         }
     }
+
+    function checkFormStatus(){
+        var field = 'enquiryId';
+        var url = window.location.href;
+        var formLeftSide = $('.dit-form-section__info');
+        var formRightSide = $('.dit-form-section__body');
+        var formSuccess = $('#formSuccess');
+        var enquiryId = $('#enquiry_Id');
+        if(url.indexOf('?' + field + '=') != -1){
+
+            formLeftSide.hide();
+            formRightSide.hide();
+            formSuccess.show();
+            $('html, body').animate({
+                scrollTop: $('.dit-form-section').offset().top
+            }, 2000);
+            console.log('here');
+            enquiryId.text(getUrlVar());
+        }else{
+            if(url.indexOf('&' + field + '=') != -1){
+            formLeftSide.hide();
+            formRightSide.hide();
+            formSuccess.show();
+            $('html, body').animate({
+                scrollTop: formSuccess.offset().top
+            }, 2000);           
+            enquiryId.text(getUrlVar());
+        }
+    }
+}
+
+function getUrlVar(){
+
+    var id, hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for (var i = 0; i < hashes.length; i++){
+        hash = hashes[i].split('=');
+        id = hash[1];
+    }
+    return "IIGB-"+id;
+}
 
     function prepareForm() {
         var navListItems = $('div.setup-panel div a'),
