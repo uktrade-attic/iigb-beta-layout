@@ -94,6 +94,47 @@
         }
     }
 
+    function openNav() {
+        var contentLastMarginLeft = 0;
+    // setTimeout($("#myNav").css('height', '20%'), 10000);
+    // setTimeout($("#myNav").css('width', '100%'), 10000);
+    // setTimeout($("#myNav").css('height', '100%'), 10000);
+    var box = $('#myNav');
+    var newValue = contentLastMarginLeft;
+    contentLastMarginLeft = box.css('margin-left');
+    
+    box.animate({
+        'height': '20%'
+    }, 200);
+
+    box.animate({
+        'margin-left':newValue
+    }, 500);
+
+        box.animate({
+        'height': '100%'
+    }, 500);
+}
+
+/* Close */
+function closeNav() {
+var contentLastMarginLeft = 0;
+    // setTimeout($("#myNav").css('height', '20%'), 10000);
+    // setTimeout($("#myNav").css('width', '100%'), 10000);
+    // setTimeout($("#myNav").css('height', '100%'), 10000);
+    var box = $('#myNav');
+    var newValue = contentLastMarginLeft;
+    contentLastMarginLeft = box.css('margin-left');
+    
+    box.animate({
+        'height': '20%'
+    }, 500);
+
+    box.animate({
+        'margin-left':'100%'
+    }, 500);
+}
+
     function checkFormStatus(){
         var field = 'enquiryId';
         var url = window.location.href;
