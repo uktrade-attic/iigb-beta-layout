@@ -198,8 +198,7 @@
 //            if (isValid) {
             var nextPage = parseInt(curStepBtn) + 1;
             $('#step-' + nextPage).stop().animate({
-                width: 'toggle',
-                display: 'block'
+                marginLeft: '-15px',
             }, 500, 'linear', function () {
                 $('#step-' + curStepBtn).css({'margin-left': '-1000px'});
             });
@@ -218,9 +217,8 @@
             var prevPage = parseInt(curStepBtn) - 1;
             $('#step-' + prevPage).stop().animate({
                 marginLeft: '-15px',
-                display: 'none'
             }, 500, 'linear', function () {
-                $('#step-' + curStepBtn).css({'margin-left': '-15px'});
+                $('#step-' + curStepBtn).css({'margin-left': '700px'});
             });
             prevStepWizard.removeAttr('disabled').trigger('click');
 //            }
