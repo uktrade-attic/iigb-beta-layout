@@ -49,6 +49,7 @@
         addActive();
         checkHeight();
         checkFormStatus();
+        ifOtherSelected();
     }
 
     function smoothScroll() {
@@ -95,10 +96,7 @@
     }
 
     function openNav() {
-        var contentLastMarginLeft = 0;
-    // setTimeout($("#myNav").css('height', '20%'), 10000);
-    // setTimeout($("#myNav").css('width', '100%'), 10000);
-    // setTimeout($("#myNav").css('height', '100%'), 10000);
+    var contentLastMarginLeft = 0;
     var box = $('#myNav');
     var newValue = contentLastMarginLeft;
     contentLastMarginLeft = box.css('margin-left');
@@ -163,6 +161,19 @@ var contentLastMarginLeft = 0;
             enquiryId.text(getUrlVar());
         }
     }
+}
+
+function ifOtherSelected(){
+    var industry = $('#industry');
+    $('#other').hide();
+
+    industry.change(function(e){
+    if ($('#industry option:selected').text() == 'Other'){
+        $('#other').show();
+    }else{
+        $('#other').hide();
+        }
+    });
 }
 
 function getUrlVar(){
