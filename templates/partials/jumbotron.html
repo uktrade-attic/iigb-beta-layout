@@ -1,17 +1,11 @@
 {% if contentBlocks.pageHeader.heroImage %}
     <style>
         .jumbotron {
-            background-image: url("/assets/img/{{contentBlocks.pageHeader.heroImage}}");
-            background-size: cover;
+            background-image: url("/media/{{contentBlocks.pageHeader.heroImage}}");
+            /*background-size: cover;*/
         }
     </style>
 {% endif %}
-<div class="dit-hmg_logo">
-    <div class="container">
-        <img class="dit-logo" src="/assets/img/hmg-logo.png" alt="HMG Logo">
-        <div class="dit-nav-contact">{{labels.contact}}</div>
-    </div>
-</div>
 
 <div class="jumbotron">
     <div class="container">

@@ -15,8 +15,8 @@
     font-size: 40px;
     font-weight: 100;
 
-    @media (max-width: $screen-xs-max) {
-      font-size: 40px;
+    @media (max-width: $screen-sm-max) {
+      font-size: 32px;
       // text-align: left;
     }
   }
