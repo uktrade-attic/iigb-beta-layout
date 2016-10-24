@@ -20,6 +20,7 @@
         enhance();
         prepareForm();
         formAutocomplete();
+        search();
         setTimeout(showcontent, 500);
         setTimeout(removeloading, 1000);
         setTimeout(onLoaded, 1005);
@@ -97,40 +98,41 @@
 
     function openNav() {
     var contentLastMarginLeft = 0;
-    var box = $('#myNav');
+    var box = $('#dit-search-overlay');
     var newValue = contentLastMarginLeft;
     contentLastMarginLeft = box.css('margin-left');
     
     box.animate({
-        'height': '20%'
-    }, 200);
+        'height': '14%'
+    }, 100);
 
     box.animate({
         'margin-left':newValue
     }, 500);
 
-        box.animate({
+    box.animate({
         'height': '100%'
-    }, 500);
+    }, 1100);
 }
 
 /* Close */
 function closeNav() {
-var contentLastMarginLeft = 0;
-    // setTimeout($("#myNav").css('height', '20%'), 10000);
-    // setTimeout($("#myNav").css('width', '100%'), 10000);
-    // setTimeout($("#myNav").css('height', '100%'), 10000);
-    var box = $('#myNav');
+    
+    var contentLastMarginLeft = 0;
+    $('#searchInput').val('');
+    $('#search-options').val('');
+    var box = $('#dit-search-overlay');
     var newValue = contentLastMarginLeft;
     contentLastMarginLeft = box.css('margin-left');
     
     box.animate({
-        'height': '20%'
+        'height': '14%'
     }, 500);
 
     box.animate({
         'margin-left':'100%'
-    }, 500);
+    }, 900);
+
 }
 
     function checkFormStatus(){
@@ -264,6 +266,114 @@ function getUrlVar(){
 
         $('div.setup-panel div a.active-selection').trigger('click');
     }
+
+
+    function getResults() {
+
+        console.log('getResults');
+
+        var URL = $(location).attr('href');
+
+        var language = URL.split('/')[3];
+
+        var searchArea = $('#search-options');
+        var searchInput = $('#searchInput').val();
+
+        console.log(searchInput);
+        console.log(language);
+
+        if (searchInput === '') {
+            searchArea.html("");
+        } else {
+            $.ajax({
+                type: "GET",
+                url: "https://7drih560jb.execute-api.eu-west-1.amazonaws.com/test?q=(and language:'" + language + "'(or boost=2 title:'" + searchInput + "' content:'" + searchInput + "' intro:'" + searchInput + "'))&q.parser=structured",
+                success: function(results) {
+                    console.log(results);
+                    var searchResults = results.hits.hit;
+                    searchResults.forEach(function(result) {
+                        var title = result.fields.title.replace('DIT -', '');
+                        var htmlStr = '<p><h3><a title="" href=' + result.fields.url + '> ' + title + '</a></h3></p>' +
+                                     '<p class="search-result-link">' + "www.great.gov.uk" + result.fields.url + '</p>' +
+                            '<p class="search-result-snippet">' + result.fields.intro + '</p>';
+                        if (title !== '') {
+                            $("#search-options").append(htmlStr);
+                        }
+
+                    });
+
+                }
+            });
+        }
+    }
+
+    var EITI = EITI || {};
+
+
+function search(){
+
+    var eventContainer = $({});
+
+    $('#searchInput').on('input',function(){
+    debounce(getResults(), 600);
+    } );
+
+    // $('#searchInput').on('input', function() {
+    //     eventContainer.trigger('searchinput');
+    // });
+}
+
+    // // $(eventContainer).on("searchinput", debounce(getResults, 400));
+
+    // // $("#main-search").click(function() {
+    // //     var URL = $(location).attr('href');
+    // //     var language = URL.split('/')[3];
+    // //     var searchInput = $('#searchInput').val();
+    // //     window.location.href = '/' + language + '/search/?q=' + searchInput;
+    // // });
+    // }
+
+
+
+    // function triggerSearch(){
+    //     console.log('herey')
+    //     debounce(getResults, 400);
+    // }
+
+    function debounce(func, wait, immediate) {
+        var timeout;
+        return function() {
+            var context = this,
+                args = arguments;
+            var later = function() {
+                timeout = null;
+                if (!immediate) func.apply(context, args);
+            };
+            var callNow = immediate && !timeout;
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+            if (callNow) func.apply(context, args);
+        };
+    }
+
+    // EITI.resultComparator = function compareResults(a, b) {
+    //     return compareResultsAlphabetically(a, b);
+    // };
+
+    // EITI.searchLink = function searchLink(searchOption) {
+    //     // takes a search option as an argument returns html representing a link to that search option
+    //     this.searchHtml = this.toHtml(searchOption);
+    // };
+
+    // EITI.searchLink.prototype = {
+    //     toHtml: function(searchOption) {
+    //         return searchResultToHtml(searchOption, false);
+    //     }
+    // };
+
+
+
+
 
     function formAutocomplete(){
 

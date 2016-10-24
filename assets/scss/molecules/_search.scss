@@ -1,0 +1,122 @@
+.search-heading-wrapper{
+    border: 0.5px solid black;
+    background-color:#f4f0eb;
+}
+
+.search-main-wrapper{
+    background-color: #fdfcfb;
+    height: 100%;
+}
+
+.overlay {
+    /* Height & width depends on how you want to reveal the overlay (see JS below) */    
+    height: 100%;
+    width: 100%;
+    margin-left:100%;
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    background-color: #FFFFFF; /* Black fallback color */
+    background-color: #FFFFFF; /* Black w/opacity */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+
+.overlay .closebtn {
+    font-size: 18px;
+    top: 15px;
+    color: white;
+}
+
+@media screen and (max-height: 450px) {
+    .overlay a {font-size: 20px}
+    .overlay .closebtn {
+        font-size: 20px;
+        top: 15px;
+        right: 35px;
+    }
+}
+
+
+#dit-search-overlay{
+    
+.navbar{
+    top:0px;
+}
+
+.close-btn-div{
+    height: inherit;
+    background-color: #ba1a2f;
+    right: 50px;
+    padding: 30px;
+    text-align:center;
+}
+
+
+.search-result-snippet{
+    font-size: 18px;
+}
+
+.search-result-link{
+    font-size: 16px;
+    color: #486e2a;
+}
+
+#search-options{
+    margin-top: 40px;
+}
+
+.search-list-style{
+    list-style: none;
+}
+
+#searchInput{
+    width: 100%;
+    margin: 40px 0px;
+}
+
+.search-page_search_title{
+    float:right;
+}
+
+.search-page_search_title_block{
+    padding: 45px 0px;
+}
+
+.search-input-field{
+    width: 100%;
+}
+
+.search-results-container{
+    height:85%; 
+    max-width: 900px;
+}
+
+.search-results-block{
+    border: 1px solid #f1f1f1;
+    background-color: #ffffff;  
+    margin-top:40px; 
+    height: 100%;
+}
+
+.close-search-icon{
+    font-size: 50px;
+    margin-left: 10px;
+
+    }
+
+.close-search-icon :hover{
+    text-decoration: none;
+    
+    }
+
+   @media (max-width: $screen-sm-max) {
+.search-page_search_title{
+    float:left;
+    margin-left:20px;
+    }
+}
+
+}
