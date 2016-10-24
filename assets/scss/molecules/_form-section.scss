@@ -133,7 +133,17 @@
   }
 }
 
-.step {
+form {
+  position: absolute;
+  right: 15px;
+}
+
+.setup-content {
+  width: 100%;
+  overflow: hidden;
+}
+
+.stepBigNumber {
   margin-right: 15px;
 }
 
