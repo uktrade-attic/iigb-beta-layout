@@ -133,7 +133,16 @@
   }
 }
 
-.step {
+#step-2, #step-3 {
+  margin-left: 700px;
+}
+
+.setup-content {
+  width: 100%;
+  overflow: hidden;
+}
+
+.stepBigNumber {
   margin-right: 15px;
 }
 

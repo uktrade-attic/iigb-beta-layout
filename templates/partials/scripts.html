@@ -94,14 +94,14 @@
         }
     }
 
-    function checkFormStatus(){
+    function checkFormStatus() {
         var field = 'enquiryId';
         var url = window.location.href;
         var formLeftSide = $('.dit-form-section__info');
         var formRightSide = $('.dit-form-section__body');
         var formSuccess = $('#formSuccess');
         var enquiryId = $('#enquiry_Id');
-        if(url.indexOf('?' + field + '=') != -1){
+        if (url.indexOf('?' + field + '=') != -1) {
 
             formLeftSide.hide();
             formRightSide.hide();
@@ -111,29 +111,29 @@
             }, 2000);
             console.log('here');
             enquiryId.text(getUrlVar());
-        }else{
-            if(url.indexOf('&' + field + '=') != -1){
-            formLeftSide.hide();
-            formRightSide.hide();
-            formSuccess.show();
-            $('html, body').animate({
-                scrollTop: formSuccess.offset().top
-            }, 2000);           
-            enquiryId.text(getUrlVar());
+        } else {
+            if (url.indexOf('&' + field + '=') != -1) {
+                formLeftSide.hide();
+                formRightSide.hide();
+                formSuccess.show();
+                $('html, body').animate({
+                    scrollTop: formSuccess.offset().top
+                }, 2000);
+                enquiryId.text(getUrlVar());
+            }
         }
     }
-}
 
-function getUrlVar(){
+    function getUrlVar() {
 
-    var id, hash;
-    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-    for (var i = 0; i < hashes.length; i++){
-        hash = hashes[i].split('=');
-        id = hash[1];
+        var id, hash;
+        var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+        for (var i = 0; i < hashes.length; i++) {
+            hash = hashes[i].split('=');
+            id = hash[1];
+        }
+        return "IIGB-" + id;
     }
-    return "IIGB-"+id;
-}
 
     function prepareForm() {
         var navListItems = $('div.setup-panel div a'),
@@ -158,7 +158,7 @@ function getUrlVar(){
                     locationSelectors.hide();
                 });
 
-        $('#step-2').on('click', '.radio-group a', function() {
+        $('#step-2').on('click', '.radio-group a', function () {
             var sel = $(this).data('title');
             var tog = $(this).data('toggle');
             $(this).parent().next('.' + tog).prop('value', sel);
@@ -182,8 +182,8 @@ function getUrlVar(){
 
         allNextBtn.click(function () {
             var curStep = $(this).closest(".setup-content"),
-                    curStepBtn = curStep.attr("id"),
-                    nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+                    curStepBtn = curStep.attr("id").split('-')[1],
+                    nextStepWizard = $('div.setup-panel div a[href="#step-' + curStepBtn + '"]').parent().next().children("a"),
                     curInputs = curStep.find("input[type='text'],input[type='email'], #location_radio_yes, #turnover, #country, #industry, #start_date_month, #start_date_year, #staff,input[type='date']"),
                     isValid = true;
 
@@ -195,19 +195,33 @@ function getUrlVar(){
                 }
             }
 
-            if (isValid)
-                nextStepWizard.removeAttr('disabled').trigger('click');
+//            if (isValid) {
+            var nextPage = parseInt(curStepBtn) + 1;
+            $('#step-' + nextPage).stop().animate({
+                marginLeft: '-15px',
+            }, 500, 'linear', function () {
+                $('#step-' + curStepBtn).css({'margin-left': '-1000px'});
+            });
+            nextStepWizard.removeAttr('disabled').trigger('click');
+//            }
         });
 
         allPrevBtn.click(function () {
             var curStep = $(this).closest(".setup-content"),
-                    curStepBtn = curStep.attr("id"),
-                    prevStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().prev().children("a"),
+                    curStepBtn = curStep.attr("id").split('-')[1],
+                    prevStepWizard = $('div.setup-panel div a[href="#step-' + curStepBtn + '"]').parent().prev().children("a"),
                     curInputs = curStep.find("input[type='text'],input[type='email'], #turnover:selected, #staff:selected, #country:selected, #location:selected"),
                     isValid = true;
 
-            if (isValid)
-                prevStepWizard.removeAttr('disabled').trigger('click');
+//            if (isValid) {
+            var prevPage = parseInt(curStepBtn) - 1;
+            $('#step-' + prevPage).stop().animate({
+                marginLeft: '-15px',
+            }, 500, 'linear', function () {
+                $('#step-' + curStepBtn).css({'margin-left': '700px'});
+            });
+            prevStepWizard.removeAttr('disabled').trigger('click');
+//            }
         });
 
         $('div.setup-panel div a.active-selection').trigger('click');
@@ -230,6 +244,7 @@ $('#country').autocomplete({
     lookup: countries,
     onSelect: function (suggestion) {
         $('#country_en').val(countries_en[suggestion.data]);
+
     }
 });
 }
