@@ -18,6 +18,8 @@
 <script>
     $(document).ready(function () {
         enhance();
+        prepareForm();
+        search();
         setTimeout(showcontent, 500);
         setTimeout(removeloading, 1000);
         setTimeout(onLoaded, 1005);
@@ -49,6 +51,7 @@
         prepareForm();
         formAutocomplete();
         checkFormStatus();
+        ifOtherSelected();
     }
 
     function smoothScroll() {
@@ -94,7 +97,47 @@
         }
     }
 
-    function checkFormStatus() {
+    function openNav() {
+    var contentLastMarginLeft = 0;
+    $('#searchInput').focus();
+    var box = $('#dit-search-overlay');
+    var newValue = contentLastMarginLeft;
+    contentLastMarginLeft = box.css('margin-left');
+    
+    box.animate({
+        'height': '14%'
+    }, 100);
+
+    box.animate({
+        'margin-left':newValue
+    }, 500);
+
+    box.animate({
+        'height': '100%'
+    }, 900);
+}
+
+/* Close */
+function closeNav() {
+    
+    var contentLastMarginLeft = 0;
+    $('#searchInput').val('');
+    $('#search-options').empty();
+    var box = $('#dit-search-overlay');
+    var newValue = contentLastMarginLeft;
+    contentLastMarginLeft = box.css('margin-left');
+    
+    box.animate({
+        'height': '14%'
+    }, 500);
+
+    box.animate({
+        'margin-left':'100%'
+    }, 900);
+
+}
+
+    function checkFormStatus(){
         var field = 'enquiryId';
         var url = window.location.href;
         var formLeftSide = $('.dit-form-section__info');
@@ -124,8 +167,20 @@
         }
     }
 
-    function getUrlVar() {
+function ifOtherSelected(){
+    var industry = $('#industry');
+    $('#other').hide();
 
+    industry.change(function(e){
+    if ($('#industry option:selected').text() == 'Other'){
+        $('#other').show();
+    }else{
+        $('#other').hide();
+        }
+    });
+}
+
+    function getUrlVar() {
         var id, hash;
         var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
         for (var i = 0; i < hashes.length; i++) {
@@ -186,7 +241,7 @@
             theWidth = $('.dit-form-section__body').width();
             theStep = $('.setup-content');
             $(theStep).each(function () {
-                $(this).css('width', theWidth)
+                $(this).css('width', theWidth);
             });
             //wrap into mother div
             $('.dit-form-wrapper').wrap('<div id="mother" />');
@@ -247,6 +302,85 @@
         $('div.setup-panel div a.active-selection').trigger('click');
     }
 
+
+    var searchResultsSize = 10;
+
+    function getResults(size, start) {
+
+        var URL = $(location).attr('href');
+
+        var language = URL.split('/')[3];
+
+        var searchArea = $('#search-options');
+        var searchInput = $('#searchInput').val();
+
+        var gateway = "https://pdumary9i4.execute-api.eu-west-1.amazonaws.com/staging";
+
+        if (searchInput === '') {
+            searchArea.html("");
+        } else {
+            $.ajax({
+                type: "GET",
+                url: gateway + "/" + language + "?q=(or boost=2 pagetitle:'" + searchInput + "' content:'" + searchInput + "' intro:'" + searchInput + "')&size=" + size + "&start=" + start + "&q.parser=structured",
+                success: function(results) {
+                    console.log(results);
+                    searchArea.html("");
+                    var searchResults = results.hits.hit;
+                    searchResults.forEach(function(result) {
+                        var htmlStr =   '<div class="search-result"><h3><a href="/' + result.fields.url + '">' + result.fields.pagetitle + '</a></h3>' +
+                                        '<p class="search-result-link">' + "www.great.gov.uk/" + result.fields.url + '</p>' +
+                                        '<p class="search-result-snippet">' + result.fields.intro + '</p></div>';
+                        if (result.fields.pagetitle !== '') {
+                            $("#search-options").append(htmlStr);
+                        }
+
+                    });
+                    if ( results.hits.found > searchResultsSize){
+                        
+                        $('.pagination')
+                        .show()
+                        .empty()
+                        .append('<li><a class="pagination-links"     onclick="getResults('+searchResultsSize+',0)">1</a></li>');
+
+                        var count = Math.floor(results.hits.found / searchResultsSize);
+
+                        if((Math.floor(results.hits.found % searchResultsSize) !== 0)){
+                            count +=1;
+                        }
+                        for(var x=2 ; x <= count; x ++){
+                        $('.pagination').append('<li><a style="cursor:pointer;" onclick="getResults('+searchResultsSize+','+(searchResultsSize*x-(searchResultsSize-1))+')">'+x+'</a></li>');
+
+                        }
+                    }else if(results.hits.found === 0){
+                        $("#search-options").append('<p><h3>{{ labels.no_results }}  "'+searchInput+ '"</h3></p>');
+                    }
+                }
+            });
+        }
+    }
+
+    function search(){
+
+    var debouncedSearch = debounce(function() {
+    getResults(searchResultsSize, 0);}, 500);
+        $('#searchInput').on('input', debouncedSearch);
+    }
+
+    function debounce(func, wait, immediate) {
+        var timeout;
+        return function() {
+            var context = this,
+                args = arguments;
+            var later = function() {
+                timeout = null;
+                if (!immediate) func.apply(context, args);
+            };
+            var callNow = immediate && !timeout;
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+            if (callNow) func.apply(context, args);
+        };
+    }
 
     function formAutocomplete(){
 
