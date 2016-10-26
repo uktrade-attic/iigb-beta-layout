@@ -30,6 +30,10 @@
     color: $white;
     font-weight: 300;
   }
+
+  @media (max-width: $screen-xs-max) {
+    padding: 8px 12px;
+  }
 }
 
 .dit-btn--radio {

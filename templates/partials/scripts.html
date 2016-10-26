@@ -18,8 +18,6 @@
 <script>
     $(document).ready(function () {
         enhance();
-        prepareForm();
-        formAutocomplete();
         setTimeout(showcontent, 500);
         setTimeout(removeloading, 1000);
         setTimeout(onLoaded, 1005);
@@ -48,6 +46,8 @@
         smoothScroll();
         addActive();
         checkHeight();
+        prepareForm();
+        formAutocomplete();
         checkFormStatus();
     }
 
@@ -180,10 +180,40 @@
             }
         });
 
+        var theStep, theWidth, totalWidth;
+
+        $(function () {
+            theWidth = $('.dit-form-section__body').width();
+            theStep = $('.setup-content');
+            $(theStep).each(function () {
+                $(this).css('width', theWidth)
+            });
+            //wrap into mother div
+            $('.dit-form-wrapper').wrap('<div id="mother" />');
+            //assign height width and overflow hidden to mother
+            $('#mother').css({
+                width: function () {
+                    return theWidth;
+                },
+                height: function () {
+                    return theStep.height();
+                },
+                position: 'relative !important',
+                overflow: 'hidden'
+            });
+            //get total of image sizes and set as width for ul
+            totalWidth = (theStep.length) * theWidth + 5;
+            $('.dit-form-wrapper').css({
+                width: function () {
+                    return totalWidth;
+                }
+            });
+        });
+
         allNextBtn.click(function () {
             var curStep = $(this).closest(".setup-content"),
-                    curStepBtn = curStep.attr("id").split('-')[1],
-                    nextStepWizard = $('div.setup-panel div a[href="#step-' + curStepBtn + '"]').parent().next().children("a"),
+                    curStepValue = parseInt(curStep.attr("id").split('-')[1]),
+                    nextStepWizard = $('div.setup-panel div a[href="#step-' + curStepValue + '"]').parent().next().children("a"),
                     curInputs = curStep.find("input[type='text'],input[type='email'], #location_radio_yes, #turnover, #country, #industry, #start_date_month, #start_date_year, #staff,input[type='date']"),
                     isValid = true;
 
@@ -195,33 +225,23 @@
                 }
             }
 
-//            if (isValid) {
-            var nextPage = parseInt(curStepBtn) + 1;
-            $('#step-' + nextPage).stop().animate({
-                marginLeft: '-15px',
-            }, 500, 'linear', function () {
-                $('#step-' + curStepBtn).css({'margin-left': '-1000px'});
-            });
+            if (isValid) {
+            $('.dit-form-wrapper').animate({"margin-left": -(curStepValue * theWidth)}, 500);
             nextStepWizard.removeAttr('disabled').trigger('click');
-//            }
+            }
         });
 
         allPrevBtn.click(function () {
             var curStep = $(this).closest(".setup-content"),
-                    curStepBtn = curStep.attr("id").split('-')[1],
-                    prevStepWizard = $('div.setup-panel div a[href="#step-' + curStepBtn + '"]').parent().prev().children("a"),
+                    curStepValue = parseInt(curStep.attr("id").split('-')[1]),
+                    prevStepWizard = $('div.setup-panel div a[href="#step-' + curStepValue + '"]').parent().prev().children("a"),
                     curInputs = curStep.find("input[type='text'],input[type='email'], #turnover:selected, #staff:selected, #country:selected, #location:selected"),
                     isValid = true;
 
-//            if (isValid) {
-            var prevPage = parseInt(curStepBtn) - 1;
-            $('#step-' + prevPage).stop().animate({
-                marginLeft: '-15px',
-            }, 500, 'linear', function () {
-                $('#step-' + curStepBtn).css({'margin-left': '700px'});
-            });
+            if (isValid) {
+            $('.dit-form-wrapper').animate({"margin-left": -((curStepValue - 2) * theWidth)}, 500);
             prevStepWizard.removeAttr('disabled').trigger('click');
-//            }
+            }
         });
 
         $('div.setup-panel div a.active-selection').trigger('click');
@@ -482,6 +502,7 @@
 
     $(window).on('resize', function () {
         checkHeight();
+        prepareForm();
     });
 </script>
 

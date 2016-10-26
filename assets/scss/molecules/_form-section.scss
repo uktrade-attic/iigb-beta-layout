@@ -133,13 +133,16 @@
   }
 }
 
-#step-2, #step-3 {
-  margin-left: 700px;
+.dit-form-wrapper {
+  overflow: hidden;
+  float: left;
+  position: relative;
 }
 
 .setup-content {
-  width: 100%;
-  overflow: hidden;
+  float: left;
+  display: inline-block !important;
+  margin: 0;
 }
 
 .stepBigNumber {
