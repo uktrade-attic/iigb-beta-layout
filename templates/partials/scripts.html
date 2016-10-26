@@ -274,8 +274,6 @@ function getUrlVar(){
 
     function getResults(size, start) {
 
-        console.log("called");
-
         var URL = $(location).attr('href');
 
         var language = URL.split('/')[3];
@@ -290,12 +288,13 @@ function getUrlVar(){
                 type: "GET",
                 url: "https://pdumary9i4.execute-api.eu-west-1.amazonaws.com/staging?q=(or boost=2 pagetitle:'" + searchInput + "' content:'" + searchInput + "' intro:'" + searchInput + "')&size=" + size + "&start=" + start + "&q.parser=structured",
                 success: function(results) {
+                    console.log(results);
                     searchArea.html("");
                     var searchResults = results.hits.hit;
                     searchResults.forEach(function(result) {
-                        var htmlStr =   '<p><h3><a href="/' + result.fields.url + '">' + result.fields.pagetitle + '</a></h3></p>' +
+                        var htmlStr =   '<div class="search-result"><h3><a href="/' + result.fields.url + '">' + result.fields.pagetitle + '</a></h3>' +
                                         '<p class="search-result-link">' + "www.great.gov.uk/" + result.fields.url + '</p>' +
-                                        '<p class="search-result-snippet">' + result.fields.intro + '</p>';
+                                        '<p class="search-result-snippet">' + result.fields.intro + '</p></div>';
                         if (result.fields.pagetitle !== '') {
                             $("#search-options").append(htmlStr);
                         }
