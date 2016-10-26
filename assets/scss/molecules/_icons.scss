@@ -1,0 +1,42 @@
+//icons.scss
+
+.dit-icon {
+  height: 70px;
+  width: 70px;
+  margin: 28px auto;
+
+  &-connections {
+    background: url(../img/dit-icon-connections.png) no-repeat;
+    background: linear-gradient(transparent, transparent),
+    url(../img/dit-icon-connections.svg) no-repeat;
+    background-size: contain;
+  }
+
+  &-immigration {
+    background: url(../img/dit-icon-immigration.png) no-repeat;
+    background: linear-gradient(transparent, transparent),
+    url(../img/dit-icon-immigration.svg) no-repeat;
+    background-size: contain;
+  }
+
+  &-incentives {
+    background: url(../img/dit-icon-incentives.png) no-repeat;
+    background: linear-gradient(transparent, transparent),
+    url(../img/dit-icon-incentives.svg) no-repeat;
+    background-size: contain;
+  }
+
+  &-talent {
+    background: url(../img/dit-icon-talent.png) no-repeat;
+    background: linear-gradient(transparent, transparent),
+    url(../img/dit-icon-talent.svg) no-repeat;
+    background-size: contain;
+  }
+
+  &-insight {
+    background: url(../img/dit-icon-insight.png) no-repeat;
+    background: linear-gradient(transparent, transparent),
+    url(../img/dit-icon-insight.svg) no-repeat;
+    background-size: contain;
+  }
+}
