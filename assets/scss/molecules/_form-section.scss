@@ -162,7 +162,19 @@
   }
 }
 
-.step {
+.dit-form-wrapper {
+  overflow: hidden;
+  float: left;
+  position: relative;
+}
+
+.setup-content {
+  float: left;
+  display: inline-block !important;
+  margin: 0;
+}
+
+.stepBigNumber {
   margin-right: 15px;
 }
 

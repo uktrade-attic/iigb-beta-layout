@@ -22,14 +22,14 @@
                 {{ contentBlocks.formBlock.content.contents | safe }}
             </p>
             {% for l in contentBlocks.formBlock.content.list %}
-                <div class="row bottom-buffer">
-                    <div class="col-xs-2">
-                        <span class="glyphicon glyphicon-star" aria-hidden="true" style="color:red;"></span>
-                    </div>
-                    <div class="col-xs-10">
-                        <p class="light-grey">{{ l | safe }}</p>
-                    </div>
+            <div class="row bottom-buffer">
+                <div class="col-xs-2">
+                    <span class="glyphicon glyphicon-star" aria-hidden="true" style="color:red;"></span>
                 </div>
+                <div class="col-xs-10">
+                    <p class="light-grey">{{ l | safe }}</p>
+                </div>
+            </div>
             {% endfor %}
         </div>
         <div class="col-md-8 dit-form-section__body">
@@ -37,116 +37,147 @@
                 <div class="stepwizard">
                     <div class="stepwizard-row setup-panel">
                         <div class="stepwizard-step">
-                            <a href="#step-1" type="button" class="step active-selection">1</a>
+                            <a href="#step-1" type="button" class="stepBigNumber active-selection">1</a>
                         </div>
                         <div class="stepwizard-step">
-                            <a href="#step-2" type="button" class="step" disabled="disabled">2</a>
+                            <a href="#step-2" type="button" class="stepBigNumber" disabled="disabled">2</a>
                         </div>
                         <div class="stepwizard-step">
-                            <a href="#step-3" type="button" class="step" disabled="disabled">3</a>
+                            <a href="#step-3" type="button" class="stepBigNumber" disabled="disabled">3</a>
                         </div>
                     </div>
                 </div>
-                <div class="row setup-content" id="step-1">
-                    <div class="col-md-12">
-                        <div class="col-md-12" style="min-height:58rem;">
-                            <h3>{{ labels.form_contact_details }}</h3>
-                            <div class="form-group col-md-10">
-                                <input id="hidden_field" name="language" type="hidden" value="{{locale.language}}">
-                                <label class="control-label">{{ labels.form_full_name }}</label>
-                                <input maxlength="100" type="text" name="user[name]" required="required"
-                                class="form-control"
-                                placeholder="{{ labels.form_enter_full_name }}"/>
-                                <input name="english[form_full_name]" type="hidden"
-                                value="{{ labels.en.form_full_name }}">
-                                <input name="multilingual[form_full_name]" type="hidden"
-                                value="{{ labels.form_full_name }}">
-                            </div>
-                            <div class="form-group col-md-10">
-                                <label class="control-label">{{ labels.form_email }}</label>
-                                <input type="text" name="user[email]" required="required" class="form-control"
-                                placeholder="{{ labels.form_enter_email }}"/>
-                                <input name="english[form_email]" type="hidden" value="{{ labels.en.form_email }}">
-                                <input name="multilingual[form_email]" type="hidden" value="{{ labels.form_email }}">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label class="control-label">{{ labels.form_phone }}</label>
-                                <input type="text" name="user[phone]" class="form-control"
-                                placeholder="{{ labels.form_enter_phone }}"/>
-                                <input name="english[form_phone]" type="hidden" value="{{ labels.en.form_phone }}">
-                                <input name="multilingual[form_phone]" type="hidden" value="{{ labels.form_phone }}">
-                            </div>
-                            <div class="form-group col-md-8">
-                                <label class="control-label">{{ labels.form_city }}</label>
-                                <input type="text" name="user[city]" required="required" class="form-control"
-                                placeholder="{{ labels.form_enter_city }}"/>
-                                <input name="english[form_city]" type="hidden" value="{{ labels.en.form_city }}">
-                                <input name="multilingual[form_city]" type="hidden" value="{{ labels.form_city }}">
-                            </div>
-                            <div class="form-group__button">
-                                <button class="dit-btn--sm nextBtn"
-                                type="button">{{ labels.form_next }}<span
-                                class="glyphicon glyphicon-chevron-right"></span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row setup-content" id="step-2">
-                    <div class="col-md-12">
-                        <div class="col-md-12 dit-form-section__step">
-                            <h3>{{ labels.form_investment }}</h3>
-                            <div class="form-group col-md-8 bottom-buffer">
-                                <label for="annual_turnover" class="control-label">{{ labels.form_annual_turnover.label }}</label>
-                                <select name="organisation[annual_turnover]" class="form-control" id="turnover" required>
-                                    <option value="" disabled selected>{{ labels.please_select }}</option>
-                                    {% for o in labels.form_annual_turnover.options %}
-                                        <option value="{{loop.index}}-turnover:{{o}}:{{labels.en.form_annual_turnover.options[loop.index0]}}">{{ o }}</option>
-                                    {% endfor %}
-                                </select>
-                                <input name="english[form_annual_turnover]" type="hidden" value="{{ labels.en.form_annual_turnover.label }}">
-                                <input name="multilingual[form_annual_turnover]" type="hidden" value="{{ labels.form_annual_turnover.label }}">
-                            </div>
-                            <div class="form-group col-md-8">
-                                <label for="staff" class="control-label">{{ labels.form_staff_number.label }}</label>
-                                <select name="organisation[number_of_employees]" class="form-control" id="staff" required>
-                                    <option value="" disabled selected>{{ labels.please_select }}</option>
-                                    {% for o in labels.form_staff_number.options %}
-                                        <option value="{{loop.index}}-staff:{{o}}:{{labels.en.form_staff_number.options[loop.index0]}}">{{ o }}</option>
-                                    {% endfor %}
-                                </select>
-                                <input name="english[form_staff_number]" type="hidden" value="{{ labels.en.form_staff_number.label }}">
-                                <input name="multilingual[form_staff_number]" type="hidden" value="{{ labels.form_staff_number.label }}">
-                            </div>
-                            <div class="form-group col-md-10">
-                                <label for="location_radio_yes" class="control-label">{{ labels.form_location }}</label>
-                                <div class="input-group">
-                                    <div  class="radio-group">
-                                        <a id="location_radio_yes" class="dit-btn--radio notActive" data-toggle="loc" data-title="true">{{ labels.yes }}</a>
-                                        <a id="location_radio_no" class="dit-btn--radio active" data-toggle="loc" data-title="false">{{ labels.no }}</a>
-                                    </div>
-                                    <input type="hidden" name="enquiry[location_is_specific]" class="loc">
+                <div class="dit-form-wrapper">
+                    <div class="row setup-content" id="step-1">
+                        <div class="col-md-12">
+                            <div class="col-md-12 dit-form-section__step">
+                                <h3>{{ labels.form_contact_details }}</h3>
+                                <div class="form-group col-md-10">
+                                    <input id="hidden_field" name="language" type="hidden" value="{{locale.language}}">
+                                    <label class="control-label">{{ labels.form_full_name }}</label>
+                                    <input type="text" name="user[name]" required="required"
+                                           class="form-control"
+                                           placeholder="{{ labels.form_enter_full_name }}"/>
+                                    <input name="english[form_full_name]" type="hidden"
+                                           value="{{ labels.en.form_full_name }}">
+                                    <input name="multilingual[form_full_name]" type="hidden"
+                                           value="{{ labels.form_full_name }}">
                                 </div>
-                                <input name="english[form_location]" type="hidden" value="{{ labels.en.form_location }}">
-                                <input name="multilingual[form_location]" type="hidden" value="{{ labels.form_location }}">
+                                <div class="form-group col-md-10">
+                                    <label class="control-label">{{ labels.form_email }}</label>
+                                    <input type="text" name="user[email]" required="required" class="form-control"
+                                           placeholder="{{ labels.form_enter_email }}"/>
+                                    <input name="english[form_email]" type="hidden" value="{{ labels.en.form_email }}">
+                                    <input name="multilingual[form_email]" type="hidden"
+                                           value="{{ labels.form_email }}">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="control-label">{{ labels.form_phone }}</label>
+                                    <input type="text" name="user[phone]" class="form-control"
+                                           placeholder="{{ labels.form_enter_phone }}"/>
+                                    <input name="english[form_phone]" type="hidden" value="{{ labels.en.form_phone }}">
+                                    <input name="multilingual[form_phone]" type="hidden"
+                                           value="{{ labels.form_phone }}">
+                                </div>
+                                <div class="form-group col-md-8">
+                                    <label class="control-label">{{ labels.form_city }}</label>
+                                    <input type="text" name="user[city]" required="required" class="form-control"
+                                           placeholder="{{ labels.form_enter_city }}"/>
+                                    <input name="english[form_city]" type="hidden" value="{{ labels.en.form_city }}">
+                                    <input name="multilingual[form_city]" type="hidden" value="{{ labels.form_city }}">
+                                </div>
+                                <div class="form-group__button">
+                                    <button class="dit-btn--sm nextBtn"
+                                            type="button">{{ labels.form_next }}<span
+                                            class="glyphicon glyphicon-chevron-right"></span>
+                                    </button>
+                                </div>
                             </div>
-                            <div class="form-group col-md-8" id="location_selectors">
-                                <label for="location" class="control-label">{{ labels.form_which_part.label }}</label>
-                                <select name="enquiry[primary_location]" class="form-control" id="location">
-                                    <option value="0-potential-location" disabled selected>{{ labels.please_select }}</option>
-                                    {% for o in labels.form_which_part.options %}
-                                        <option value="{{loop.index}}-potential-location:{{o}}:{{labels.en.form_which_part.options[loop.index0]}}">{{ o }}</option>
-                                    {% endfor %}
-                                </select>
-                                <input name="english[form_which_part]" type="hidden" value="{{ labels.en.form_which_part.label }}">
-                                <input name="multilingual[form_which_part]" type="hidden" value="{{ labels.form_which_part.label }}">
-                            </div>
-                            <div class="form-group col-md-10">
-                                <label for="start_date" class="control-label">{{ labels.form_when }}</label>
-                                <div class="select_date_fields">
-                                    <select name="enquiry[start_date]" class="form-control select_month" id="start_date_month" required>
-                                        <option value="" disabled selected>{{ labels.form_when_month.please_select }}</option>
-                                        {% for o in labels.form_when_month.options %}
+                        </div>
+                    </div>
+
+                    <div class="row setup-content" id="step-2">
+                        <div class="col-md-12">
+                            <div class="col-md-12 dit-form-section__step">
+                                <h3>{{ labels.form_investment }}</h3>
+                                <div class="form-group col-md-8 bottom-buffer">
+                                    <label for="annual_turnover" class="control-label">{{
+                                        labels.form_annual_turnover.label }}</label>
+                                    <select name="organisation[annual_turnover]" class="form-control" id="turnover"
+                                            required>
+                                        <option value="" disabled selected>{{ labels.please_select }}</option>
+                                        {% for o in labels.form_annual_turnover.options %}
+                                        <option value="{{loop.index}}-turnover:{{o}}:{{labels.en.form_annual_turnover.options[loop.index0]}}">
+                                            {{ o }}
+                                        </option>
+                                        {% endfor %}
+                                    </select>
+                                    <input name="english[form_annual_turnover]" type="hidden"
+                                           value="{{ labels.en.form_annual_turnover.label }}">
+                                    <input name="multilingual[form_annual_turnover]" type="hidden"
+                                           value="{{ labels.form_annual_turnover.label }}">
+                                </div>
+                                <div class="form-group col-md-8">
+                                    <label for="staff" class="control-label">{{ labels.form_staff_number.label
+                                        }}</label>
+                                    <select name="organisation[number_of_employees]" class="form-control" id="staff"
+                                            required>
+                                        <option value="" disabled selected>{{ labels.please_select }}</option>
+                                        {% for o in labels.form_staff_number.options %}
+                                        <option value="{{loop.index}}-staff:{{o}}:{{labels.en.form_staff_number.options[loop.index0]}}">
+                                            {{ o }}
+                                        </option>
+                                        {% endfor %}
+                                    </select>
+                                    <input name="english[form_staff_number]" type="hidden"
+                                           value="{{ labels.en.form_staff_number.label }}">
+                                    <input name="multilingual[form_staff_number]" type="hidden"
+                                           value="{{ labels.form_staff_number.label }}">
+                                </div>
+                                <div class="form-group col-md-10">
+                                    <label for="location_radio_yes" class="control-label">{{ labels.form_location
+                                        }}</label>
+                                    <div class="input-group">
+                                        <div class="radio-group">
+                                            <a id="location_radio_yes" class="dit-btn--radio notActive"
+                                               data-toggle="loc" data-title="true">{{ labels.yes }}</a>
+                                            <a id="location_radio_no" class="dit-btn--radio active" data-toggle="loc"
+                                               data-title="false">{{ labels.no }}</a>
+                                        </div>
+                                        <input type="hidden" name="enquiry[location_is_specific]" class="loc">
+                                    </div>
+                                    <input name="english[form_location]" type="hidden"
+                                           value="{{ labels.en.form_location }}">
+                                    <input name="multilingual[form_location]" type="hidden"
+                                           value="{{ labels.form_location }}">
+                                </div>
+                                <div class="form-group col-md-8" id="location_selectors">
+                                    <label for="location" class="control-label">{{ labels.form_which_part.label
+                                        }}</label>
+                                    <select name="enquiry[primary_location]" class="form-control" id="location">
+                                        <option value="0-potential-location" disabled selected>{{ labels.please_select
+                                            }}
+                                        </option>
+                                        {% for o in labels.form_which_part.options %}
+                                        <option value="{{loop.index}}-potential-location:{{o}}:{{labels.en.form_which_part.options[loop.index0]}}">
+                                            {{ o }}
+                                        </option>
+                                        {% endfor %}
+                                    </select>
+                                    <input name="english[form_which_part]" type="hidden"
+                                           value="{{ labels.en.form_which_part.label }}">
+                                    <input name="multilingual[form_which_part]" type="hidden"
+                                           value="{{ labels.form_which_part.label }}">
+                                </div>
+                                <div class="form-group col-md-10">
+                                    <label for="start_date" class="control-label">{{ labels.form_when }}</label>
+                                    <div class="select_date_fields">
+                                        <select name="enquiry[start_date]" class="form-control select_month"
+                                                id="start_date_month" required>
+                                            <option value="" disabled selected>{{ labels.form_when_month.please_select
+                                                }}
+                                            </option>
+                                            {% for o in labels.form_when_month.options %}
                                             <option value="{{loop.index}}">{{ o }}</option>
                                         {% endfor %}
                                     </select>
@@ -194,6 +225,7 @@
                                 <div class="form-group col-md-8">
                                     <label for="country" class="control-label">{{ labels.form_headquarters.label }}</label>
                                     <input type="text" name="organisation[headquarters_country]" class="form-control" id="country" placeholder="{{labels.form_enter_headquarters}}" required>
+                                    <input name="organisation[headquarters_country]" id="country_en" type="hidden" value="">
                                     <input name="english[form_headquarters]" type="hidden" value="{{ labels.en.form_headquarters.label }}">
                                     <input name="multilingual[form_headquarters]" type="hidden" value="{{ labels.form_headquarters.label}}">
                                 </div>
