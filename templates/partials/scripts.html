@@ -271,7 +271,6 @@ function getUrlVar(){
 
     var searchResultsSize = 10;
 
-
     function getResults(size, start) {
 
         var URL = $(location).attr('href');
@@ -281,12 +280,14 @@ function getUrlVar(){
         var searchArea = $('#search-options');
         var searchInput = $('#searchInput').val();
 
+        var gateway = "https://pdumary9i4.execute-api.eu-west-1.amazonaws.com/staging";
+
         if (searchInput === '') {
             searchArea.html("");
         } else {
             $.ajax({
                 type: "GET",
-                url: "https://pdumary9i4.execute-api.eu-west-1.amazonaws.com/staging?q=(or boost=2 pagetitle:'" + searchInput + "' content:'" + searchInput + "' intro:'" + searchInput + "')&size=" + size + "&start=" + start + "&q.parser=structured",
+                url: gateway + "/" + language + "?q=(or boost=2 pagetitle:'" + searchInput + "' content:'" + searchInput + "' intro:'" + searchInput + "')&size=" + size + "&start=" + start + "&q.parser=structured",
                 success: function(results) {
                     console.log(results);
                     searchArea.html("");
