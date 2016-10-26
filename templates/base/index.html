@@ -1,17 +1,55 @@
-
 {% include "partials/top.html" %}
-
+<!-- The overlay -->
+<!-- Button to close the overlay navigation -->
+<div class="wrapper search-heading-wrapper">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="col-md-3 search-page_search_title_block">
+				<div>
+					<p class="search-page_search_title">{{labels.search}}</p>
+				</div>
+				
+			</div>
+			<div class="col-md-6">
+				<div class="input-group search-input-field">
+					<input type="text" class="form-control" id="searchInput">
+				</div>
+			</div>
+			<div class="col-md-2">
+				<div class="close-btn-div">
+					<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">{{labels.search_close}} <span class="close-search-icon">&times;</span></a>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="wrapper search-main-wrapper">
+	<div class="container search-results-container">
+		<div class="dit-content-section search-results-block col-md-12">
+			<ol class="list-group search-list-style">
+				<li>
+					<h3 id="search-options">
+					<a href=""></a>
+					</h3>
+				</li>
+			</ol>
+		</div>
+		<ul class="pagination">
+		</ul>
+	</div>
+</div>
+</div>
 <!--[if lte IE 8]>
 <style>
-    .jumbotron--home {
-        background-image: url("/assets/img/northern-powerhouse.jpg");
-        background-size: cover;
-        margin-top: -9%;
-    }
+.jumbotron--home {
+background-image: url("/assets/img/northern-powerhouse.jpg");
+background-size: cover;
+margin-top: -9%;
+}
 </style>
 <![endif]-->
+</div>
 {% block content %}
 {% endblock %}
-
-
 {% include "partials/bottom.html" %}

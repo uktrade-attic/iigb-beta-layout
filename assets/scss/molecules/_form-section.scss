@@ -7,6 +7,8 @@
   border-bottom: 5px solid $red-line-colour;
   overflow: hidden;
 
+
+
   &__heading {
     font-size: 40px;
     font-weight: 100;
@@ -52,7 +54,34 @@
     margin-top: 1px !important;
   }
 
+  .dit-form-section__highlight {
+    margin: 1em 0;
+    padding: 2em 0 1em;
+    color: #fff;
+    background: #28a197;
+    text-align: center;
 }
+
+#formSuccess{
+  display:none;
+}
+
+.select_date_fields{
+    display: inline-flex;
+}
+
+.select_month{
+    margin-right: 15px;
+}
+
+}
+
+.autocomplete-suggestions { border: 1px solid #999; background: #FFF; overflow: auto; }
+.autocomplete-suggestion { padding: 2px 5px; white-space: nowrap; overflow: hidden; }
+.autocomplete-selected { background: #F0F0F0; }
+.autocomplete-suggestions strong { font-weight: normal; color: #B00D23; }
+.autocomplete-group { padding: 2px 5px; }
+.autocomplete-group strong { display: block; border-bottom: 1px solid #000; }
 
 .bottom-buffer {
   margin-bottom: 2rem;
