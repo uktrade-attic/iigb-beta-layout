@@ -104,10 +104,6 @@
 
     }
 
-.close-search-icon :hover{
-    text-decoration: none;
-    }
-
 .pagination-links{
     cursor: pointer;
 }
@@ -119,6 +115,11 @@
     }
 
 }
+
+.close-btn-div a{
+    text-decoration: none !important;
+}
+
 
    @media (max-width: $screen-sm-max) {
 .search-page_search_title{
