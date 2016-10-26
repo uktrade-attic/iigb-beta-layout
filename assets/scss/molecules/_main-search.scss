@@ -1,4 +1,6 @@
 //_main-search.scss
+@import "search";
+
 
 .dit-main-search {
   margin-right: -36px;
@@ -79,7 +81,7 @@
   }
 
   &__glyph {
-    top: 10px;
+    margin-left: 5px;
     font-size: 21px;
 
     @media (max-width: $screen-xs-max) {
