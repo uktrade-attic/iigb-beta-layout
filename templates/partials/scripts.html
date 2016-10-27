@@ -18,8 +18,6 @@
 <script>
     $(document).ready(function () {
         enhance();
-        prepareForm();
-        search();
         setTimeout(showcontent, 500);
         setTimeout(removeloading, 1000);
         setTimeout(onLoaded, 1005);
@@ -35,7 +33,6 @@
 
     function enhance() {
         enhance_videobg();
-        // zoomImageHoverLink();
     }
 
     function enhance_videobg() {
@@ -52,6 +49,7 @@
         formAutocomplete();
         checkFormStatus();
         ifOtherSelected();
+        search();
     }
 
     function smoothScroll() {
@@ -98,44 +96,50 @@
     }
 
     function openNav() {
-    var contentLastMarginLeft = 0;
-    $('#searchInput').focus();
-    var box = $('#dit-search-overlay');
-    var newValue = contentLastMarginLeft;
-    contentLastMarginLeft = box.css('margin-left');
-    
-    box.animate({
-        'height': '14%'
-    }, 100);
+        var contentLastMarginLeft = 0;
+        $('#searchInput').focus();
+        var box = $('#dit-search-overlay');
+        var newValue = contentLastMarginLeft;
+        contentLastMarginLeft = box.css('margin-left');
 
-    box.animate({
-        'margin-left':newValue
-    }, 500);
+        box.animate({
+            'margin-top':'40px',
+            'height': '70px'
+        }, 100);
 
-    box.animate({
-        'height': '100%'
-    }, 900);
-}
+        box.animate({
+            'margin-left':newValue
+        }, 400);
 
-/* Close */
-function closeNav() {
-    
-    var contentLastMarginLeft = 0;
-    $('#searchInput').val('');
-    $('#search-options').empty();
-    var box = $('#dit-search-overlay');
-    var newValue = contentLastMarginLeft;
-    contentLastMarginLeft = box.css('margin-left');
-    
-    box.animate({
-        'height': '14%'
-    }, 500);
+        box.animate({
+            'margin-top':'0',
+            'height': '100%'
+        }, 1000, function () {
+            $('body').addClass('overlay-open');
+        });
+    }
 
-    box.animate({
-        'margin-left':'100%'
-    }, 900);
+    /* Close */
+    function closeNav() {
 
-}
+        var contentLastMarginLeft = 0;
+        $('body').removeClass('overlay-open');
+        $('#searchInput').val('');
+        $('#search-options').empty();
+        var box = $('#dit-search-overlay');
+        var newValue = contentLastMarginLeft;
+        contentLastMarginLeft = box.css('margin-left');
+
+        box.animate({
+            'margin-top':'40px',
+            'height': '70px'
+        }, 500);
+
+        box.animate({
+            'margin-left':'100%'
+        }, 900);
+
+    }
 
     function checkFormStatus(){
         var field = 'enquiryId';
@@ -167,18 +171,18 @@ function closeNav() {
         }
     }
 
-function ifOtherSelected(){
-    var industry = $('#industry');
-    $('#other').hide();
-
-    industry.change(function(e){
-    if ($('#industry option:selected').text() == 'Other'){
-        $('#other').show();
-    }else{
+    function ifOtherSelected(){
+        var industry = $('#industry');
         $('#other').hide();
-        }
-    });
-}
+
+        industry.change(function(e){
+        if ($('#industry option:selected').text() == 'Other'){
+            $('#other').show();
+        }else{
+            $('#other').hide();
+            }
+        });
+    }
 
     function getUrlVar() {
         var id, hash;
@@ -192,26 +196,24 @@ function ifOtherSelected(){
 
     function prepareForm() {
         var navListItems = $('div.setup-panel div a'),
-                allWells = $('.setup-content'),
-                allNextBtn = $('.nextBtn'),
-                allPrevBtn = $('.prevBtn'),
-                submitBtn = $('.submitBtn'),
-                locationSelectors = $('#location_selectors'),
-                locationRadioYes = $('#location_radio_yes'),
-                locationRadioNo = $('#location_radio_no');
+            allWells = $('.setup-content'),
+            allNextBtn = $('.nextBtn'),
+            allPrevBtn = $('.prevBtn'),
+            submitBtn = $('.submitBtn'),
+            locationSelectors = $('#location_selectors'),
+            locationRadioYes = $('#location_radio_yes'),
+            locationRadioNo = $('#location_radio_no');
         allWells.hide();
         locationSelectors.hide();
 
-        locationRadioYes.click(
-                function (e) {
-                    locationSelectors.show();
-                });
+        locationRadioYes.click(function (e) {
+            locationSelectors.show();
+        });
 
-        locationRadioNo.click(
-                function (e) {
-                    $('#location').prop('selectedIndex', 0);
-                    locationSelectors.hide();
-                });
+        locationRadioNo.click(function (e) {
+            $('#location').prop('selectedIndex', 0);
+            locationSelectors.hide();
+        });
 
         $('#step-2').on('click', '.radio-group a', function () {
             var sel = $(this).data('title');
@@ -298,8 +300,6 @@ function ifOtherSelected(){
             prevStepWizard.removeAttr('disabled').trigger('click');
             }
         });
-
-        $('div.setup-panel div a.active-selection').trigger('click');
     }
 
 
@@ -336,7 +336,7 @@ function ifOtherSelected(){
 
                     });
                     if ( results.hits.found > searchResultsSize){
-                        
+
                         $('.pagination')
                         .show()
                         .empty()
@@ -360,10 +360,9 @@ function ifOtherSelected(){
     }
 
     function search(){
-
-    var debouncedSearch = debounce(function() {
-    getResults(searchResultsSize, 0);}, 500);
-        $('#searchInput').on('input', debouncedSearch);
+        var debouncedSearch = debounce(function() {
+        getResults(searchResultsSize, 0);}, 500);
+            $('#searchInput').on('input', debouncedSearch);
     }
 
     function debounce(func, wait, immediate) {
@@ -383,26 +382,22 @@ function ifOtherSelected(){
     }
 
     function formAutocomplete(){
+        var countries = [{% for o in labels.form_headquarters.options %}
+                            {"value": "{{o}}", "data": "{{loop.index}}"},
+                        {% endfor %}]
+        var countries_en = ["zero",
+                        {% for o in labels.en.form_headquarters.options %}
+                            "{{o}}",
+                        {% endfor %}];
 
-    var countries = [
-                {% for o in labels.form_headquarters.options %} 
-                {"value": "{{o}}", "data": "{{loop.index}}"},
-                {% endfor %}];
+        $('#country').autocomplete({
+            lookup: countries,
+            onSelect: function (suggestion) {
+                $('#country_en').val(countries_en[suggestion.data]);
 
-  var countries_en = ["zero",
-                {% for o in labels.en.form_headquarters.options %} 
-                "{{o}}",
-                {% endfor %}];
-
-$('#country').autocomplete({
-    lookup: countries,
-    onSelect: function (suggestion) {
-        $('#country_en').val(countries_en[suggestion.data]);
-
+            }
+        });
     }
-});
-}
-    
 
     $(window).on('resize', function () {
         checkHeight();

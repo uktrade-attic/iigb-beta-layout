@@ -1,131 +1,149 @@
-.search-heading-wrapper{
-    border: 0.5px solid black;
-    background-color:#f4f0eb;
-}
-
-.search-main-wrapper{
-    background-color: #fdfcfb;
-    height: inherit;
-}
-
 .overlay {
-    /* Height & width depends on how you want to reveal the overlay (see JS below) */    
-    height: 100%;
-    width: 100%;
-    margin-left:100%;
-    position: fixed; /* Stay in place */
-    z-index: 1000; /* Sit on top */
-    left: 0;
-    top: 0;
-    background-color: #FFFFFF; /* Black fallback color */
-    background-color: #FFFFFF; /* Black w/opacity */
-    overflow-x: hidden; /* Disable horizontal scroll */
-    transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
-}
+  /* Height & width depends on how you want to reveal the overlay (see JS below) */
+  height: 100%;
+  width: 100%;
+  margin-left: 100%;
+  position: fixed; /* Stay in place */
+  z-index: 1000; /* Sit on top */
+  left: 0;
+  top: 0;
+  background-color: $white; /* Black fallback color */
+  background-color: $white; /* Black w/opacity */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
 
+  //@media screen and (max-height: 450px) {
+  //  font-size: 20px
+  //}
 
-.overlay .closebtn {
+  &.closebtn {
     font-size: 18px;
-    top: 15px;
-    color: white;
+    color: $white;
+    //@media screen and (max-height: 450px) {
+    //  font-size: 20px;
+    //}
+  }
+
+  &-open {
+    overflow: hidden;
+    position: fixed;
+  }
 }
 
-@media screen and (max-height: 450px) {
-    .overlay a {font-size: 20px}
-    .overlay .closebtn {
-        font-size: 20px;
-        top: 15px;
-        right: 35px;
+.search-heading-wrapper {
+  border: 0.5px solid $text-colour;
+  background-color: $background-colour;
+  max-height: 70px;
+}
+
+.search-main-wrapper {
+  background-color: $background-colour;
+  height: inherit;
+}
+
+#dit-search-overlay {
+
+  .navbar {
+    top: 0px;
+  }
+
+  .close-btn-div {
+    height: 68px;
+    padding-top: 0;
+    background-color: $red-line-colour;
+    text-align: center;
+
+    a {
+      text-decoration: none !important;
+      color: $white;
+      padding-right: 0;
     }
-}
+  }
+
+  .close-search-icon {
+    font-size: 36px;
+    margin: 16px 0 0 0px;
+    -webkit-text-stroke: 3px $red-line-colour;
+  }
 
 
-#dit-search-overlay{
-    
-.navbar{
-    top:0px;
-}
-
-.close-btn-div{
-    height: inherit;
-    background-color: #ba1a2f;
-    right: 50px;
-    padding: 30px;
-    text-align:center;
-}
-
-
-.search-result-snippet{
-    font-size: 18px;
-}
-
-.search-result-link{
-    font-size: 16px;
-    color: #486e2a;
-}
-
-#search-options{
+  #search-options {
     margin-top: 40px;
-}
+  }
 
-.search-list-style{
-    list-style: none;
-}
+  .search-page_search_title {
+    float: right;
+    margin: 22px 5px 0 0;
 
-#searchInput{
-    width: 100%;
-    margin: 40px 0px;
-}
-
-.search-page_search_title{
-    float:right;
-}
-
-.search-page_search_title_block{
-    padding: 45px 0px;
-}
-
-.search-input-field{
-    width: 100%;
-}
-
-.search-results-container{
-    height:85%; 
-    max-width: 900px;
-}
-
-.search-results-block{
-    min-height: 90%;
-}
-
-.close-search-icon{
-    font-size: 50px;
-    margin-left: 10px;
-
+    @media (max-width: $screen-sm-max) {
+      margin: 24px 20px 0 0;
     }
 
-.pagination-links{
-    cursor: pointer;
-}
+    @media (max-width: $screen-xs-max) {
+      margin: 24px -10px 0 0px;
+    }
+  }
 
-.search-result{
-    
-    p:nth-child(4){        
+  #searchInput {
+    height: 60px;
+    width: 100%;
+    margin: 4px 0px;
     font-size: 18px;
+  }
+
+  .search-input-field {
+    float: left;
+    padding: 0;
+  }
+
+  .search-results-container {
+    height: inherit;
+  }
+
+  .search-results-block {
+    min-height: 90%;
+  }
+
+  .search-list-style {
+    list-style: none;
+  }
+
+  .search-result {
+    margin-bottom: 30px;
+
+    h3 {
+      margin: 0;
     }
 
-}
+    p {
+      margin: 0;
 
-.close-btn-div a{
-    text-decoration: none !important;
-}
-
-
-   @media (max-width: $screen-sm-max) {
-.search-page_search_title{
-    float:left;
-    margin-left:20px;
+      @media (max-width: $screen-sm-max) {
+        word-break: normal;
+      }
     }
+
+    p:nth-child(4) {
+      font-size: 18px;
+    }
+
+    &-snippet {
+      font-size: 18px;
+    }
+
+    &-link {
+      font-size: 16px;
+      color: #486e2a;
+    }
+  }
+
+  .pagination-links {
+    cursor: pointer;
+  }
+
+  @media (max-width: $screen-sm-max) {
+    float: left;
+    margin-left: 20px;
+  }
 }
 
-}
