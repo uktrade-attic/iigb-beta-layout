@@ -5,6 +5,12 @@
   width: 70px;
   margin: 28px auto;
 
+  &-sm {
+    height: 50px;
+    width: 50px;
+    margin: 4px -4px 0 15px;
+  }
+
   &-connections {
     background: url(../img/dit-icon-connections.png) no-repeat;
     background: linear-gradient(transparent, transparent),
