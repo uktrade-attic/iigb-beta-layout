@@ -50,6 +50,7 @@
         checkFormStatus();
         ifOtherSelected();
         search();
+        jsSearch();
     }
 
     function smoothScroll() {
@@ -356,6 +357,18 @@
                 }
             });
         }
+    }
+
+    function jsSearch(){
+
+        var searchButton = $('.search-button');
+
+        searchButton.click(function(e){
+            e.preventDefault();
+            searchButton.removeAttr('href');
+            openNav();
+        })
+
     }
 
     function search(){
