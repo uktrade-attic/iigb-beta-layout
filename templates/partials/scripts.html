@@ -148,7 +148,8 @@
         var formRightSide = $('.dit-form-section__body');
         var formSuccess = $('#formSuccess');
         var enquiryId = $('#enquiry_Id');
-        if (url.indexOf('?' + field + '=') != -1) {
+        if (url.indexOf('?' + field + '=') !== -1) {
+            console.log(1);
 
             formLeftSide.hide();
             formRightSide.hide();
@@ -158,8 +159,7 @@
             }, 2000);
             console.log('here');
             enquiryId.text(getUrlVar());
-        } else {
-            if (url.indexOf('&' + field + '=') != -1) {
+        } else if (url.indexOf('&' + field + '=') !== -1) {
                 formLeftSide.hide();
                 formRightSide.hide();
                 formSuccess.show();
@@ -169,7 +169,6 @@
                 enquiryId.text(getUrlVar());
             }
         }
-    }
 
     function ifOtherSelected(){
         var industry = $('#industry');
