@@ -4,11 +4,16 @@
 {% block content %}
 
 {% include "partials/header-nav.html" %}
+
+{% include "partials/top-bar.html" %}
+
 {% include "partials/jumbotron-short.html" %}
 
 <div class="container">
     {{ markups.bullet_list(list = contentBlocks.listItems, country = locale.country) }}
 </div>
+
+{% include "partials/form.html" %}
 
 {% endblock %}
 

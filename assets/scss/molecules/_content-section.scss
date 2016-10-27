@@ -6,6 +6,7 @@
   background-color: $white;
   border: 1px solid $tile-border-colour;
   border-bottom: 5px solid $red-line-colour;
+  overflow: hidden;
 
   h2 {
     margin: 24px 0 16px 0;

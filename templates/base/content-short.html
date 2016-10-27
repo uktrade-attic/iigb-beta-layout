@@ -6,6 +6,14 @@
 
 {% include "partials/top-bar.html" %}
 
+{% include "partials/jumbotron-short.html" %}
+
+<section class="dit-toc">
+    {% block toc %}
+      {% include "partials/breadcrumb.html" %}
+    {% endblock %}
+</section>
+
 {% block page_content %}
 {% endblock %}
 
