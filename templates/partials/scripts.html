@@ -195,6 +195,17 @@
     }
 
     function prepareForm() {
+
+        $('.stepwizard').show();
+        $('.nextBtn').show();
+        $('.prevBtn').show();
+        $('.location_block').show();
+        $('.submitBtn').hide();
+        $('.dit-form-section__step').css('min-height','58rem');
+        $('.dit-form-section__step').removeClass('final_step');
+
+
+
         var navListItems = $('div.setup-panel div a'),
             allWells = $('.setup-content'),
             allNextBtn = $('.nextBtn'),
