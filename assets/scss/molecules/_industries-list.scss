@@ -44,6 +44,11 @@
           right: 0;
           background: rgba(0, 0, 0, 0.5);
         }
+
+        img {
+          // width: 105%;
+          // transform: scale(1.05);
+        }
       }
     }
   }
@@ -52,14 +57,19 @@
     width: 100%;
     height: auto;
     //border-radius: 10px;
+
+    &:hover {
+      // width: 105%;
+    }
   }
 
   &__text {
-    width: 90%;
+    width: 100%;
     position: absolute;
-    padding: 15px 5px;
-    left: 15px;
-    top: 0px
+    padding: 15px;
+    // left: 15px;
+    bottom: 0px;
+    background: $great-blue;
   }
 
   &__link-wrap {
