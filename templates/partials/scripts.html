@@ -150,15 +150,12 @@
         var formSuccess = $('#formSuccess');
         var enquiryId = $('#enquiry_Id');
         if (url.indexOf('?' + field + '=') !== -1) {
-            console.log(1);
-
             formLeftSide.hide();
             formRightSide.hide();
             formSuccess.show();
             $('html, body').animate({
                 scrollTop: $('.dit-form-section').offset().top
             }, 2000);
-            console.log('here');
             enquiryId.text(getUrlVar());
         } else if (url.indexOf('&' + field + '=') !== -1) {
                 formLeftSide.hide();
