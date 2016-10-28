@@ -1,7 +1,7 @@
 {% if contentBlocks.pageHeader.heroImage %}
     <style>
         .jumbotron {
-            background-image: url("/media/{{contentBlocks.pageHeader.heroImage}}");
+            background-image: url("/media/hero-img/{{contentBlocks.pageHeader.heroImage}}");
             /*background-size: cover;*/
         }
     </style>
@@ -55,8 +55,8 @@
             </div>
         </div>
 
-        <video autoplay loop poster="/assets/vid/{{contentBlocks.pageHeader.heroVideoImage}}" class="dit-hero__video-bg">
-            <source src="/assets/vid/{{contentBlocks.pageHeader.heroVideo}}" type="video/mp4">
+        <video autoplay loop poster="/media/vid/{{contentBlocks.pageHeader.heroVideoImage}}" class="dit-hero__video-bg">
+            <source src="/media/vid/{{contentBlocks.pageHeader.heroVideo}}" type="video/mp4">
         </video>
     {% endif %}
 </div>
