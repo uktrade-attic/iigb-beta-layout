@@ -1,0 +1,25 @@
+{% extends "base/index.html" %}
+{% import "partials/markups.html" as markups %}
+
+{% block content %}
+
+{% include "partials/header-nav.html" %}
+
+{% include "partials/top-bar-no_contact.html" %}
+
+{% include "partials/jumbotron-short.html" %}
+
+<div class="container">
+    <section class="dit-content-section">
+        <div class="col-md-7 col-sm-10 dit-main-content__body">
+            {{ contentBlocks.infoBlock.content.contents | safe }}
+        </div>
+    </section>
+</div>
+
+
+{% endblock %}
+
+
+
+
