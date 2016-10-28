@@ -21,7 +21,6 @@
 
   &__info {
     min-height: 58rem;
-    border-right: 1px solid $tile-border-colour;
     padding-left: 24px;
 
     .light-grey {
@@ -44,11 +43,9 @@
 
   &__body {
     min-height: 58rem;
-  }
+    border-left: 1px solid #D8D8D8;  
+    }
 
-  &__step {
-    min-height: 58rem;
-  }
 
   .glyphicon-triangle-left {
     margin-top: 1px !important;
@@ -181,4 +178,28 @@
 .active-selection {
   font-size: 60px;
   font-weight: 500;
+}
+
+.stepwizard{
+  display:none;
+}
+
+.prevBtn{
+  display:none;
+}
+
+.nextBtn{
+  display:none;
+}
+
+.submitBtn{
+  margin-bottom: 10px;
+}
+
+.location_block{
+  display:none;
+}
+
+.final_step{
+  padding-bottom: 70px;
 }
