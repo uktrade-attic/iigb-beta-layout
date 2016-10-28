@@ -141,9 +141,9 @@
     cursor: pointer;
   }
 
-  @media (max-width: $screen-sm-max) {
-    float: left;
-    margin-left: 20px;
-  }
+  //@media (max-width: $screen-sm-max) {
+  //  float: left;
+  //  margin-left: 20px;  //creates a bug
+  //}
 }
 
