@@ -31,7 +31,10 @@
             {% endfor %}
         </div>
         <div class="col-md-8 dit-form-section__body">
-            <form enctype='application/json' id="dit_form" role="form" action="http://localhost:4000/form" method="post">
+            <div id="loading-overlay">
+                <img src="/media/spin.gif" alt="loading_spinner" id="img-load">
+            </div>
+            <form enctype='application/json' id="dit_form" role="form" action="https://iigb-search.herokuapp.com/form" method="post">
                 <div class="stepwizard">
                     <div class="stepwizard-row setup-panel">
                         <div class="stepwizard-step">

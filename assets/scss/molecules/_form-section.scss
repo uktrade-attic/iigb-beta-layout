@@ -203,3 +203,18 @@
 .final_step{
   padding-bottom: 70px;
 }
+
+#loading-overlay {
+    opacity: 0.5;
+    top: 0px;
+    width: 2.22222px;
+    height: 100%;
+    position: absolute;
+    margin: 0 auto;
+    z-index: 10;
+    display:none;
+}
+
+#img-load{
+    position: absolute;
+}
