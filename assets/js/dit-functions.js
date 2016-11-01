@@ -26,11 +26,12 @@ function onLoaded() {
   ifOtherSelected();
   search();
   jsSearch();
+  submitForm();
 }
 
 function smoothScroll() {
   //smoothscrolling and positioning
-  $('a[href^="#"]').on('click', function (e) {
+  $('a[href^="#"]').on('click', function(e) {
     // prevent default anchor click behavior
     e.preventDefault();
     // store hash
@@ -38,7 +39,7 @@ function smoothScroll() {
     // animate
     $('html, body').stop().animate({
       scrollTop: $(hash).offset().top
-    }, 600, 'swing', function () {
+    }, 600, 'swing', function() {
       window.location.hash = hash;
     });
   });
@@ -52,8 +53,8 @@ function addActive() {
     child = 'industries/';
   } else if (url.match(/\/setup-guide\//)) {
     child = 'setup-guide/';
-//        } else if (url.match('\/help\/')) {
-//            child = 'help/';
+    //        } else if (url.match('\/help\/')) {
+    //            child = 'help/';
   } else if (url.match(/\/\w{2}\/$/)) {
     child = '';
   }
@@ -79,18 +80,18 @@ function openNav() {
   contentLastMarginLeft = box.css('margin-left');
 
   box.animate({
-    'margin-top':'40px',
+    'margin-top': '40px',
     'height': '70px'
   }, 100);
 
   box.animate({
-    'margin-left':newValue
+    'margin-left': newValue
   }, 400);
 
   box.animate({
-    'margin-top':'0',
+    'margin-top': '0',
     'height': '100%'
-  }, 1000, function () {
+  }, 1000, function() {
     $('body').addClass('overlay-open');
   });
 }
@@ -107,17 +108,17 @@ function closeNav() {
   contentLastMarginLeft = box.css('margin-left');
 
   box.animate({
-    'margin-top':'40px',
+    'margin-top': '40px',
     'height': '70px'
   }, 500);
 
   box.animate({
-    'margin-left':'100%'
+    'margin-left': '100%'
   }, 900);
 
 }
 
-function checkFormStatus(){
+function checkFormStatus() {
   var field = 'enquiryId';
   var url = window.location.href;
   var formLeftSide = $('.dit-form-section__info');
@@ -143,14 +144,14 @@ function checkFormStatus(){
   }
 }
 
-function ifOtherSelected(){
+function ifOtherSelected() {
   var industry = $('#industry');
   $('#other').hide();
 
-  industry.change(function(e){
-    if ($('#industry option:selected').text() == 'Other'){
+  industry.change(function(e) {
+    if ($('#industry option:selected').text() == 'Other') {
       $('#other').show();
-    }else{
+    } else {
       $('#other').hide();
     }
   });
@@ -173,7 +174,7 @@ function prepareForm() {
   $('.prevBtn').show();
   $('.location_block').show();
   $('.submitBtn').hide();
-  $('.dit-form-section__step').css('min-height','58rem');
+  $('.dit-form-section__step').css('min-height', '58rem');
   $('.dit-form-section__step').removeClass('final_step');
 
 
@@ -189,16 +190,16 @@ function prepareForm() {
   allWells.hide();
   locationSelectors.hide();
 
-  locationRadioYes.click(function (e) {
+  locationRadioYes.click(function(e) {
     locationSelectors.show();
   });
 
-  locationRadioNo.click(function (e) {
+  locationRadioNo.click(function(e) {
     $('#location').prop('selectedIndex', 0);
     locationSelectors.hide();
   });
 
-  $('#step-2').on('click', '.radio-group a', function () {
+  $('#step-2').on('click', '.radio-group a', function() {
     var sel = $(this).data('title');
     var tog = $(this).data('toggle');
     $(this).parent().next('.' + tog).prop('value', sel);
@@ -206,7 +207,7 @@ function prepareForm() {
     $(this).parent().find('a[data-toggle="' + tog + '"][data-title="' + sel + '"]').removeClass('notActive').addClass('active');
   });
 
-  navListItems.click(function (e) {
+  navListItems.click(function(e) {
     e.preventDefault();
     var $target = $($(this).attr('href')),
       $item = $(this);
@@ -222,20 +223,20 @@ function prepareForm() {
 
   var theStep, theWidth, totalWidth;
 
-  $(function () {
+  $(function() {
     theWidth = $('.dit-form-section__body').width();
     theStep = $('.setup-content');
-    $(theStep).each(function () {
+    $(theStep).each(function() {
       $(this).css('width', theWidth);
     });
     //wrap into mother div
     $('.dit-form-wrapper').wrap('<div id="mother" />');
     //assign height width and overflow hidden to mother
     $('#mother').css({
-      width: function () {
+      width: function() {
         return theWidth;
       },
-      height: function () {
+      height: function() {
         return theStep.height();
       },
       position: 'relative !important',
@@ -244,13 +245,13 @@ function prepareForm() {
     //get total of image sizes and set as width for ul
     totalWidth = (theStep.length) * theWidth + 5;
     $('.dit-form-wrapper').css({
-      width: function () {
+      width: function() {
         return totalWidth;
       }
     });
   });
 
-  allNextBtn.click(function () {
+  allNextBtn.click(function() {
     var curStep = $(this).closest(".setup-content"),
       curStepValue = parseInt(curStep.attr("id").split('-')[1]),
       nextStepWizard = $('div.setup-panel div a[href="#step-' + curStepValue + '"]').parent().next().children("a"),
@@ -259,19 +260,21 @@ function prepareForm() {
 
     $(".form-group").removeClass("has-error");
     for (var i = 0; i < curInputs.length; i++) {
-      if (curInputs[i].hasAttribute('required') && curInputs[i].value === '') {  //changed for IE8 compatibility
+      if (curInputs[i].hasAttribute('required') && curInputs[i].value === '') { //changed for IE8 compatibility
         isValid = false;
         $(curInputs[i]).closest(".form-group").addClass("has-error");
       }
     }
 
     if (isValid) {
-      $('.dit-form-wrapper').animate({"margin-left": -(curStepValue * theWidth)}, 500);
+      $('.dit-form-wrapper').animate({
+        "margin-left": -(curStepValue * theWidth)
+      }, 500);
       nextStepWizard.removeAttr('disabled').trigger('click');
     }
   });
 
-  allPrevBtn.click(function () {
+  allPrevBtn.click(function() {
     var curStep = $(this).closest(".setup-content"),
       curStepValue = parseInt(curStep.attr("id").split('-')[1]),
       prevStepWizard = $('div.setup-panel div a[href="#step-' + curStepValue + '"]').parent().prev().children("a"),
@@ -279,12 +282,34 @@ function prepareForm() {
       isValid = true;
 
     if (isValid) {
-      $('.dit-form-wrapper').animate({"margin-left": -((curStepValue - 2) * theWidth)}, 500);
+      $('.dit-form-wrapper').animate({
+        "margin-left": -((curStepValue - 2) * theWidth)
+      }, 500);
       prevStepWizard.removeAttr('disabled').trigger('click');
     }
   });
 }
 
+function submitForm() {
+
+  $('#dit_form').submit(function(e) {
+
+    var url = $('form').attr('action');
+
+    $.ajax({
+      type: 'POST',
+      url: url,
+      data: $('#dit_form').serialize(),
+      success: function(data) {
+        window.location.href = '/{{locale.country}}/enquiries/confirmation/?enquiryId=' + data.enquiryId;
+      },
+      error: function(xhr, textstatus, error) {
+        window.location.href = '/{{locale.country}}/enquiries/error/?errorCode=' + 500;
+      }
+    });
+    e.preventDefault();
+  });
+}
 
 var searchResultsSize = 10;
 
@@ -310,7 +335,7 @@ function getResults(size, start) {
         searchArea.html("");
         var searchResults = results.hits.hit;
         searchResults.forEach(function(result) {
-          var htmlStr =   '<div class="search-result"><h3><a href="/' + result.fields.url + '">' + result.fields.pagetitle + '</a></h3>' +
+          var htmlStr = '<div class="search-result"><h3><a href="/' + result.fields.url + '">' + result.fields.pagetitle + '</a></h3>' +
             '<p class="search-result-link">' + "www.great.gov.uk/" + result.fields.url + '</p>' +
             '<p class="search-result-snippet">' + result.fields.intro + '</p></div>';
           if (result.fields.pagetitle !== '') {
@@ -318,43 +343,44 @@ function getResults(size, start) {
           }
 
         });
-        if ( results.hits.found > searchResultsSize){
+        if (results.hits.found > searchResultsSize) {
 
           $('.pagination')
             .show()
             .empty()
-            .append('<li><a class="pagination-links"     onclick="getResults('+searchResultsSize+',0)">1</a></li>');
+            .append('<li><a class="pagination-links"     onclick="getResults(' + searchResultsSize + ',0)">1</a></li>');
 
           var count = Math.floor(results.hits.found / searchResultsSize);
 
-          if((Math.floor(results.hits.found % searchResultsSize) !== 0)){
-            count +=1;
+          if ((Math.floor(results.hits.found % searchResultsSize) !== 0)) {
+            count += 1;
           }
-          for(var x=2 ; x <= count; x ++){
-            $('.pagination').append('<li><a style="cursor:pointer;" onclick="getResults('+searchResultsSize+','+(searchResultsSize*x-(searchResultsSize-1))+')">'+x+'</a></li>');
+          for (var x = 2; x <= count; x++) {
+            $('.pagination').append('<li><a style="cursor:pointer;" onclick="getResults(' + searchResultsSize + ',' + (searchResultsSize * x - (searchResultsSize - 1)) + ')">' + x + '</a></li>');
 
           }
-        }else if(results.hits.found === 0){
-          $("#search-options").append('<p><h3>{{ labels.no_results }}  "'+searchInput+ '"</h3></p>');
+        } else if (results.hits.found === 0) {
+          $("#search-options").append('<p><h3>{{ labels.no_results }}  "' + searchInput + '"</h3></p>');
         }
       }
     });
   }
 }
 
-function jsSearch(){
+function jsSearch() {
   var searchButton = $('.search-button');
 
-  searchButton.click(function(e){
+  searchButton.click(function(e) {
     e.preventDefault();
     searchButton.removeAttr('href');
     openNav();
   })
 }
 
-function search(){
+function search() {
   var debouncedSearch = debounce(function() {
-    getResults(searchResultsSize, 0);}, 500);
+    getResults(searchResultsSize, 0);
+  }, 500);
   $('#searchInput').on('input', debouncedSearch);
 }
 
