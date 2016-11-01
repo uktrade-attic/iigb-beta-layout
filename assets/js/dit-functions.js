@@ -295,17 +295,19 @@ function submitForm() {
   $('#dit_form').submit(function(e) {
     formLoading();
 
-    var url = $('form').attr('action');
+    var windowUrl = window.location.pathname;
+    var language = windowUrl.match(/\/\w{2}\//)[0];
+    var postUrl = $('form').attr('action');
 
     $.ajax({
       type: 'POST',
-      url: url,
+      url: postUrl,
       data: $('#dit_form').serialize(),
       success: function(data) {
-        window.location.href = '/{{locale.country}}/enquiries/confirmation/?enquiryId=' + data.enquiryId;
+        window.location.href = language + 'enquiries/confirmation/?enquiryId=' + data.enquiryId;
       },
       error: function(xhr, textstatus, error) {
-        window.location.href = '/{{locale.country}}/enquiries/error/?errorCode=' + 500;
+        window.location.href = language + 'enquiries/error/?errorCode=' + 500;
       }
     });
     e.preventDefault();
@@ -314,9 +316,6 @@ function submitForm() {
   function formLoading() {
 
     $t = $('.dit-form-section__body');
-    console.log($t.height());
-    console.log($t.width());
-
     var submitBtn = $('.submitBtn');
 
     $('#loading-overlay').css({
@@ -399,7 +398,7 @@ function jsSearch() {
     e.preventDefault();
     searchButton.removeAttr('href');
     openNav();
-  })
+  });
 }
 
 function search() {
