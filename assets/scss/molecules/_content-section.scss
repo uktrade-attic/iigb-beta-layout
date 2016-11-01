@@ -2,7 +2,7 @@
 
 .dit-content-section {
   padding: 24px 24px 16px 24px;
-  margin-top: 60px;
+  margin: 60px 0 50px;
   background-color: $white;
   border: 1px solid $tile-border-colour;
   border-bottom: 5px solid $red-line-colour;
@@ -49,4 +49,17 @@
     margin-top: 15px;
     display: inline-block;
   }
+
+  & .dit-back-to-top {
+    display: inline-block;
+    margin-top: 12px;
+  }
+}
+
+.dit-updated {
+  margin-top: -48px;
+  float: right;
+  font-style: italic;
+  font-size: 14px;
+  margin-bottom: 42px;
 }

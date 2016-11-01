@@ -23,6 +23,7 @@
         setTimeout(onLoaded, 1005);
     });
 
+<<<<<<< HEAD
     function showcontent() {
         $('.dit-outer-wrap').show();
     }
@@ -327,9 +328,6 @@
                 window.location.href = '/{{locale.country}}/enquiries/confirmation/?enquiryId=' + data.enquiryId;
             },
             error: function(xhr, textstatus,error){
-                console.log(xhr);
-                console.log(textstatus);
-                console.log(error);
                 window.location.href = '/{{locale.country}}/enquiries/error/?errorCode=' + 500;
             }
         });
@@ -395,7 +393,6 @@
 
     function jsSearch(){
         var searchButton = $('.search-button');
-
         searchButton.click(function(e){
             e.preventDefault();
             searchButton.removeAttr('href');
