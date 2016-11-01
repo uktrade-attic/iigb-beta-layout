@@ -58,7 +58,7 @@ function addActive() {
     child = '';
   }
 
-  if ($('ul.nav a')) {
+  if ($('ul.nav a') && language) {
     $('ul.nav a[href="' + language[0] + child + '"]').parent().addClass('active');
   }
 }
