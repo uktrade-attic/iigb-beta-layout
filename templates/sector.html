@@ -27,7 +27,7 @@
     {% for a in contentBlocks.sections %}
     {{ markups.section(a, labels, locale.language) }}
     {% endfor %}
-    <p class="dit-updated">Page updated {{now()|date}}</p>
+    <p class="dit-updated">Last updated {{now()|date}}</p>
 
     {% if contentBlocks.subContent %}
     <div class="dit-industries-subsectors">
