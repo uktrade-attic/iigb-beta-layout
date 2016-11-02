@@ -36,16 +36,18 @@
         document.createElement('footer');
     </script>
     <![endif]-->
-    <!--[if IE 9]-->
+    <!--[if gte IE 9]>
+    <link href="/assets/css/main-ie9.css" rel="stylesheet" type="text/css"/>
     <script src="/assets/js/jquery.min.js"></script>
     <script src="/assets/js/jquery.autocomplete.min.js"></script>
-    <!--[endif]-->
+    <![endif]-->
+    <![if !IE]>
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/jquery.autocomplete.min.js"></script>
+    <![endif]>
     <script src="/assets/js/bootstrap.min.js"></script>
     <script src="/assets/js/equalHeight.js"></script>
     <script src="/assets/js/dit-functions.js"></script>
-    <!--[if IE 9]>
-    <link href="/assets/css/main-ie9.css" rel="stylesheet" type="text/css"/>
-    <![endif]-->
 </head>
 <style type="text/css">
     .bg--transparent {
