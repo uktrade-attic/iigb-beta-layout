@@ -294,9 +294,11 @@ function prepareForm() {
 function submitForm() {
 
   $('#dit_form').submit(function(e) {
-    var postUrl = $('form').attr('action');
+    formLoading();
+
     var windowUrl = window.location.pathname;
     var language = windowUrl.match(/\/\w{2}\//)[0];
+    var postUrl = $('form').attr('action');
 
     $.ajax({
       type: 'POST',
@@ -311,6 +313,27 @@ function submitForm() {
     });
     e.preventDefault();
   });
+
+  function formLoading() {
+
+    $t = $('.dit-form-section__body');
+    var submitBtn = $('.submitBtn');
+
+    $('#loading-overlay').css({
+      opacity: 0.5,
+      display: 'block',
+    });
+
+    $('#img-load').css({
+      left: $t.outerWidth() / 2 - ($('#img-load').width() / 2),
+      top: $t.outerHeight() / 2,
+    });
+
+    submitBtn.click(function() {
+      $('#loading-overlay').fadeIn();
+    });
+
+  }
 }
 
 var searchResultsSize = 10;
@@ -376,7 +399,7 @@ function jsSearch() {
     e.preventDefault();
     searchButton.removeAttr('href');
     openNav();
-  })
+  });
 }
 
 function search() {

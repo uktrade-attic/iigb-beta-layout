@@ -34,6 +34,9 @@
             {% endfor %}
         </div>
         <div class="col-md-8 dit-form-section__body">
+            <div id="loading-overlay">
+                <img src="/media/spin.gif" alt="loading_spinner" id="img-load">
+            </div>
             <form enctype='application/json' id="dit_form" role="form" action="https://iigb-forms.herokuapp.com/form" method="post">
                 <div class="stepwizard">
                     <div class="stepwizard-row setup-panel">
