@@ -294,17 +294,19 @@ function submitForm() {
 
   $('#dit_form').submit(function(e) {
 
-    var url = $('form').attr('action');
+    var postUrl = $('form').attr('action');
+    var windowUrl = window.location.pathname;
+    var language = windowUrl.match(/\/\w{2}\//)[0];
 
     $.ajax({
       type: 'POST',
-      url: url,
+      url: postUrl,
       data: $('#dit_form').serialize(),
       success: function(data) {
-        window.location.href = '/{{locale.country}}/enquiries/confirmation/?enquiryId=' + data.enquiryId;
+        window.location.href = language + 'enquiries/confirmation/?enquiryId=' + data.enquiryId;
       },
       error: function(xhr, textstatus, error) {
-        window.location.href = '/{{locale.country}}/enquiries/error/?errorCode=' + 500;
+        window.location.href = language + 'enquiries/error/?errorCode=' + 500;
       }
     });
     e.preventDefault();
