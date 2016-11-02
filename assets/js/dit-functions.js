@@ -169,6 +169,7 @@ function getUrlVar() {
 
 function prepareForm() {
 
+  $('.js_switch').attr('value', 'true');
   $('.stepwizard').show();
   $('.nextBtn').show();
   $('.prevBtn').show();
