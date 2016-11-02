@@ -169,6 +169,7 @@ function getUrlVar() {
 
 function prepareForm() {
 
+  $('.js_switch').attr('value', 'true');
   $('.stepwizard').show();
   $('.nextBtn').show();
   $('.prevBtn').show();
@@ -293,7 +294,6 @@ function prepareForm() {
 function submitForm() {
 
   $('#dit_form').submit(function(e) {
-
     var postUrl = $('form').attr('action');
     var windowUrl = window.location.pathname;
     var language = windowUrl.match(/\/\w{2}\//)[0];
