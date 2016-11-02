@@ -23,6 +23,14 @@
   max-height: 70px;
 }
 
+.search-error{
+  display:none;
+}
+
+.no-results{
+  display:none;
+}
+
 .search-main-wrapper {
   background-color: $background-colour;
   height: inherit;

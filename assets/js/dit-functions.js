@@ -358,36 +358,39 @@ function getResults(size, start) {
       success: function(results) {
         console.log(results);
         searchArea.html("");
-        var searchResults = results.hits.hit;
-        searchResults.forEach(function(result) {
-          var htmlStr = '<div class="search-result"><h3><a href="/' + result.fields.url + '">' + result.fields.pagetitle + '</a></h3>' +
-            '<p class="search-result-link">' + "www.great.gov.uk/" + result.fields.url + '</p>' +
-            '<p class="search-result-snippet">' + result.fields.intro + '</p></div>';
-          if (result.fields.pagetitle !== '') {
-            $("#search-options").append(htmlStr);
+        if ('hits' in results) {
+          var searchResults = results.hits.hit;
+          searchResults.forEach(function(result) {
+            var htmlStr = '<div class="search-result"><h3><a href="/' + result.fields.url + '">' + result.fields.pagetitle + '</a></h3>' +
+              '<p class="search-result-link">' + "www.great.gov.uk/" + result.fields.url + '</p>' +
+              '<p class="search-result-snippet">' + result.fields.intro + '</p></div>';
+            if (result.fields.pagetitle !== '') {
+              $("#search-options").append(htmlStr);
+            }
+          });
+          if (results.hits.found > searchResultsSize) {
+
+            $('.pagination')
+              .show()
+              .empty()
+              .append('<li><a class="pagination-links"     onclick="getResults(' + searchResultsSize + ',0)">1</a></li>');
+
+            var count = Math.floor(results.hits.found / searchResultsSize);
+
+            if ((Math.floor(results.hits.found % searchResultsSize) !== 0)) {
+              count += 1;
+            }
+            for (var x = 2; x <= count; x++) {
+              $('.pagination').append('<li><a style="cursor:pointer;" onclick="getResults(' + searchResultsSize + ',' + (searchResultsSize * x - (searchResultsSize - 1)) + ')">' + x + '</a></li>');
+            }
+          } else if (results.hits.found === 0) {
+            $("#search-options").append('<p><h3>' + $('.no-results').text() + ' "' + searchInput + '"</h3></p>');
           }
-
-        });
-        if (results.hits.found > searchResultsSize) {
-
-          $('.pagination')
-            .show()
-            .empty()
-            .append('<li><a class="pagination-links"     onclick="getResults(' + searchResultsSize + ',0)">1</a></li>');
-
-          var count = Math.floor(results.hits.found / searchResultsSize);
-
-          if ((Math.floor(results.hits.found % searchResultsSize) !== 0)) {
-            count += 1;
-          }
-          for (var x = 2; x <= count; x++) {
-            $('.pagination').append('<li><a style="cursor:pointer;" onclick="getResults(' + searchResultsSize + ',' + (searchResultsSize * x - (searchResultsSize - 1)) + ')">' + x + '</a></li>');
-
-          }
-        } else if (results.hits.found === 0) {
-          $("#search-options").append('<p><h3>{{ labels.no_results }}  "' + searchInput + '"</h3></p>');
+        } else {
+          $("#search-options").append('<p><h3>' + $('.search-error').text() + '</h3></p>');
         }
-      }
+      },
+      error: function(xhr, textstatus, error) {}
     });
   }
 }
