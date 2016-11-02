@@ -11,7 +11,7 @@
 
 <div class="container">
 
-{{contentBlocks.firstSection.content.contents|safe}}
+{% include "partials/about-us.html" %}
 
 {{ markups.bullet_list( header = contentBlocks.listHeader, list = contentBlocks.listItems, country = locale.country  ) }}
 

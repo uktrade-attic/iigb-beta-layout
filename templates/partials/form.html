@@ -21,6 +21,9 @@
             <p>
                 {{ contentBlocks.formBlock.content.contents | safe }}
             </p>
+            <p>
+                <strong>{{ contentBlocks.formBlock.content.listTitle }}<strong>
+            </p>
             {% for l in contentBlocks.formBlock.content.list %}
                 <div class="row bottom-buffer">
                     <div class="col-xs-2 dit-icon-sm dit-icon-{{l.icon}}"></div>
