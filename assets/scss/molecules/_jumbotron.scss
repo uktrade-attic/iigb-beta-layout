@@ -120,9 +120,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
   }
 
   @media (max-width: $screen-sm-max) {
-    height: auto;
-    min-height: 540px;
-    background-size: auto;
+    //
   }
 }
 
