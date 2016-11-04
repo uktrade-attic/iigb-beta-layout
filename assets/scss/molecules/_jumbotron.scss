@@ -40,7 +40,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
     font-size: 40px;
 
     @media (max-width: $screen-sm-max) {
-      font-size: 32px;
+      font-size: 40px;
     }
   }
 
@@ -100,54 +100,29 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
     padding: 8px 0px 0px 0px;
   }
 
-  &--short {
-    color: $white;
-    text-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
-    position: relative;
-    overflow: hidden;
-    background: $background-jumbotron-empty;
-    margin: 40px 0 0 0;
-    height: 540px;
-    border-bottom: 5px solid $red-line-colour;
-    background-size: auto 100%;
-    background-position: top right;
-    max-height: 270px;
-    min-height: 270px;
-    padding: 50px 0 0 0;
-
-    h1 {
-      // margin-top: 200px;
-      font-size: 40px;
-
-      @media (max-width: $screen-sm-max) {
-        font-size: 32px;
-      }
-    }
-  }
-
   &--auto {
     color: $white;
     text-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
     position: relative;
     overflow: hidden;
-    background: $background-jumbotron-empty;
-    margin: 40px 0 0 0;
-    height: auto;
-    border-bottom: 5px solid $red-line-colour;
+    background: $background-jumbotron-empty top right;
     background-size: auto 100%;
-    background-position: top right;
+    margin: 40px 0 0 0;
+    padding: 50px 0 50px 0;
+    height: auto;
     max-height: none;
     min-height: inherit;
-    padding: 50px 0 50px 0;
+    border-bottom: 5px solid $red-line-colour;
 
     h1 {
-      // margin-top: 200px;
       font-size: 40px;
-
-      @media (max-width: $screen-sm-max) {
-        font-size: 32px;
-      }
     }
+  }
+
+  @media (max-width: $screen-sm-max) {
+    height: auto;
+    min-height: 540px;
+    background-size: auto;
   }
 }
 
