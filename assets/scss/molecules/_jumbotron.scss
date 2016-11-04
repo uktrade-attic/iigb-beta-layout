@@ -116,7 +116,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
     padding: 50px 0 0 0;
 
     h1 {
-      //
+      // margin-top: 200px;
+      font-size: 40px;
+
+      @media (max-width: $screen-sm-max) {
+        font-size: 32px;
+      }
     }
   }
 }
