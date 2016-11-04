@@ -22,6 +22,8 @@
   &__info {
     min-height: 58rem;
     padding-left: 24px;
+    border-right: 1px solid $tile-border-colour;
+    background-color: $white;
 
     .light-grey {
       font-weight: 100;
@@ -43,7 +45,7 @@
 
   &__body {
     min-height: 58rem;
-    border-left: 1px solid #D8D8D8;  
+    background-color: $white;
     }
 
 
@@ -54,7 +56,7 @@
   .dit-form-section__highlight {
     margin: 1em 0;
     padding: 2em 0 1em;
-    color: #fff;
+    color: $white;
     background: #28a197;
     text-align: center;
 }
