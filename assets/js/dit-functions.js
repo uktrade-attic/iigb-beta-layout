@@ -47,7 +47,7 @@ function smoothScroll() {
 
 function addActive() {
   var url = window.location.pathname;
-  var language = url.match(/\/\w{2}\//);
+  var language = url.match(/\/\w{2,3}\//);
   var child = '';
   if (url.match(/\/industries\//)) {
     child = 'industries/';
@@ -55,7 +55,7 @@ function addActive() {
     child = 'setup-guide/';
     //        } else if (url.match('\/help\/')) {
     //            child = 'help/';
-  } else if (url.match(/\/\w{2}\/$/)) {
+  } else if (url.match(/\/\w{2,3}\/$/)) {
     child = '';
   }
 
@@ -297,7 +297,7 @@ function submitForm() {
     formLoading();
 
     var windowUrl = window.location.pathname;
-    var language = windowUrl.match(/\/\w{2}\//)[0];
+    var language = windowUrl.match(/\/\w{2,3}\//)[0];
     var postUrl = $('form').attr('action');
 
     $.ajax({
