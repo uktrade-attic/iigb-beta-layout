@@ -1,9 +1,5 @@
 //main-nav
 
-.navbar {
-  border-bottom: 1px solid $tile-border-colour !important;
-}
-
 .dit-main-nav {
   background: $white;
 
@@ -27,14 +23,13 @@
 }
 
 .navbar {
-  //margin: 0;
-  border: 0 solid #F2F2F2;
-  //position: absolute;
+  border: 0 solid $tile-border-colour;
+  border-bottom: 1px solid $tile-border-colour;
+  border-radius: 0;
   z-index: 10;
   width: 100%;
-  height: 70px;
+  height: 71px;
   top: 40px;
-  border-radius: 0;
 }
 
 .navbar-brand {
