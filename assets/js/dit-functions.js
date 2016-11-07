@@ -20,6 +20,7 @@ function onLoaded() {
   smoothScroll();
   addActive();
   checkHeight();
+  setGradientHeight();
   prepareForm();
   formAutocomplete();
   checkFormStatus();
@@ -47,7 +48,7 @@ function smoothScroll() {
 
 function addActive() {
   var url = window.location.pathname;
-  var language = url.match(/\/\w{2}\//);
+  var language = url.match(/\/\w{2,3}\//);
   var child = '';
   if (url.match(/\/industries\//)) {
     child = 'industries/';
@@ -55,7 +56,7 @@ function addActive() {
     child = 'setup-guide/';
     //        } else if (url.match('\/help\/')) {
     //            child = 'help/';
-  } else if (url.match(/\/\w{2}\/$/)) {
+  } else if (url.match(/\/\w{2,3}\/$/)) {
     child = '';
   }
 
@@ -69,6 +70,14 @@ function checkHeight() {
   var elem = $('div').find('.check-height');
   if (elem.length > 0) {
     equalheight(elem);
+  }
+}
+
+function setGradientHeight() {
+  var textHeight = $('.jumbotron>.container').height();
+  if (textHeight) {
+    var gradientHeight = textHeight + 70;
+    $('head').append('<style>.jumbotron:before {height: ' + gradientHeight + 'px;}</style>');
   }
 }
 
@@ -87,13 +96,6 @@ function openNav() {
   box.animate({
     'margin-left': newValue
   }, 400);
-
-  box.animate({
-    'margin-top': '0',
-    'height': '100%'
-  }, 1000, function() {
-    $('body').addClass('overlay-open');
-  });
 }
 
 /* Close */
@@ -297,7 +299,7 @@ function submitForm() {
     formLoading();
 
     var windowUrl = window.location.pathname;
-    var language = windowUrl.match(/\/\w{2}\//)[0];
+    var language = windowUrl.match(/\/\w{2,3}\//)[0];
     var postUrl = $('form').attr('action');
 
     $.ajax({
@@ -339,7 +341,7 @@ function submitForm() {
 var searchResultsSize = 10;
 
 function getResults(size, start) {
-
+  var box = $('#dit-search-overlay');
   var URL = $(location).attr('href');
 
   var language = URL.split('/')[3];
@@ -359,6 +361,13 @@ function getResults(size, start) {
         console.log(results);
         searchArea.html("");
         if ('hits' in results) {
+          box.animate({
+            'margin-top': '0',
+            'height': '100%'
+          }, 1000, function() {
+            $('body').addClass('overlay-open');
+          });
+
           var searchResults = results.hits.hit;
           searchResults.forEach(function(result) {
             var htmlStr = '<div class="search-result"><h3><a href="/' + result.fields.url + '">' + result.fields.pagetitle + '</a></h3>' +

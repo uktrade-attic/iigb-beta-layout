@@ -5,30 +5,26 @@
   text-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
   position: relative;
   overflow: hidden;
-  background: $background-jumbotron-empty;
+  background: $background-jumbotron-empty top right;
   padding: 0;
   margin: 40px 0 0 0;
   height: 540px;
-  //z-index: 1;
   border-bottom: 5px solid $red-line-colour;
   background-size: auto 100%;
-  background-position: top right;
 
-    &:before {
-      content: '';
-      position: absolute;
-      height: 50%;
-      width: 100%;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 5;
-      background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 60%, rgba(0,0,0,1) 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.6) 60%,rgba(0,0,0,1) 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.6) 60%,rgba(0,0,0,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
-
-
+  &:before {
+    content: '';
+    position: absolute;
+    height: 50%;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 5;
+    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 60%, rgba(0, 0, 0, 1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 60%, rgba(0, 0, 0, 1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 60%, rgba(0, 0, 0, 1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#000000', GradientType=0); /* IE6-9 */
   }
 
   .dit-content-section {
@@ -36,11 +32,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
   }
 
   h1 {
-    // margin-top: 200px;
     font-size: 40px;
 
     @media (max-width: $screen-sm-max) {
-      font-size: 32px;
+      font-size: 40px;
     }
   }
 
@@ -55,15 +50,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
   .container {
     position: absolute;
     z-index: 5;
-    height: 40%;
+    height: auto;
     left: 0;
     right: 0;
-    bottom: 0;
+    bottom: 15px;
     background-color: #333;
-    background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#00000000', GradientType=0); /* IE6-9 */
   }
 
   .glyphicon-play {
@@ -86,6 +81,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
     top: 25px;
     right: 60px;
     font-size: 36px;
+    cursor: pointer;
     -webkit-text-stroke: 3px #000;
   }
 
@@ -100,24 +96,26 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
     padding: 8px 0px 0px 0px;
   }
 
-  &--short {
+  &--auto {
     color: $white;
     text-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
     position: relative;
     overflow: hidden;
-    background: $background-jumbotron-empty;
-    margin: 40px 0 0 0;
-    height: 540px;
-    border-bottom: 5px solid $red-line-colour;
+    background: $background-jumbotron-empty top right;
     background-size: auto 100%;
-    background-position: top right;
-    max-height: 270px;
-    min-height: 270px;
-    padding: 50px 0 0 0;
+    margin: 40px 0 0 0;
+    padding: 50px 0 50px 0;
+    height: auto;
+    max-height: none;
+    min-height: inherit;
+    border-bottom: 5px solid $red-line-colour;
 
     h1 {
-      //
+      font-size: 40px;
     }
   }
-}
 
+  @media (max-width: $screen-sm-max) {
+    //
+  }
+}

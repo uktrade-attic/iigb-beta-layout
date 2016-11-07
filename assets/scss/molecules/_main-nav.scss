@@ -1,9 +1,5 @@
 //main-nav
 
-.navbar {
-  border-bottom: 1px solid $tile-border-colour !important;
-}
-
 .dit-main-nav {
   background: $white;
 
@@ -18,7 +14,9 @@
   @media (max-width: $screen-sm-max) {
     position: relative;
     border-radius: 0;
-    padding: 0px 15px 0 59px;
+    padding: 0;
+    border-bottom: 1px solid $tile-border-colour;
+    z-index: 15;
 
     & > div {
       margin: 0 !important;
@@ -27,27 +25,30 @@
 }
 
 .navbar {
-  //margin: 0;
-  border: 0 solid #F2F2F2;
-  //position: absolute;
+  border: 0 solid $tile-border-colour;
+  border-bottom: 1px solid $tile-border-colour;
+  border-radius: 0;
   z-index: 10;
   width: 100%;
-  height: 70px;
+  height: 71px;
   top: 40px;
-  border-radius: 0;
+}
+
+.dit-iigb-logo {
+  height: 40px;
+  width: auto;
 }
 
 .navbar-brand {
   height: auto;
 }
 
+
 .navbar-brand img {
-  height: 40px;
-  width: auto;
   margin-left: 0;
 
-  @media (max-width: 767px) {
-    margin-left: -45px !important;
+  @media (max-width: $screen-sm-max) {
+    margin-left: 15px !important;
   }
   @media (max-width: 991px) and (min-width: 768px) {
     margin-left: -30px !important;
@@ -56,8 +57,19 @@
 }
 
 .navbar-collapse {
+  @media (max-width: $screen-xs-max) {
+    margin-right: 0;
+    margin-left: 30px;
+    width: 115%;
+  }
   @media (min-width: $screen-md-min) {
     margin-right: -15px !important;
+  }
+
+  &>ul>li>a {
+    @media (max-width: $screen-xs-max) {
+      padding-left: 30px;
+    }
   }
 }
 
@@ -67,4 +79,8 @@
 
 .navbar-default {
   background: white;
+}
+
+.navbar-nav {
+  margin-top: 0;
 }

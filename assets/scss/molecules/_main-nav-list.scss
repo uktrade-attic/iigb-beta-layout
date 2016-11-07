@@ -32,6 +32,8 @@
 
   @media (max-width: $screen-xs-max) {
     border-left: 0;
+    float: left!important;
+    width: 100%;
 
     > li > a {
       border: 0;
