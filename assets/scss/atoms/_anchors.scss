@@ -2,4 +2,8 @@
 
 a {
   color: $link-colour;
+
+  &:hover {
+    text-decoration: none;
+  }
 }
