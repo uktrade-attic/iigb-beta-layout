@@ -96,13 +96,6 @@ function openNav() {
   box.animate({
     'margin-left': newValue
   }, 400);
-
-  box.animate({
-    'margin-top': '0',
-    'height': '100%'
-  }, 1000, function() {
-    $('body').addClass('overlay-open');
-  });
 }
 
 /* Close */
@@ -348,7 +341,7 @@ function submitForm() {
 var searchResultsSize = 10;
 
 function getResults(size, start) {
-
+  var box = $('#dit-search-overlay');
   var URL = $(location).attr('href');
 
   var language = URL.split('/')[3];
@@ -368,6 +361,13 @@ function getResults(size, start) {
         console.log(results);
         searchArea.html("");
         if ('hits' in results) {
+          box.animate({
+            'margin-top': '0',
+            'height': '100%'
+          }, 1000, function() {
+            $('body').addClass('overlay-open');
+          });
+
           var searchResults = results.hits.hit;
           searchResults.forEach(function(result) {
             var htmlStr = '<div class="search-result"><h3><a href="/' + result.fields.url + '">' + result.fields.pagetitle + '</a></h3>' +
