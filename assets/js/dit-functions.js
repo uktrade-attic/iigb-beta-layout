@@ -20,6 +20,7 @@ function onLoaded() {
   smoothScroll();
   addActive();
   checkHeight();
+  setGradientHeight();
   prepareForm();
   formAutocomplete();
   checkFormStatus();
@@ -69,6 +70,14 @@ function checkHeight() {
   var elem = $('div').find('.check-height');
   if (elem.length > 0) {
     equalheight(elem);
+  }
+}
+
+function setGradientHeight() {
+  var textHeight = $('.jumbotron>.container').height();
+  if (textHeight) {
+    var gradientHeight = textHeight + 70;
+    $('head').append('<style>.jumbotron:before {height: ' + gradientHeight + 'px;}</style>');
   }
 }
 
