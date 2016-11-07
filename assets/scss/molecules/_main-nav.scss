@@ -34,13 +34,17 @@
   top: 40px;
 }
 
+.dit-iigb-logo {
+  height: 40px;
+  width: auto;
+}
+
 .navbar-brand {
   height: auto;
 }
 
+
 .navbar-brand img {
-  height: 40px;
-  width: auto;
   margin-left: 0;
 
   @media (max-width: $screen-sm-max) {
