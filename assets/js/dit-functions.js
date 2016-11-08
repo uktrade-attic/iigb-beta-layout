@@ -263,7 +263,7 @@ function prepareForm() {
     var curStep = $(this).closest(".setup-content"),
       curStepValue = parseInt(curStep.attr("id").split('-')[1]),
       nextStepWizard = $('div.setup-panel div a[href="#step-' + curStepValue + '"]').parent().next().children("a"),
-      curInputs = curStep.find("input[type='text'],input[type='email'],#location_radio_yes, #mailing_list_checkbox, #turnover, #country, #industry, #start_date_month, #start_date_year, #staff,input[type='date']"),
+      curInputs = curStep.find("input[type='text'],input[type='email'],#location_radio_yes, #mailing_list_checkbox, #other, #turnover, #country, #industry, #start_date_month, #start_date_year, #staff,input[type='date']"),
       isValid = true;
 
     $(".form-group").removeClass("has-error");
@@ -276,6 +276,12 @@ function prepareForm() {
         isValid = false;
         $(curInputs[i]).closest(".form-group").addClass("has-error");
         $('.validation_error_email').css("display", "block");
+      }
+      var value = $('#industry option:selected').val();
+      if (curInputs[i].value === '' && curInputs[i].getAttribute('name') == 'user[other]' && value.indexOf('18') >= 0) {
+        isValid = false;
+        $(curInputs[i]).closest(".form-group").addClass("has-error");
+        $('.validation_error_other').css("display", "block");
       }
     }
 
@@ -291,7 +297,7 @@ function prepareForm() {
     var curStep = $(this).closest(".setup-content"),
       curStepValue = parseInt(curStep.attr("id").split('-')[1]),
       prevStepWizard = $('div.setup-panel div a[href="#step-' + curStepValue + '"]').parent().prev().children("a"),
-      curInputs = curStep.find("input[type='text'],input[type='email'], #turnover:selected, #staff:selected, #country:selected, #location:selected"),
+      curInputs = curStep.find("input[type='text'],input[type='email'], #turnover:selected, #other, #staff:selected, #country:selected, #location:selected"),
       isValid = true;
 
     if (isValid) {
