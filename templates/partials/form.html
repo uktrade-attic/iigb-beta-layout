@@ -204,6 +204,15 @@
                                     <input name="multilingual[form_primary_industry]" type="hidden"
                                     value="{{ labels.form_primary_industry.label}}">
                                 </div>
+                                <div class="form-group col-md-8" id="other">
+                                    <label class="control-label">{{ labels.form_other }}</label>
+                                    <p class="error-help">{{labels.form_enter_other}}</p>
+                                    <input type="text" name="user[other]" class="form-control"
+                                    placeholder=""/>
+                                    <input name="english[form_other]" type="hidden" value="{{ labels.en.form_other}}">
+                                    <input name="multilingual[form_other]" type="hidden" value="{{ labels.form_other}}">
+                                    <input name="js" class="js_switch" type="hidden" value="false">
+                                </div>
                                 <div class="form-group__button">
                                     <button class="dit-btn--sm prevBtn" type="button">
                                     <span class="glyphicon glyphicon-chevron-left pull-left"></span>
@@ -261,15 +270,6 @@
                                     value="{{ labels.en.form_headquarters.label }}">
                                     <input name="multilingual[form_headquarters]" type="hidden"
                                     value="{{ labels.form_headquarters.label}}">
-                                </div>
-                                <div class="form-group col-md-10" id="other">
-                                    <label class="control-label">{{ labels.form_other }}</label>
-                                    <p class="error-help">{{labels.form_enter_other}}</p>
-                                    <input type="text" name="user[other]" class="form-control"
-                                    placeholder=""/>
-                                    <input name="english[form_other]" type="hidden" value="{{ labels.en.form_other}}">
-                                    <input name="multilingual[form_other]" type="hidden" value="{{ labels.form_other}}">
-                                    <input name="js" class="js_switch" type="hidden" value="false">
                                 </div>
                                 <div class="form-group col-md-8">
                                     <label for="staff" class="control-label">

@@ -108,8 +108,8 @@ function openNav() {
 function closeNav() {
 
   var contentLastMarginLeft = 0,
-      box = $('#dit-search-overlay'),
-      newValue = contentLastMarginLeft;
+    box = $('#dit-search-overlay'),
+    newValue = contentLastMarginLeft;
 
   $('body').removeClass('overlay-open');
   $('#searchInput').val('');
@@ -128,11 +128,11 @@ function closeNav() {
 
 function checkFormStatus() {
   var field = 'enquiryId',
-      url = window.location.href,
-      formLeftSide = $('.dit-form-section__info'),
-      formRightSide = $('.dit-form-section__body'),
-      formSuccess = $('#formSuccess'),
-      enquiryId = $('#enquiry_Id');
+    url = window.location.href,
+    formLeftSide = $('.dit-form-section__info'),
+    formRightSide = $('.dit-form-section__body'),
+    formSuccess = $('#formSuccess'),
+    enquiryId = $('#enquiry_Id');
 
   if (url.indexOf('?' + field + '=') !== -1) {
     formLeftSide.hide();
@@ -158,8 +158,8 @@ function ifOtherSelected() {
   $('#other').hide();
 
   industry.change(function(e) {
-
-    if ($('#industry option:selected').text() == 'Other') {
+    var value = $('#industry option:selected').val();
+    if (value.indexOf('18') >= 0) {
       $('#other').show();
     } else {
       $('#other').hide();
@@ -188,13 +188,13 @@ function prepareForm() {
   $('.dit-form-section__step').removeClass('final_step');
 
   var navListItems = $('div.setup-panel div a'),
-      allWells = $('.setup-content'),
-      allNextBtn = $('.nextBtn'),
-      allPrevBtn = $('.prevBtn'),
-      submitBtn = $('.submitBtn'),
-      locationSelectors = $('#location_selectors'),
-      locationRadioYes = $('#location_radio_yes'),
-      locationRadioNo = $('#location_radio_no');
+    allWells = $('.setup-content'),
+    allNextBtn = $('.nextBtn'),
+    allPrevBtn = $('.prevBtn'),
+    submitBtn = $('.submitBtn'),
+    locationSelectors = $('#location_selectors'),
+    locationRadioYes = $('#location_radio_yes'),
+    locationRadioNo = $('#location_radio_no');
   allWells.hide();
   locationSelectors.hide();
 
@@ -209,7 +209,7 @@ function prepareForm() {
 
   $('#step-2').on('click', '.radio-group a', function() {
     var sel = $(this).data('title'),
-        tog = $(this).data('toggle');
+      tog = $(this).data('toggle');
     $(this).parent().next('.' + tog).prop('value', sel);
     $(this).parent().find('a[data-toggle="' + tog + '"]').not('[data-title="' + sel + '"]').removeClass('active').addClass('notActive');
     $(this).parent().find('a[data-toggle="' + tog + '"][data-title="' + sel + '"]').removeClass('notActive').addClass('active');
@@ -350,12 +350,12 @@ function submitForm() {
 
 function getResults(size, start) {
   var searchResultsSize = 10,
-      box = $('#dit-search-overlay'),
-      URL = $(location).attr('href'),
-      language = URL.split('/')[3],
-      searchArea = $('#search-options'),
-      searchInput = $('#searchInput').val(),
-      gateway = "https://pdumary9i4.execute-api.eu-west-1.amazonaws.com/staging";
+    box = $('#dit-search-overlay'),
+    URL = $(location).attr('href'),
+    language = URL.split('/')[3],
+    searchArea = $('#search-options'),
+    searchInput = $('#searchInput').val(),
+    gateway = "https://pdumary9i4.execute-api.eu-west-1.amazonaws.com/staging";
 
   if (searchInput === '') {
     searchArea.html("");
