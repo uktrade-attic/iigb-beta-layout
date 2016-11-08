@@ -89,8 +89,8 @@ function openNav() {
   contentLastMarginLeft = box.css('margin-left');
 
   box.animate({
-    'margin-top': '40px',
-    'height': '70px'
+    'margin-top': '0px',
+    'height': '110px'
   }, 100);
 
   box.animate({
@@ -110,8 +110,8 @@ function closeNav() {
   contentLastMarginLeft = box.css('margin-left');
 
   box.animate({
-    'margin-top': '40px',
-    'height': '70px'
+    // 'margin-top': '40px',
+    'height': '110px'
   }, 500);
 
   box.animate({
@@ -358,11 +358,11 @@ function getResults(size, start) {
       type: "GET",
       url: gateway + "/" + language + "?q=(or boost=2 pagetitle:'" + searchInput + "' content:'" + searchInput + "' intro:'" + searchInput + "')&size=" + size + "&start=" + start + "&q.parser=structured",
       success: function(results) {
-        console.log(results);
         searchArea.html("");
         if ('hits' in results) {
+          $('.dit-search-spinner').css('z-index', 1);
           box.animate({
-            'margin-top': '0',
+            // 'margin-top': '0',
             'height': '100%'
           }, 1000, function() {
             $('body').addClass('overlay-open');
@@ -417,6 +417,7 @@ function jsSearch() {
 function search() {
   var debouncedSearch = debounce(function() {
     getResults(searchResultsSize, 0);
+    $('.dit-search-spinner').css('z-index', 15);
   }, 500);
   $('#searchInput').on('input', debouncedSearch);
 }
