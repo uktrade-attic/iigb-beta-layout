@@ -266,6 +266,11 @@ function prepareForm() {
         isValid = false;
         $(curInputs[i]).closest(".form-group").addClass("has-error");
       }
+      if (curInputs[i].value !== '' && curInputs[i].getAttribute('name') == 'user[email]' && !isValidEmail(curInputs[i].value)) {
+        isValid = false;
+        $(curInputs[i]).closest(".form-group").addClass("has-error");
+        $('.validation_error_email').css("display", "block");
+      }
     }
 
     if (isValid) {
@@ -435,4 +440,9 @@ function debounce(func, wait, immediate) {
     timeout = setTimeout(later, wait);
     if (callNow) func.apply(context, args);
   };
+}
+
+function isValidEmail(email) {
+  var regex = /\S+@\S+\.\S+/;
+  return regex.test(email);
 }

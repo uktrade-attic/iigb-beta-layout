@@ -254,7 +254,7 @@
     margin-top: 10px;
 }
 
-.disclaimer-block{
+.disclaimer_block{
   margin-bottom: 85px !important;
 }
 
@@ -272,3 +272,8 @@
     margin-top: 30px;
 }
 
+.validation_error_email{
+  display: none;
+  color: #a94442;
+  font-weight: 700;
+}
