@@ -1,8 +1,9 @@
 //big-list.scss
 
 .dit-big-list {
-  counter-reset: dit-big-list-counter;
-  list-style: decimal;
+  //counter-reset: dit-big-list-counter;
+  //list-style: decimal;
+  list-style: none;
   padding-left: 30px;
   overflow: hidden;
   -webkit-column-count: 1;
@@ -15,7 +16,8 @@
     width: 50%;
     float: left;
     min-height: 190px;
-    padding: 15px 100px 30px 20px;
+    //padding: 15px 100px 30px 20px;
+    padding: 15px 60px 30px 15px;
     display: list-item;
 
     &:before {
