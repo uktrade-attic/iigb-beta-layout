@@ -151,6 +151,7 @@ function ifOtherSelected() {
   $('#other').hide();
 
   industry.change(function(e) {
+
     if ($('#industry option:selected').text() == 'Other') {
       $('#other').show();
     } else {
@@ -177,10 +178,8 @@ function prepareForm() {
   $('.prevBtn').show();
   $('.location_block').show();
   $('.submitBtn').hide();
-  $('.dit-form-section__step').css('min-height', '58rem');
+  $('.dit-form-section__step').css('min-height', '70rem');
   $('.dit-form-section__step').removeClass('final_step');
-
-
 
   var navListItems = $('div.setup-panel div a'),
     allWells = $('.setup-content'),
@@ -239,9 +238,9 @@ function prepareForm() {
       width: function() {
         return theWidth;
       },
-      height: function() {
-        return theStep.height();
-      },
+      // height: function() {
+      //   return theStep.height();
+      // },
       position: 'relative !important',
       overflow: 'hidden'
     });
@@ -258,7 +257,7 @@ function prepareForm() {
     var curStep = $(this).closest(".setup-content"),
       curStepValue = parseInt(curStep.attr("id").split('-')[1]),
       nextStepWizard = $('div.setup-panel div a[href="#step-' + curStepValue + '"]').parent().next().children("a"),
-      curInputs = curStep.find("input[type='text'],input[type='email'], #location_radio_yes, #turnover, #country, #industry, #start_date_month, #start_date_year, #staff,input[type='date']"),
+      curInputs = curStep.find("input[type='text'],input[type='email'],#location_radio_yes, #mailing_list_checkbox, #turnover, #country, #industry, #start_date_month, #start_date_year, #staff,input[type='date']"),
       isValid = true;
 
     $(".form-group").removeClass("has-error");

@@ -152,7 +152,7 @@
   &__button {
     margin-bottom: 0;
     position: absolute;
-    bottom: 0;
+    bottom: 20px;
     right: 0;
 
     .glyphicon {
@@ -221,3 +221,54 @@
 #img-load{
     position: absolute;
 }
+
+.control-label{
+  font-weight: 300;
+}
+
+.error-help{
+  display: none;
+}
+
+.has-error{
+
+  & .control-label {
+    color: black;
+    }
+
+  & .error-help {
+    display:block !important;
+    color: #a94442;
+    font-weight: 700;
+    }
+    border-left: 4px solid #b10e1e;
+    padding-left: 15px;
+}
+
+.checkbox-label{
+    position: relative;
+    background: #dee0e2;
+    border: 1px solid #dee0e2;
+    padding: 18px 30px 15px 24px;
+    font-weight: 400;
+    margin-top: 10px;
+}
+
+.disclaimer-block{
+  margin-bottom: 85px !important;
+}
+
+.form-detail{
+  padding-left: 0;
+  color: #828282;
+  font-weight: 100;
+}
+
+.help-text{
+    color: #828282;
+}
+
+.form_top_block{
+    margin-top: 30px;
+}
+
