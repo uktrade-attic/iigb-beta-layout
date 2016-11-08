@@ -88,6 +88,12 @@ function openNav() {
   var newValue = contentLastMarginLeft;
   contentLastMarginLeft = box.css('margin-left');
 
+  $(document).keyup(function(e) {
+    if (e.keyCode == 27) { // escape key maps to keycode `27`
+      closeNav();
+    }
+  });
+
   box.animate({
     'margin-top': '0px',
     'height': '110px'
@@ -101,12 +107,13 @@ function openNav() {
 /* Close */
 function closeNav() {
 
-  var contentLastMarginLeft = 0;
+  var contentLastMarginLeft = 0,
+      box = $('#dit-search-overlay'),
+      newValue = contentLastMarginLeft;
+
   $('body').removeClass('overlay-open');
   $('#searchInput').val('');
   $('#search-options').empty();
-  var box = $('#dit-search-overlay');
-  var newValue = contentLastMarginLeft;
   contentLastMarginLeft = box.css('margin-left');
 
   box.animate({
@@ -117,16 +124,16 @@ function closeNav() {
   box.animate({
     'margin-left': '100%'
   }, 900);
-
 }
 
 function checkFormStatus() {
-  var field = 'enquiryId';
-  var url = window.location.href;
-  var formLeftSide = $('.dit-form-section__info');
-  var formRightSide = $('.dit-form-section__body');
-  var formSuccess = $('#formSuccess');
-  var enquiryId = $('#enquiry_Id');
+  var field = 'enquiryId',
+      url = window.location.href,
+      formLeftSide = $('.dit-form-section__info'),
+      formRightSide = $('.dit-form-section__body'),
+      formSuccess = $('#formSuccess'),
+      enquiryId = $('#enquiry_Id');
+
   if (url.indexOf('?' + field + '=') !== -1) {
     formLeftSide.hide();
     formRightSide.hide();
@@ -160,8 +167,7 @@ function ifOtherSelected() {
 }
 
 function getUrlVar() {
-  var id, hash;
-  var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+  var id, hash, hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
   for (var i = 0; i < hashes.length; i++) {
     hash = hashes[i].split('=');
     id = hash[1];
@@ -180,16 +186,14 @@ function prepareForm() {
   $('.dit-form-section__step').css('min-height', '58rem');
   $('.dit-form-section__step').removeClass('final_step');
 
-
-
   var navListItems = $('div.setup-panel div a'),
-    allWells = $('.setup-content'),
-    allNextBtn = $('.nextBtn'),
-    allPrevBtn = $('.prevBtn'),
-    submitBtn = $('.submitBtn'),
-    locationSelectors = $('#location_selectors'),
-    locationRadioYes = $('#location_radio_yes'),
-    locationRadioNo = $('#location_radio_no');
+      allWells = $('.setup-content'),
+      allNextBtn = $('.nextBtn'),
+      allPrevBtn = $('.prevBtn'),
+      submitBtn = $('.submitBtn'),
+      locationSelectors = $('#location_selectors'),
+      locationRadioYes = $('#location_radio_yes'),
+      locationRadioNo = $('#location_radio_no');
   allWells.hide();
   locationSelectors.hide();
 
@@ -203,8 +207,8 @@ function prepareForm() {
   });
 
   $('#step-2').on('click', '.radio-group a', function() {
-    var sel = $(this).data('title');
-    var tog = $(this).data('toggle');
+    var sel = $(this).data('title'),
+        tog = $(this).data('toggle');
     $(this).parent().next('.' + tog).prop('value', sel);
     $(this).parent().find('a[data-toggle="' + tog + '"]').not('[data-title="' + sel + '"]').removeClass('active').addClass('notActive');
     $(this).parent().find('a[data-toggle="' + tog + '"][data-title="' + sel + '"]').removeClass('notActive').addClass('active');
@@ -338,18 +342,14 @@ function submitForm() {
   }
 }
 
-var searchResultsSize = 10;
-
 function getResults(size, start) {
-  var box = $('#dit-search-overlay');
-  var URL = $(location).attr('href');
-
-  var language = URL.split('/')[3];
-
-  var searchArea = $('#search-options');
-  var searchInput = $('#searchInput').val();
-
-  var gateway = "https://pdumary9i4.execute-api.eu-west-1.amazonaws.com/staging";
+  var searchResultsSize = 10,
+      box = $('#dit-search-overlay'),
+      URL = $(location).attr('href'),
+      language = URL.split('/')[3],
+      searchArea = $('#search-options'),
+      searchInput = $('#searchInput').val(),
+      gateway = "https://pdumary9i4.execute-api.eu-west-1.amazonaws.com/staging";
 
   if (searchInput === '') {
     searchArea.html("");
@@ -415,6 +415,7 @@ function jsSearch() {
 }
 
 function search() {
+  var searchResultsSize = 10;
   var debouncedSearch = debounce(function() {
     getResults(searchResultsSize, 0);
     $('.dit-search-spinner').css('z-index', 15);
