@@ -311,17 +311,18 @@ function prepareForm() {
 
 function submitForm() {
 
-  $('#dit_form').submit(function(e) {
+  $('#dit-form').submit(function(e) {
     formLoading();
 
     var windowUrl = window.location.pathname;
     var language = windowUrl.match(/\/\w{2,3}\//)[0];
     var postUrl = $('form').attr('action');
+    var form = $('#dit-form');
 
     $.ajax({
       type: 'POST',
       url: postUrl,
-      data: $('#dit_form').serialize(),
+      data: form.serialize(),
       success: function(data) {
         window.location.href = language + 'enquiries/confirmation/?enquiryId=' + data.enquiryId;
       },
