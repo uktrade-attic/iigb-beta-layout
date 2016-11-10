@@ -11,10 +11,6 @@
 
 <div class="container">
 
-{% include "partials/about-us.html" %}
-
-{{ markups.bullet_list( header = contentBlocks.listHeader, list = contentBlocks.listItems, country = locale.country  ) }}
-
 <section class="dit-content-section">
     <div class="row">
       <div class="col-md-12">
@@ -25,6 +21,12 @@
       </div>
     </div>
 </section>
+
+
+{{ markups.bullet_list( header = contentBlocks.listHeader, list = contentBlocks.listItems, country = locale.country  ) }}
+
+{% include "partials/about-us.html" %}
+
 
 </div>
 {% endblock %}
