@@ -32,11 +32,16 @@
   }
 
   h1 {
-    font-size: 40px;
+    @extend .h1;
+    // font-size: 40px;
 
-    @media (max-width: $screen-sm-max) {
-      font-size: 40px;
-    }
+    // @media (max-width: $screen-md-max) {
+    //   font-size: 32px;
+    // }
+
+    // @media (max-width: $screen-sm-max) {
+    //   font-size: 30px;
+    // }
   }
 
   a {
@@ -45,6 +50,10 @@
 
   p {
     margin-bottom: 5px;
+
+    @media (max-width: $screen-md-max) {
+      font-size: 18px;
+    }
   }
 
   .container {
@@ -109,7 +118,8 @@
     border-bottom: 5px solid $red-line-colour;
 
     h1 {
-      font-size: 40px;
+      @extend .h1;
+      // font-size: 40px;
     }
   }
 
