@@ -362,14 +362,14 @@ function getResults(size, start) {
     language = URL.split('/')[3],
     searchArea = $('#search-options'),
     searchInput = $('#searchInput').val(),
-    gateway = "https://pdumary9i4.execute-api.eu-west-1.amazonaws.com/staging";
+    gateway = "https://5dle4b7qu3.execute-api.eu-west-1.amazonaws.com/prod";
 
   if (searchInput === '') {
     searchArea.html("");
   } else {
     $.ajax({
       type: "GET",
-      url: gateway + "/" + language + "?q=(or boost=2 pagetitle:'" + searchInput + "' content:'" + searchInput + "' intro:'" + searchInput + "')&size=" + size + "&start=" + start + "&q.parser=structured",
+      url: gateway + "/" + language + "?q=(or boost=2 pagetitle:'" + searchInput + "' content:'" + searchInput + "')&size=" + size + "&start=" + start + "&q.parser=structured",
       success: function(results) {
         searchArea.html("");
         if ('hits' in results) {
@@ -385,7 +385,7 @@ function getResults(size, start) {
           searchResults.forEach(function(result) {
             var htmlStr = '<div class="search-result"><h3><a href="/' + result.fields.url + '">' + result.fields.pagetitle + '</a></h3>' +
               '<p class="search-result-link">' + "www.great.gov.uk/" + result.fields.url + '</p>' +
-              '<p class="search-result-snippet">' + result.fields.intro + '</p></div>';
+              '<p class="search-result-snippet">' + (result.fields.intro ? results.fields.intro : '') + '</p></div>';
             if (result.fields.pagetitle !== '') {
               $("#search-options").append(htmlStr);
             }
@@ -412,7 +412,9 @@ function getResults(size, start) {
           $("#search-options").append('<p><h3>' + $('.search-error').text() + '</h3></p>');
         }
       },
-      error: function(xhr, textstatus, error) {}
+      error: function(xhr, textstatus, error) {
+        console.log(error);
+      }
     });
   }
 }
