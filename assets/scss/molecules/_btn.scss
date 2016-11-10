@@ -36,6 +36,25 @@
   }
 }
 
+.dit-btn-home__video {
+  border: 3px solid $background-colour;
+  border-radius: 6px;
+  font-size: 20px;
+  font-weight: 100;
+  padding: 8px 40px;
+  margin-top: 12px;
+  color: $background-colour;
+  background-color: transparent;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:focus {
+    outline: -webkit-focus-ring-color auto 0;
+  }
+}
+
 .dit-btn--radio {
   border: 1px solid $tile-border-colour;
   border-radius: 6px;
