@@ -14,7 +14,7 @@
   @media (max-width: $screen-sm-max) {
     position: relative;
     border-radius: 0;
-    padding: 0;
+    padding: 0 15px;
     border-bottom: 1px solid $tile-border-colour;
     z-index: 15;
 
@@ -37,6 +37,10 @@
 .dit-iigb-logo {
   height: 40px;
   width: auto;
+
+  @media (max-width: $screen-sm-max) {
+    height: 30px;
+  }
 }
 
 .navbar-brand {
@@ -47,13 +51,19 @@
 .navbar-brand img {
   margin-left: 0;
 
+  
+
   @media (max-width: $screen-sm-max) {
     margin-left: 15px !important;
   }
-  @media (max-width: 991px) and (min-width: 768px) {
-    margin-left: -30px !important;
 
+  @media (max-width: $screen-xs-max) {
+    margin-left: 0px !important;
   }
+  // @media (max-width: 991px) and (min-width: 768px) {
+  //   margin-left: -30px !important;
+
+  // }
 }
 
 .navbar-collapse {
