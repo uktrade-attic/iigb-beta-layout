@@ -37,7 +37,7 @@
             <div id="loading-overlay">
                 <img src="/media/spin.gif" alt="loading_spinner" id="img-load">
             </div>
-            <form enctype='application/x-www-form-urlencoded' id="dit-form" role="form" action="https://iigb-forms.herokuapp.com/form"
+            <form enctype='application/x-www-form-urlencoded' id="dit-form" role="form" action="https://forms.invest.great.gov.uk/form"
                 method="post" autocomplete="off">
                 <div class="stepwizard">
                     <div class="stepwizard-row setup-panel">
@@ -62,9 +62,9 @@
                                 </p>
                                 <div class="form-group col-md-10 form_top_block">
                                     <input id="hidden_field" name="language" type="hidden" value="{{locale.language}}">
-                                    <label class="control-label">{{ labels.form_full_name }}</label>
+                                    <label class="control-label" for="userName">{{ labels.form_full_name }}</label>
                                     <p class="error-help">{{labels.form_enter_full_name}}</p>
-                                    <input type="text" name="user[name]" required="required"
+                                    <input type="text" name="user[name]" id="userName" required="required"
                                     class="form-control"
                                     placeholder=""/>
                                     <input name="english[form_full_name]" type="hidden"
@@ -73,35 +73,35 @@
                                     value="{{ labels.form_full_name }}">
                                 </div>
                                 <div class="form-group col-md-10">
-                                    <label class="control-label">{{ labels.form_email }}</label>
+                                    <label class="control-label" for="userEmail">{{ labels.form_email }}</label>
                                     <p class="error-help email_help">{{labels.form_enter_email}}</p>
                                     <p class="validation_error_email">{{labels.form_enter_valid_email}}</p>
-                                    <input type="email" name="user[email]" required="required" class="form-control"
+                                    <input type="email" name="user[email]" id="userEmail" required="required" class="form-control"
                                     placeholder=""/>
                                     <input name="english[form_email]" type="hidden" value="{{ labels.en.form_email }}">
                                     <input name="multilingual[form_email]" type="hidden"
                                     value="{{ labels.form_email }}">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label class="control-label">{{ labels.form_phone }}</label>
-                                    <input type="text" name="user[phone]" class="form-control"
+                                    <label class="control-label" for="userPhone">{{ labels.form_phone }}</label>
+                                    <input type="text" name="user[phone]" id="userPhone" class="form-control"
                                     placeholder=""/>
                                     <input name="english[form_phone]" type="hidden" value="{{ labels.en.form_phone }}">
                                     <input name="multilingual[form_phone]" type="hidden"
                                     value="{{ labels.form_phone }}">
                                 </div>
                                 <div class="form-group col-md-8">
-                                    <label class="control-label">{{ labels.form_city }}</label>
+                                    <label class="control-label" for="userCity">{{ labels.form_city }}</label>
                                     <p class="error-help">{{labels.form_enter_city}}</p>
-                                    <input type="text" name="user[city]" required="required" class="form-control"
+                                    <input type="text" name="user[city]" id="userCity" required="required" class="form-control"
                                     placeholder=""/>
                                     <input name="english[form_city]" type="hidden" value="{{ labels.en.form_city }}">
                                     <input name="multilingual[form_city]" type="hidden" value="{{ labels.form_city }}">
                                 </div>
                                 <div class="form-group col-md-10">
-                                    <label class="control-label">{{ labels.form_mailing_list }}</label>
+                                    <label class="control-label" for="mailing_list_checkbox">{{ labels.form_mailing_list }}</label>
                                     <p class="error-help">{{labels.form_enter_mailing_list}}</p>
-                                    <label class="checkbox-label" for="user[mailing_list]">
+                                    <label class="checkbox-label" for="mailing_list_checkbox">
                                         <input type="checkbox" id="mailing_list_checkbox" name="user[mailing_list]" value="true" />
                                         {{ labels.form_mailing_list_confirmation }}
                                     </label>
