@@ -17,9 +17,9 @@ function enhance_videobg() {
     //   $("#heroVideo iframe").attr("src", $("#heroVideo iframe").attr("src"));
     // });
 
-// $(".modal-backdrop, #myModal .close, #myModal .btn").live("click", function() {
-//         jQuery("#myModal iframe").attr("src", jQuery("#myModal iframe").attr("src"));
-// });
+    // $(".modal-backdrop, #myModal .close, #myModal .btn").live("click", function() {
+    //         jQuery("#myModal iframe").attr("src", jQuery("#myModal iframe").attr("src"));
+    // });
 
 
   }
@@ -385,14 +385,6 @@ function getResults(size, start) {
     searchInput = $('#searchInput').val(),
     gateway = "https://5dle4b7qu3.execute-api.eu-west-1.amazonaws.com/prod";
 
-    //temporary hack until IN and INT are added to AWS CloudSearch
-    var requestLanguage = language;
-    if (requestLanguage==='int'||requestLanguage==='in') {
-      language = 'us';
-      // console.log('request lang: ' + requestLanguage);
-      // console.log('search lang: ' + language);
-    }
-
   if (searchInput === '') {
     searchArea.html("");
   } else {
@@ -412,21 +404,6 @@ function getResults(size, start) {
 
           var searchResults = results.hits.hit;
           searchResults.forEach(function(result) {
-
-            //temporary hack until IN and INT are added to AWS CloudSearch
-            
-
-            if (requestLanguage==='int'||requestLanguage==='in') {
-              console.log('request lang: ' + requestLanguage);
-
-              var resultUrlPart = result.fields.url.slice(2),// being lazy here and not stripping out using substring and split as I know this is only for a specific use case ;)
-                  resultUrlFull = requestLanguage + resultUrlPart;
-                  // console.log(resultUrlPart);
-                  // console.log(resultUrlFull);
-                  result.fields.url = resultUrlFull;
-            }
-
-
             var htmlStr = '<div class="search-result"><h3><a href="/' + result.fields.url + '">' + result.fields.pagetitle + '</a></h3>' +
               '<p class="search-result-link">' + "www.great.gov.uk/" + result.fields.url + '</p>' +
               '<p class="search-result-snippet">' + (result.fields.intro ? results.fields.intro : '') + '</p></div>';
