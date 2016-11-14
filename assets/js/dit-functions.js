@@ -405,7 +405,7 @@ function getResults(size, start) {
           var searchResults = results.hits.hit;
           searchResults.forEach(function(result) {
             var htmlStr = '<div class="search-result"><h3><a href="/' + result.fields.url + '">' + result.fields.pagetitle + '</a></h3>' +
-              '<p class="search-result-link">' + "www.great.gov.uk/" + result.fields.url + '</p>' +
+              '<p class="search-result-link">' + "www.invest.great.gov.uk/" + result.fields.url + '</p>' +
               '<p class="search-result-snippet">' + (result.fields.intro ? results.fields.intro : '') + '</p></div>';
             if (result.fields.pagetitle !== '') {
               $("#search-options").append(htmlStr);
