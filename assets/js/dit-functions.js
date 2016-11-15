@@ -387,7 +387,7 @@ function getResults(size, start) {
 
   if (searchInput === '') {
     searchArea.html("");
-  } else {
+  } else if (searchInput.length > 2) {
     $.ajax({
       type: "GET",
       url: gateway + "/" + language + "?q=(or (term boost=2 field='pagetitle' '" + searchInput + "') (term field='content' '" + searchInput + "') (prefix boost=2 field='pagetitle' '" + searchInput + "') (prefix field='content' '" + searchInput + "'))&size=" + size + "&start=" + start + "&q.parser=structured",
