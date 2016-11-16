@@ -254,13 +254,17 @@ function prepareForm() {
   var theStep, theWidth, totalWidth;
 
   $(function() {
+    var isMother = $('#mother').length;
     theWidth = $('.dit-form-section__body').width();
     theStep = $('.setup-content');
     $(theStep).each(function() {
       $(this).css('width', theWidth);
     });
+
     //wrap into mother div
-    $('.dit-form-wrapper').wrap('<div id="mother" />');
+    if (!isMother) {
+      $('.dit-form-wrapper').wrap('<div id="mother" />');
+    }
     //assign height width and overflow hidden to mother
     $('#mother').css({
       width: function() {

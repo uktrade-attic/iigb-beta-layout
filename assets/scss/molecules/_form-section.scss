@@ -159,6 +159,10 @@
       margin: 0 12px;
       top: 2px;
     }
+
+    @media (max-width: $screen-xs-max) {
+      bottom: -50px;
+    }
   }
 }
 
