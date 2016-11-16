@@ -15,3 +15,8 @@ tr {
     background: $background-colour-table-alt;
   }
 }
+
+.dit-table__responsive {
+  overflow: auto;
+  overflow-y: hidden;
+}

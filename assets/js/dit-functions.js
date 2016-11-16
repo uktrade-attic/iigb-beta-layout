@@ -48,6 +48,7 @@ function onLoaded() {
   search();
   jsSearch();
   submitForm();
+  responsiveTable();
   heroVideoReload();
 }
 
@@ -478,4 +479,11 @@ function debounce(func, wait, immediate) {
 function isValidEmail(email) {
   var regex = /\S+@\S+\.\S+/;
   return regex.test(email);
+}
+
+function responsiveTable() {
+  var isTable = $('table').length;
+  if (isTable) {
+    $('table').wrap('<div class="dit-table__responsive" />')
+  }
 }
