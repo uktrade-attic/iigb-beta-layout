@@ -37,9 +37,9 @@ function chunk(arr, size) {
 }
 
 function zip(arrays) {
-    temp = [];
+    var temp = [];
     for (var i=0; i<arrays[0].length; i++) {
-        partial = [];
+        var partial = [];
         for (var j=0; j<arrays.length; j++) {
             partial.push(arrays[j][i])
         }
