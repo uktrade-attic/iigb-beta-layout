@@ -13,9 +13,9 @@ function enhance() {
 function enhance_videobg() {
   if ($('#bgVid').length > 0 || $('#bgImg').length > 0) {
     $('.jumbotron').addClass('bg--transparent')
-    // $("#heroVideo").on('hidden.bs.modal', function (e) {
-    //   $("#heroVideo iframe").attr("src", $("#heroVideo iframe").attr("src"))
-    // })
+      // $("#heroVideo").on('hidden.bs.modal', function (e) {
+      //   $("#heroVideo iframe").attr("src", $("#heroVideo iframe").attr("src"))
+      // })
 
     // $(".modal-backdrop, #myModal .close, #myModal .btn").live("click", function() {
     //         jQuery("#myModal iframe").attr("src", jQuery("#myModal iframe").attr("src"))
@@ -57,9 +57,9 @@ function smoothScroll() {
   $('a[href^="#"]').on('click', function(e) {
     // prevent default anchor click behavior
     e.preventDefault()
-    // store hash
+      // store hash
     var hash = this.hash
-    // animate
+      // animate
     $('html, body').stop().animate({
       scrollTop: $(hash).offset().top
     }, 600, 'swing', function() {
@@ -76,8 +76,8 @@ function addActive() {
     child = 'industries/'
   } else if (url.match(/\/setup-guide\//)) {
     child = 'setup-guide/'
-    //        } else if (url.match('\/help\/')) {
-    //            child = 'help/'
+      //        } else if (url.match('\/help\/')) {
+      //            child = 'help/'
   } else if (url.match(/\/\w{2,3}\/$/)) {
     child = ''
   }
@@ -267,16 +267,16 @@ function prepareForm() {
     }
     //assign height width and overflow hidden to mother
     $('#mother').css({
-      width: function() {
-        return theWidth
-      },
-      // height: function() {
-      //   return theStep.height()
-      // },
-      position: 'relative !important',
-      overflow: 'hidden'
-    })
-    //get total of image sizes and set as width for ul
+        width: function() {
+          return theWidth
+        },
+        // height: function() {
+        //   return theStep.height()
+        // },
+        position: 'relative !important',
+        overflow: 'hidden'
+      })
+      //get total of image sizes and set as width for ul
     totalWidth = (theStep.length) * theWidth + 5
     $('.dit-form-wrapper').css({
       width: function() {
@@ -395,7 +395,7 @@ function getResults(size, start) {
   } else if (searchInput.length > 2) {
     $.ajax({
       type: "GET",
-      url: gateway + "/" + language + "?q=(or (term boost=2 field='pagetitle' '" + searchInput + "') (term field='content' '" + searchInput + "') (prefix boost=2 field='pagetitle' '" + searchInput + "') (prefix field='content' '" + searchInput + "'))&size=" + size + "&start=" + start + "&q.parser=structured",
+      url: gateway + "/?q=(and field='language' '" + language + "' (or (term boost=2 field='pagetitle' '" + searchInput + "') (term field='content' '" + searchInput + "') (prefix boost=2 field='pagetitle' '" + searchInput + "') (prefix field='content' '" + searchInput + "')))&size=" + size + "&start=" + start + "&q.parser=structured",
       success: function(results) {
         searchArea.html("")
         if ('hits' in results) {
