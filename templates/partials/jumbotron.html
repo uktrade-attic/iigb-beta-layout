@@ -3,6 +3,11 @@
         .jumbotron {
             background-image: url("/media/hero-img/{{contentBlocks.pageHeader.heroImage}}");
         }
+        @media (max-width: 767px) {
+            .jumbotron {
+                background-image: url("/media/hero-img-mobile/{{contentBlocks.pageHeader.heroImage}}");
+            }
+        }
     </style>
 {% endif %}
 
