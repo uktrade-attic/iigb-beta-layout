@@ -86,6 +86,15 @@
             </script>
         <![endif]-->
             {% endif %}
+            {% if contentBlocks.pageHeader.externalVideoCN %}
+                <p>
+                    <a href="{{contentBlocks.pageHeader.externalVideoCN}}" target="_blank">
+                        <span class="dit-btn-home__video">{{labels.watch_video}}
+                            <span class="glyphicon glyphicon-play"></span>
+                        </span>
+                    </a>
+                </p>
+            {% endif %}
         </div>
     </div>
     {% if contentBlocks.pageHeader.heroVideo %}
