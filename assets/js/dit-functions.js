@@ -350,6 +350,11 @@ function submitForm() {
       url: postUrl,
       data: form.serialize(),
       success: function(data) {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          'event': 'formSubmissionSuccess',
+          'formId': 'dit-form'
+        });
         window.location.href = language + 'enquiries/confirmation/?enquiryId=' + data.enquiryId
       },
       error: function(xhr, textstatus, error) {
@@ -483,6 +488,7 @@ function isValidEmail(email) {
   var regex = /\S+@\S+\.\S+/
   return regex.test(email)
 }
+
 
 function responsiveTable() {
   var isTable = $('table').length
